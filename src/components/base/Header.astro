@@ -3,6 +3,7 @@ import ThemeSwitcher from "@components/base/ThemeSwitcher.astro";
 import { IoSearch } from "react-icons/io5";
 
 const { pathname } = Astro.url;
+const baseUrl = import.meta.env.BASE_URL;
 
 const stickyHeader = true;
 
@@ -74,25 +75,28 @@ const menu = [
       class="text-center lg:text-left order-3 hidden w-full pb-6 md:order-1 md:flex md:w-auto md:space-x-2 md:pb-0 lg:space-x-4"
     >
       {
-        menu.map((item) => (
-          <li class="">
-            <a
-              href={item.url}
-              class={`block p-2 font-secondary font-semibold text-txt-p transition dark:text-darkmode-txt-p lg:px-2 lg:py-3 ${
-                (pathname === `${item.url}/` || pathname === item.url) &&
-                "active"
-              }`}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))
+        menu.map((item) => {
+          const fullUrl = `${baseUrl}${item.url}`.replace(/\/+/g, '/');
+          return (
+            <li class="">
+              <a
+                href={fullUrl}
+                class={`block p-2 font-secondary font-semibold text-txt-p transition dark:text-darkmode-txt-p lg:px-2 lg:py-3 ${
+                  (pathname === `${item.url}/` || pathname === item.url) &&
+                  "active"
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       <a
         class="mr-4 inline-block border-border text-xl text-txt-p dark:border-darkmode-border dark:text-darkmode-txt-p"
-        href="/search"
+        href={`${baseUrl}/search`}
         aria-label="search"
       >
         <IoSearch />

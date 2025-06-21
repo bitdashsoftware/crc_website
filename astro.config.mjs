@@ -12,7 +12,7 @@ import remarkMath from "remark-math";
 // https://astro.build/config
 export default defineConfig({
   site: "https://bitdashsoftware.github.io",
-  base: "/",
+  base: "/crc_website",
   trailingSlash: "ignore",
   prefetch: {
     prefetchAll: true

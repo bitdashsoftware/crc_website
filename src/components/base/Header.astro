@@ -85,7 +85,7 @@ const menu = [
       class="text-center lg:text-left order-3 hidden w-full pb-6 md:order-1 md:flex md:w-auto md:space-x-2 md:pb-0 lg:space-x-4"
     >
       {
-        menu.map((item) => {
+        menu.map((item, index) => {
           const fullUrl = `${baseUrl}${item.url}`.replace(/\/+/g, '/');
           const hasDropdown = item.dropdown && item.dropdown.length > 0;
           return (
@@ -95,18 +95,24 @@ const menu = [
                 class={`block p-2 font-secondary font-semibold text-txt-p transition dark:text-darkmode-txt-p lg:px-2 lg:py-3 ${
                   (pathname === `${item.url}/` || pathname === item.url) &&
                   "active"
-                } ${hasDropdown ? 'cursor-pointer' : ''}`}
+                } ${hasDropdown ? 'cursor-pointer' : ''} ${hasDropdown ? 'md:flex md:items-center' : ''}`}
                 onclick={hasDropdown ? 'event.preventDefault();' : ''}
+                data-dropdown-toggle={hasDropdown ? `dropdown-${index}` : ''}
               >
                 {item.name}
                 {hasDropdown && (
-                  <svg class="inline-block w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="inline-block w-4 h-4 ml-1 transition-transform group-hover:rotate-180 hidden md:block" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                )}
+                {hasDropdown && (
+                  <svg class="inline-block w-4 h-4 ml-1 transition-transform md:hidden" fill="currentColor" viewBox="0 0 20 20" data-dropdown-arrow={hasDropdown ? `dropdown-${index}` : ''}>
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                   </svg>
                 )}
               </a>
               {hasDropdown && (
-                <ul class="absolute left-0 mt-2 w-48 bg-bg-p dark:bg-darkmode-bg-p border border-border dark:border-darkmode-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <ul class="absolute left-0 mt-2 w-48 bg-bg-p dark:bg-darkmode-bg-p border border-border dark:border-darkmode-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 hidden md:block">
                   {item.dropdown.map((dropdownItem) => {
                     const dropdownFullUrl = `${baseUrl}${dropdownItem.url}`.replace(/\/+/g, '/');
                     return (
@@ -114,6 +120,24 @@ const menu = [
                         <a
                           href={dropdownFullUrl}
                           class="block px-4 py-2 text-txt-p dark:text-darkmode-txt-p hover:bg-border dark:hover:bg-darkmode-border transition-colors first:rounded-t-lg last:rounded-b-lg"
+                        >
+                          {dropdownItem.name}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+              {/* Mobile dropdown items - expand inline */}
+              {hasDropdown && (
+                <ul class="md:hidden pl-4 max-h-0 overflow-hidden transition-all duration-300" data-dropdown={hasDropdown ? `dropdown-${index}` : ''}>
+                  {item.dropdown.map((dropdownItem) => {
+                    const dropdownFullUrl = `${baseUrl}${dropdownItem.url}`.replace(/\/+/g, '/');
+                    return (
+                      <li>
+                        <a
+                          href={dropdownFullUrl}
+                          class="block p-2 font-secondary text-txt-p dark:text-darkmode-txt-p text-sm"
                         >
                           {dropdownItem.name}
                         </a>
@@ -139,3 +163,42 @@ const menu = [
     </div>
   </nav>
 </header>
+
+<script>
+  // Mobile dropdown functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggles = document.querySelectorAll('[data-dropdown-toggle]');
+    
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(this: HTMLElement, e: Event) {
+        e.preventDefault();
+        
+        const dropdownId = this.getAttribute('data-dropdown-toggle');
+        const dropdown = document.querySelector(`[data-dropdown="${dropdownId}"]`) as HTMLElement;
+        const arrow = document.querySelector(`[data-dropdown-arrow="${dropdownId}"]`) as HTMLElement;
+        
+        if (dropdown) {
+          const isExpanded = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
+          
+          // Close all other dropdowns
+          document.querySelectorAll('[data-dropdown]').forEach(d => {
+            const dEl = d as HTMLElement;
+            dEl.style.maxHeight = '0px';
+          });
+          document.querySelectorAll('[data-dropdown-arrow]').forEach(a => {
+            a.classList.remove('rotate-180');
+          });
+          
+          // Toggle current dropdown
+          if (!isExpanded) {
+            dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+            if (arrow) arrow.classList.add('rotate-180');
+          } else {
+            dropdown.style.maxHeight = '0px';
+            if (arrow) arrow.classList.remove('rotate-180');
+          }
+        }
+      });
+    });
+  });
+</script>

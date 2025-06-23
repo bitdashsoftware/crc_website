@@ -43,9 +43,9 @@ module.exports = {
     extend: {
       colors: {
         txt: {
-          p: "#000",
-          s: "#222",
-          light: "#444",
+          p: "rgba(119,162,144,1)",
+          s: "rgba(119,162,144,1)",
+          light: "rgba(119,162,144,1)",
         },
         bg: {
           p: "#fff",
@@ -55,9 +55,9 @@ module.exports = {
         border: "#ddd",
         darkmode: {
           txt: {
-            p: "#fff",
-            s: "#ddd",
-            light: "#bbb",
+            p: "rgba(119,162,144,1)",
+            s: "rgba(119,162,144,1)",
+            light: "rgba(119,162,144,1)",
           },
           bg: {
             p: "#222",

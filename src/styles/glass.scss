@@ -1,5 +1,5 @@
 .glass {
-  background-color: rgba(233, 221, 175, .85);
+  background-color: rgba(233, 221, 175, 1);
   // @apply backdrop-blur-lg;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
   @apply border border-[rgba(255,255,255,0.6)] dark:border-[rgba(255,255,255,0.15)];
@@ -7,7 +7,7 @@
 }
 
 .glass-t {
-  background-color: rgba(233, 221, 175, .85);
+  background-color: rgba(233, 221, 175, 1);
   // @apply backdrop-blur;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
   @apply border border-[rgba(255,255,255,0.6)] dark:border-[rgba(255,255,255,0.15)];
@@ -15,7 +15,7 @@
 }
 
 .glass-t-borderless {
-  background-color: rgba(233, 221, 175, .85);
+  background-color: rgba(233, 221, 175, 1);
   // @apply backdrop-blur;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
 }

@@ -95,8 +95,7 @@ const menu = [
                   (pathname === `${item.url}/` || pathname === item.url) &&
                   "active"
                 } ${hasDropdown ? 'cursor-pointer' : ''} ${hasDropdown ? 'md:flex md:items-center' : ''}`}
-                onclick={hasDropdown ? 'event.preventDefault();' : ''}
-                data-dropdown-toggle={hasDropdown ? `dropdown-${index}` : ''}
+                {...(hasDropdown && { 'data-dropdown-toggle': `dropdown-${index}` })}
               >
                 {item.name}
                 {hasDropdown && (

@@ -2,7 +2,7 @@
   background-color: rgba(233, 221, 175, 1);
   // @apply backdrop-blur-lg;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
-  @apply border border-[rgba(255,255,255,0.6)] dark:border-[rgba(255,255,255,0.15)];
+  border: 1px solid rgba(119, 162, 144, 0.85);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
 
@@ -10,7 +10,7 @@
   background-color: rgba(233, 221, 175, 1);
   // @apply backdrop-blur;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
-  @apply border border-[rgba(255,255,255,0.6)] dark:border-[rgba(255,255,255,0.15)];
+  border: 1px solid rgba(119, 162, 144, 0.85);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
 

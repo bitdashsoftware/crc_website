@@ -112,7 +112,7 @@ const menu = [
                 )}
               </a>
               {hasDropdown && (
-                <ul class="absolute left-0 mt-2 w-48 bg-bg-p dark:bg-darkmode-bg-p border border-border dark:border-darkmode-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 hidden md:block">
+                <ul class="absolute left-0 mt-2 w-48 glass-t-borderless rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 hidden md:block">
                   {item.dropdown.map((dropdownItem) => {
                     const dropdownFullUrl = `${baseUrl}${dropdownItem.url}`.replace(/\/+/g, '/');
                     return (

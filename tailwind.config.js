@@ -53,6 +53,13 @@ module.exports = {
           t: "#ddd",
         },
         border: "#ddd",
+        glass: {
+          txt: {
+            p: "rgba(43, 70, 60, 0.8)",
+            s: "rgba(43, 70, 60, 0.8)",
+            light: "rgba(43, 70, 60, 0.8)",
+          },
+        },
         darkmode: {
           txt: {
             p: "rgba(119,162,144,1)",
@@ -65,6 +72,13 @@ module.exports = {
             t: "#444",
           },
           border: "#444",
+          glass: {
+            txt: {
+              p: "rgba(43, 70, 60, 0.8)",
+              s: "rgba(43, 70, 60, 0.8)",
+              light: "rgba(43, 70, 60, 0.8)",
+            },
+          },
         },
       },
       minHeight: {

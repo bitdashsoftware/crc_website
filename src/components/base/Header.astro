@@ -59,14 +59,14 @@ const menu = [
 >
   <nav class="relative flex flex-wrap items-center justify-between">
     <!-- Left icon slot -->
-    <div class="order-0 mr-4 inline-block text-xl text-txt-p dark:text-darkmode-txt-p">
+    <div class="order-0 mr-4 inline-block text-xl text-glass-txt-p dark:text-darkmode-glass-txt-p">
       <img src={`${baseUrl}/astrogon-star.svg`} alt="Astrogon Star" class="h-8 w-8" />
     </div>
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
-      class="order-0 cursor-pointer flex items-center md:hidden text-txt-p dark:text-darkmode-txt-p lg:order-1"
+      class="order-0 cursor-pointer flex items-center md:hidden text-glass-txt-p dark:text-darkmode-glass-txt-p lg:order-1"
     >
       <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -92,7 +92,7 @@ const menu = [
             <li class={`relative ${hasDropdown ? 'group' : ''}`}>
               <a
                 href={hasDropdown ? '#' : fullUrl}
-                class={`block p-2 font-secondary font-semibold text-txt-p transition dark:text-darkmode-txt-p lg:px-2 lg:py-3 ${
+                class={`block p-2 font-secondary font-semibold text-glass-txt-p transition dark:text-darkmode-glass-txt-p lg:px-2 lg:py-3 ${
                   (pathname === `${item.url}/` || pathname === item.url) &&
                   "active"
                 } ${hasDropdown ? 'cursor-pointer' : ''} ${hasDropdown ? 'md:flex md:items-center' : ''}`}
@@ -118,7 +118,7 @@ const menu = [
                       <li>
                         <a
                           href={dropdownFullUrl}
-                          class="block px-4 py-2 text-txt-p dark:text-darkmode-txt-p hover:bg-border dark:hover:bg-darkmode-border transition-colors first:rounded-t-lg last:rounded-b-lg"
+                          class="block px-4 py-2 text-glass-txt-p dark:text-darkmode-glass-txt-p hover:bg-txt-p dark:hover:bg-darkmode-txt-p transition-colors first:rounded-t-lg last:rounded-b-lg"
                         >
                           {dropdownItem.name}
                         </a>
@@ -136,7 +136,7 @@ const menu = [
                       <li>
                         <a
                           href={dropdownFullUrl}
-                          class="block p-2 font-secondary text-txt-p dark:text-darkmode-txt-p text-sm"
+                          class="block p-2 font-secondary text-glass-txt-p dark:text-darkmode-glass-txt-p text-sm"
                         >
                           {dropdownItem.name}
                         </a>
@@ -153,7 +153,7 @@ const menu = [
     <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
       <ThemeSwitcher />
       <a
-        class="mr-4 inline-block border-border text-xl text-txt-p dark:border-darkmode-border dark:text-darkmode-txt-p"
+        class="mr-4 inline-block border-border text-xl text-glass-txt-p dark:border-darkmode-border dark:text-darkmode-glass-txt-p"
         href={`${baseUrl}/search`}
         aria-label="search"
       >

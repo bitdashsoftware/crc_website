@@ -18,11 +18,11 @@ const toc = heirarchy.filter((heading) => heading.depth <= tocDepth);
   toc.length > 0 && (
     <div class="relative glass rounded-lg p-4 my-2 w-full intersect:animate-fadeLeft opacity-0">
       <ScrollArea className="h-full" client:only="react">
-        <h2 class="text-2xl border-none">Contents</h2>
+        <h2 class="text-2xl border-none text-glass-txt-p dark:text-darkmode-glass-txt-p">Contents</h2>
         <ul class="list-none m-0">
           {toc.map((heading) => (
-            <li class=`${heading.depth === 2 ? "ml-0" : "ml-4"}`>
-              <a href={`#${heading.slug}`} class=" w-full leading-none no-underline">
+            <li class={`${heading.depth === 2 ? "ml-0" : "ml-4"}`}>
+              <a href={`#${heading.slug}`} class="w-full leading-none no-underline text-glass-txt-s dark:text-darkmode-glass-txt-s hover:text-glass-txt-p dark:hover:text-darkmode-glass-txt-p">
                 {heading.text}
               </a>
             </li>

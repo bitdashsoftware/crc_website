@@ -16,7 +16,7 @@
   @apply prose-code:px-1 prose-code:text-txt-p prose-code:dark:text-darkmode-txt-p;
   // Blockquote
   @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-8 prose-blockquote:px-4 prose-blockquote:py-0 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic;
-  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:dark:border-darkmode-border prose-blockquote:text-txt-s prose-blockquote:dark:text-darkmode-txt-s;
+  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:dark:border-darkmode-border prose-blockquote:text-glass-txt-s dark:text-darkmode-glass-txt-s;
   @apply prose-blockquote:prose-p:m-0;
   // Table
   @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:dark:border-darkmode-border;

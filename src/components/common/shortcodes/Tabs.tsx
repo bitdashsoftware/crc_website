@@ -47,8 +47,8 @@ const Tabs = ({ children }: { children: React.ReactElement }) => {
           (item: { name: string; children: string }, index: number) => (
             <li
               key={index}
-              className={`my-0 px-8 cursor-pointer border-b-[3px] pt-2 pb-1 text-lg text-txt-s dark:text-darkmode-txt-s border-border dark:border-darkmode-border 
-                ${index === active && "border-b-[3px] text-txt-p dark:text-darkmode-txt-p border-txt-p dark:border-darkmode-txt-p"}
+              className={`my-0 px-8 cursor-pointer border-b-[3px] pt-2 pb-1 text-lg text-glass-txt-s dark:text-darkmode-glass-txt-s border-border dark:border-darkmode-border
+                ${index === active && "border-b-[3px] text-glass-txt-p dark:text-darkmode-glass-txt-p border-glass-txt-p dark:border-darkmode-glass-txt-p"}
               `}
               role="tab"
               tabIndex={index === active ? 0 : -1}

@@ -14,13 +14,13 @@ const { menu, currentPage } = Astro.props;
   menu.length > 0 && (
     <div class="relative glass rounded-lg p-4 my-2 w-full intersect:animate-fadeRight opacity-0">
       <ScrollArea className="h-full" client:only="react">
-        <h2 class="text-2xl border-none">Documents</h2>
+        <h2 class="text-2xl border-none text-glass-txt-p dark:text-darkmode-glass-txt-p">Documents</h2>
         <ul class="list-none m-0">
           {menu.map((item) => (
             <li class="ml-0">
               <a
                 href={`/docs/${item.id}`}
-                class={`w-full leading-none no-underline ${item.id === currentPage ? "font-bold" : ""}`}
+                class={`w-full leading-none no-underline text-glass-txt-s dark:text-darkmode-glass-txt-s hover:text-glass-txt-p dark:hover:text-darkmode-glass-txt-p ${item.id === currentPage ? "font-bold" : ""}`}
               >
                 {item.title}
               </a>
@@ -30,7 +30,7 @@ const { menu, currentPage } = Astro.props;
                     <li class="ml-4">
                       <a
                         href={`/docs/${child.id}`}
-                        class={`w-full leading-none no-underline ${child.id === currentPage ? "font-bold" : ""}`}
+                        class={`w-full leading-none no-underline text-glass-txt-s dark:text-darkmode-glass-txt-s hover:text-glass-txt-p dark:hover:text-darkmode-glass-txt-p ${child.id === currentPage ? "font-bold" : ""}`}
                       >
                         {child.title}
                       </a>

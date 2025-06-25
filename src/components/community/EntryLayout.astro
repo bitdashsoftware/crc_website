@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import PageHeader from "@components/common/PageHeader.astro";
+import { render } from "astro:content";
+import type { CommunityEntry } from "@/types";
+
+interface Props {
+  entry: CommunityEntry;
+}
+
+const { entry } = Astro.props;
+const { title, description, image, imageAlt } = entry.data;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={title} description={description} image={image?.src}>
+  <PageHeader title={title} />
+  
+  <section class="container">
+    <div class="row">
+      <div class="col-12 lg:col-8 mx-auto">
+        <div class="content glass rounded-lg p-4 intersect:animate-fadeUp opacity-0 text-glass-txt-s dark:text-darkmode-glass-txt-s">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout> 

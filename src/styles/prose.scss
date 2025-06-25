@@ -35,3 +35,21 @@
     }
   }
 }
+
+// Glass-specific content styles
+.content.glass {
+  @apply prose-h1:text-glass-txt-p prose-h1:dark:text-darkmode-glass-txt-p;
+  @apply prose-h2:text-glass-txt-p prose-h2:dark:text-darkmode-glass-txt-p;
+  @apply prose-h3:text-glass-txt-p prose-h3:dark:text-darkmode-glass-txt-p;
+  @apply prose-h4:text-glass-txt-p prose-h4:dark:text-darkmode-glass-txt-p;
+  @apply prose-p:text-glass-txt-s prose-p:dark:text-darkmode-glass-txt-s;
+  @apply prose-a:text-glass-txt-s prose-a:dark:text-darkmode-glass-txt-s hover:prose-a:text-glass-txt-p hover:prose-a:dark:text-darkmode-glass-txt-p;
+  @apply prose-strong:text-glass-txt-p prose-strong:dark:text-darkmode-glass-txt-p;
+  @apply prose-code:text-glass-txt-p prose-code:dark:text-darkmode-glass-txt-p;
+  @apply prose-th:text-glass-txt-p prose-th:dark:text-darkmode-glass-txt-p;
+  @apply prose-td:text-glass-txt-s prose-td:dark:text-darkmode-glass-txt-s;
+  @apply prose-li:text-glass-txt-s prose-li:dark:text-darkmode-glass-txt-s;
+  li::marker {
+    @apply text-glass-txt-s dark:text-darkmode-glass-txt-s;
+  }
+}

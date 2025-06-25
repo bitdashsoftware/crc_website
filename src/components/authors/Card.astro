@@ -29,10 +29,10 @@ const bodyBrief = entry.body ? plainify(entry.body?.slice(0, 100)) : null;
         />
       )
     }
-    <h4 class="mb-3">
-      <a href={`/authors/${entry.id}`}>{title}</a>
+    <h4 class="mb-3 text-glass-txt-p dark:text-darkmode-glass-txt-p">
+      <a href={`/authors/${entry.id}`} class="text-glass-txt-p dark:text-darkmode-glass-txt-p hover:text-glass-txt-light dark:hover:text-darkmode-glass-txt-light">{title}</a>
     </h4>
-    {bodyBrief && <p class="mb-4">{bodyBrief}</p>}
+    {bodyBrief && <p class="mb-4 text-glass-txt-s dark:text-darkmode-glass-txt-s">{bodyBrief}</p>}
     <Social links={social} />
   </div>
 </div>

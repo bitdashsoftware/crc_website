@@ -1,9 +1,13 @@
 ---
 import { IoSearch } from "react-icons/io5";
 import ThemeSwitcher from "@components/base/ThemeSwitcher.astro";
+import darkGreenLogo from "../../assets/logo/dark-green-logo.png";
 
 const { pathname } = Astro.url;
 const baseUrl = import.meta.env.BASE_URL;
+
+// Debug: log the baseUrl to see what it resolves to
+console.log('Base URL:', baseUrl);
 
 const stickyHeader = true;
 
@@ -78,7 +82,7 @@ const menu = [
   <nav class="relative flex flex-wrap items-center justify-between px-8">
     <!-- Left icon slot -->
     <div class="order-0 mr-4 inline-block text-xl text-glass-txt-p dark:text-darkmode-glass-txt-p">
-      <img src="/src/assets/logo/dark-green-logo.png" alt="Dark Green Logo" class="h-12 w-12" />
+      <img src={darkGreenLogo.src} alt="Dark Green Logo" class="h-12 w-12" />
     </div>
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />

@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import { Image } from "astro:assets";
+import type { GetInvolvedEntry } from "@/types";
+import { render } from "astro:content";
+
+interface Props {
+  entry: GetInvolvedEntry;
+}
+
+const { entry } = Astro.props;
+const { title, description, image, imageAlt } = entry.data;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={title} description={description} image={image?.src}>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="glass rounded-lg p-8 md:col-10 lg:col-8 intersect:animate-fadeUp opacity-0 intersect-no-queue">
+          {
+            image && (
+              <div class="mb-6 text-center">
+                <Image
+                  class="mx-auto rounded-lg w-64"
+                  src={image}
+                  alt={imageAlt}
+                  width={1024}
+                  height={1024}
+                  loading="eager"
+                />
+              </div>
+            )
+          }
+          <h1 class="h2 mb-6 text-glass-txt-p dark:text-darkmode-glass-txt-p">{title}</h1>
+          <div class="text-glass-txt-s dark:text-darkmode-glass-txt-s">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout> 

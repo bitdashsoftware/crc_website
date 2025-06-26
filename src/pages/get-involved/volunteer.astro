@@ -1,0 +1,9 @@
+---
+import type { GetInvolvedEntry } from "@/types";
+import EntryLayout from "@components/get-involved/EntryLayout.astro";
+import { getEntry } from "astro:content";
+
+const entry = (await getEntry("getInvolved", "volunteer")) as GetInvolvedEntry;
+---
+
+<EntryLayout entry={entry} /> 

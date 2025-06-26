@@ -32,7 +32,7 @@ const { title, description, projects } = entry.data;
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      class="mr-2 glass-t shadow-none rounded flex h-8 w-8 text-txt-p dark:text-darkmode-txt-p items-center justify-center text-center"
+                      class="mr-2 glass-t shadow-none rounded flex h-8 w-8 text-glass-txt-p dark:text-darkmode-glass-txt-p items-center justify-center text-center"
                     >
                       <FaGithub className="h-6 w-6" />
                     </a>
@@ -41,7 +41,7 @@ const { title, description, projects } = entry.data;
                     <li class="list-none">
                       {/* Use markdownify to convert markdown to HTML for each technology */}
                       <div
-                        class="mr-2 px-2 h-8 flex glass-t shadow-none rounded text-txt-p dark:text-darkmode-txt-p items-center justify-center text-center"
+                        class="mr-2 px-2 h-8 flex glass-t shadow-none rounded text-glass-txt-p dark:text-darkmode-glass-txt-p items-center justify-center text-center"
                         set:html={markdownify(element)}
                       />
                     </li>

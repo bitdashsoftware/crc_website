@@ -1,0 +1,9 @@
+---
+import type { CommunityEntry } from "@/types";
+import EntryLayout from "@components/community/EntryLayout.astro";
+import { getEntry } from "astro:content";
+
+const entry = (await getEntry("community", "ambassador-program")) as CommunityEntry;
+---
+
+<EntryLayout entry={entry} /> 

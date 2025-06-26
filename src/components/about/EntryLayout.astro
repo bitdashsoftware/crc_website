@@ -31,8 +31,10 @@ const { Content } = await render(entry);
               />
             )
           }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
-            <Content />
+          <h2 set:html={markdownify(title)} class="h3 mb-6 text-glass-txt-p dark:text-darkmode-glass-txt-p" />
+            <div class="text-glass-txt-s dark:text-darkmode-glass-txt-s">
+              <Content />
+            </div>
         </div>
       </div>
     </div>

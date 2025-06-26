@@ -66,13 +66,13 @@ const ConversationSwiper = ({ cards }: Props) => {
         <div className="flex-col glass justify-center rounded-md p-2 m-2 w-48">
           <div className="row items-center">
             <div
-              className="cursor-pointer col-4 p-0 text-txt-p dark:text-darkmode-txt-p text-center align-middle"
+              className="cursor-pointer col-4 p-0 text-glass-txt-p dark:text-darkmode-glass-txt-p text-center align-middle"
               onClick={() => swiper?.slidePrev()}
               aria-label="Previous card"
             >
               <FaArrowLeft className={"m-2 inline-block"} />
             </div>
-            <div className="col-4 p-0 text-txt-p dark:text-darkmode-txt-p text-center">
+            <div className="col-4 p-0 text-glass-txt-p dark:text-darkmode-glass-txt-p text-center">
               <input
                 type="number"
                 className="w-16 text-center bg-transparent border-none"
@@ -94,7 +94,7 @@ const ConversationSwiper = ({ cards }: Props) => {
               />
             </div>
             <div
-              className="cursor-pointer col-4 p-0 text-txt-p dark:text-darkmode-txt-p text-center"
+              className="cursor-pointer col-4 p-0 text-glass-txt-p dark:text-darkmode-glass-txt-p text-center"
               onClick={() => swiper?.slideNext()}
               aria-label="Next card"
             >
@@ -103,7 +103,7 @@ const ConversationSwiper = ({ cards }: Props) => {
           </div>
           <div className="row content-center justify-center">
             <div
-              className="cursor-pointer col-4 p-0 text-txt-p dark:text-darkmode-txt-p text-center"
+              className="cursor-pointer col-4 p-0 text-glass-txt-p dark:text-darkmode-glass-txt-p text-center"
               onClick={() => swiper?.slideTo(todayIndex)}
               title="Jump to today's card"
               aria-label="Jump to today's card"
@@ -111,7 +111,7 @@ const ConversationSwiper = ({ cards }: Props) => {
               <FaCalendarDay className={"m-2 inline-block"} />
             </div>
             <div
-              className="cursor-pointer col-4 p-0 text-txt-p dark:text-darkmode-txt-p text-center"
+              className="cursor-pointer col-4 p-0 text-glass-txt-p dark:text-darkmode-glass-txt-p text-center"
               onClick={() =>
                 swiper?.slideTo(Math.floor(Math.random() * cards.length))
               }

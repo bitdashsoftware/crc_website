@@ -162,11 +162,21 @@ const terms = defineCollection({
   schema: searchable,
 });
 
+const community = defineCollection({
+  loader: glob({ pattern: "**\/[^_]*.{md,mdx}", base: "./src/content/community" }),
+  schema: ({ image }) =>
+    searchable.extend({
+      image: image().optional(),
+      imageAlt: z.string().default(""),
+    }),
+});
+
 // Export collections
 export const collections = {
   about,
   authors,
   blog,
+  community,
   docs,
   home,
   indexCards,

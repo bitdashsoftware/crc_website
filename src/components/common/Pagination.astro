@@ -49,14 +49,14 @@ if (pageIDs) {
         {prevPage ? (
           <a
             href={prevPage}
-            class="col rounded px-2 py-1.5 text-txt-p dark:text-darkmode-txt-p"
+            class="col rounded px-2 py-1.5 text-glass-txt-p dark:text-darkmode-glass-txt-p"
             aria-label="Previous"
           >
             <FaArrowLeft className="inline-block" />
           </a>
         ) : (
           <span
-            class="col rounded px-2 py-1.5 text-txt-light dark:text-darkmode-txt-light"
+            class="col rounded px-2 py-1.5 text-glass-txt-light dark:text-darkmode-glass-txt-light"
             aria-label="Previous"
           >
             <FaArrowLeft className="inline-block" />
@@ -66,7 +66,7 @@ if (pageIDs) {
         {pageIDs ? (
           <div
             aria-current="page"
-            class="col rounded px-4 py-2 text-txt-p  dark:text-darkmode-txt-p"
+            class="col rounded px-4 py-2 text-glass-txt-p dark:text-darkmode-glass-txt-p"
           >
             {pageIndex + 1}
           </div>
@@ -75,7 +75,7 @@ if (pageIDs) {
             pagination === pageIndex ? (
               <span
                 aria-current="page"
-                class="col rounded px-4 py-2 font-semibold text-txt-p dark:text-darkmode-txt-p border border-txt-light dark:border-darkmode-txt-light"
+                class="col rounded px-4 py-2 font-semibold text-glass-txt-p dark:text-darkmode-glass-txt-p border border-glass-txt-light dark:border-darkmode-glass-txt-light"
               >
                 {pagination}
               </span>
@@ -87,7 +87,7 @@ if (pageIDs) {
                     : `${collection ? "/" + collection : ""}/page/${pagination}`
                 }
                 aria-current="page"
-                class="col rounded px-4 py-2 font-semibold text-txt-p dark:text-darkmode-txt-p"
+                class="col rounded px-4 py-2 font-semibold text-glass-txt-p dark:text-darkmode-glass-txt-p"
               >
                 {pagination}
               </a>
@@ -99,14 +99,14 @@ if (pageIDs) {
         {nextPage ? (
           <a
             href={nextPage}
-            class="col rounded px-2 py-1.5 text-txt-p dark:text-darkmode-txt-p"
+            class="col rounded px-2 py-1.5 text-glass-txt-p dark:text-darkmode-glass-txt-p"
             aria-label="Next"
           >
             <FaArrowRight className="inline-block" />
           </a>
         ) : (
           <span
-            class="col rounded px-2 py-1.5 text-txt-light dark:text-darkmode-txt-light"
+            class="col rounded px-2 py-1.5 text-glass-txt-light dark:text-darkmode-glass-txt-light"
             aria-label="Next"
           >
             <FaArrowRight className="inline-block" />

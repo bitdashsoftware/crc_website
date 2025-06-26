@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+import type { AboutEntry } from "@/types";
+import TableOfContents from "@components/common/TableOfContents.astro";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+  entry: AboutEntry;
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const { title, description, image, imageAlt } = entry.data;
+
+const tocDepth = 3; // maximum depth for the table of contents 1 = h1, etc
+const hasToc = headings.filter((heading) => heading.depth <= tocDepth).length > 0;
+---
+
+<BaseLayout title={title} image={image?.src} description={description}>
+  <section class="flex container p-4">
+    <div class={`w-full ${hasToc ? 'md:w-3/4 lg:w-4/5' : 'w-full'}`}>
+      <article class="">
+        <section class="mb-6">
+          {image && (
+            <div class="mb-4 text-center">
+              <Image
+                class="mx-auto w-32 h-32 rounded-lg"
+                src={image}
+                alt={imageAlt || ""}
+                width={128}
+                height={128}
+                loading="eager"
+              />
+            </div>
+          )}
+          <h1 class="h2 mb-4 text-center">{title}</h1>
+        </section>
+        <section class="content mb-4 glass px-4 rounded-lg">
+          <Content />
+        </section>
+      </article>
+    </div>
+    {hasToc && (
+      <div class="hidden lg:flex lg:w-1/5 max-h-static_sidemenu sticky top-[5rem] ml-4">
+        <TableOfContents headings={headings} tocDepth={tocDepth} />
+      </div>
+    )}
+  </section>
+</BaseLayout> 

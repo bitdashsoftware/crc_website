@@ -25,7 +25,7 @@ const social = z.object({
 });
 
 const about = defineCollection({
-  loader: glob({ pattern: "-index.{md,mdx}", base: "./src/content/about" }),
+  loader: glob({ pattern: "**\/[^_]*.{md,mdx}", base: "./src/content/about" }),
   schema: ({ image }) =>
     searchable.extend({
       image: image().optional(),

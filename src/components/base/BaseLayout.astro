@@ -30,24 +30,45 @@ const baseUrl = "https://janedoe.com";
 <html lang="en">
   <head>
     <!-- favicon -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon/apple-touch-icon.png"
-    />
+    <!-- Light mode favicon (dark green logo) -->
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/favicon/favicon-32x32.png"
+      href="/src/assets/logo/dark-green-logo.png"
+      media="(prefers-color-scheme: light)"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/favicon/favicon-16x16.png"
+      href="/src/assets/logo/dark-green-logo.png"
+      media="(prefers-color-scheme: light)"
     />
     
+    <!-- Dark mode favicon (beige logo) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/assets/logo/beige-logo.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/src/assets/logo/beige-logo.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    
+    <!-- Apple touch icon (beige logo for better visibility) -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/src/assets/logo/beige-logo.png"
+    />
+
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta name="theme-name" content="pages" />

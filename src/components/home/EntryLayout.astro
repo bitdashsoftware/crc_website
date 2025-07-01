@@ -11,6 +11,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const { image, imageAlt, title, content, button } = entry.data;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout>
@@ -19,7 +20,7 @@ const { image, imageAlt, title, content, button } = entry.data;
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
       <Image
-        src="/src/assets/replaceThisImage.webp"
+        src={`${baseUrl}replaceThisImage.webp`}
         alt="Background"
         width={1920}
         height={1080}

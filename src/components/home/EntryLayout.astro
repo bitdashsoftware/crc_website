@@ -14,28 +14,42 @@ const { image, imageAlt, title, content, button } = entry.data;
 ---
 
 <BaseLayout>
-  <!-- Banner -->
-  <section class="section">
-    <div class="container">
+  <!-- Background Image Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden -mt-4">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <Image
+        src="/src/assets/replaceThisImage.webp"
+        alt="Background"
+        width={1920}
+        height={1080}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <!-- Overlay for better text readability -->
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 container">
       <div class="row justify-center">
         <div class="text-center lg:col-6">
           {
             image && (
-              <div class="blur-[0px]">
+              <div class="mb-6">
                 <Image
-                class="mb-6 w-64"
-                src={image}
-                alt={imageAlt}
-                width={1024}
-                height={1024}
-                loading="eager"
-              />
+                  class="mx-auto w-64"
+                  src={image}
+                  alt={imageAlt}
+                  width={1024}
+                  height={1024}
+                  loading="eager"
+                />
               </div>
-              
             )
           }
-          <h1 set:html={markdownify(title)} class="mb-4" />
-          <p set:html={markdownify(content)} class="mb-8" />
+          <h1 set:html={markdownify(title)} class="mb-4 text-white" />
+          <p set:html={markdownify(content)} class="mb-8 text-white" />
           {
             button && (
               <Button

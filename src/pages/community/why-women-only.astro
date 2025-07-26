@@ -1,9 +1,9 @@
 ---
 import type { CommunityEntry } from "@/types";
-import EntryLayout from "@components/community/EntryLayout.astro";
+import WhyWomenOnlyLayout from "@components/community/WhyWomenOnlyLayout.astro";
 import { getEntry } from "astro:content";
 
 const entry = (await getEntry("community", "why-women-only")) as CommunityEntry;
 ---
 
-<EntryLayout entry={entry} /> 
+<WhyWomenOnlyLayout entry={entry} /> 

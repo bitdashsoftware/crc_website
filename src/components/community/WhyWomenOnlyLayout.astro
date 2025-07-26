@@ -1,0 +1,39 @@
+---
+import CustomBackgroundLayout from "@components/base/CustomBackgroundLayout.astro";
+import PageHeader from "@components/common/PageHeader.astro";
+import { render } from "astro:content";
+import type { CommunityEntry } from "@/types";
+import frontPage from "@assets/why_women_only.jpeg";
+
+interface Props {
+  entry: CommunityEntry;
+}
+
+const { entry } = Astro.props;
+const { title, description, image, imageAlt } = entry.data;
+const { Content } = await render(entry);
+---
+
+<CustomBackgroundLayout 
+  title={title} 
+  description={description} 
+  image={image?.src}
+  backgroundImage={frontPage}
+>
+  <PageHeader title={title} />
+  
+  <section class="container">
+    <div class="row">
+      <div class="col-12 lg:col-8 mx-auto">
+        <div 
+          class="content rounded-lg p-6 intersect:animate-fadeUp relative"
+          style="background: rgba(245, 245, 220, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); backdrop-filter: none;"
+        >
+          <div class="text-[#77A290] dark:text-gray-200 font-medium">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</CustomBackgroundLayout> 

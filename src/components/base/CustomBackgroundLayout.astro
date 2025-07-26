@@ -1,0 +1,171 @@
+---
+import { plainify } from "@lib/textConverter";
+import Footer from "@components/base/Footer.astro";
+import Header from "@components/base/Header.astro";
+import { ClientRouter } from "astro:transitions";
+import { Tooltips } from "astro-tooltips";
+import "@/styles/main.scss";
+
+// types for frontmatters
+export interface Props {
+  title?: string;
+  description?: string | null;
+  image?: string;
+  noindex?: boolean;
+  canonical?: string;
+  backgroundImage?: any; // Astro image import
+}
+
+const { title, description, image, noindex, canonical, backgroundImage } = Astro.props;
+
+const siteTitle = "Confluence Running Collective";
+const siteDescription = "Empowering women through trail running.";
+const siteImage = "@assets/og-image.png";
+const siteAuthor = "CRC Team";
+const baseUrl = "https://confluencerunningcollective.com";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- favicon -->
+    <!-- Light mode favicon (dark green logo) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/assets/logo/dark-green-logo.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/src/assets/logo/dark-green-logo.png"
+      media="(prefers-color-scheme: light)"
+    />
+    
+    <!-- Dark mode favicon (beige logo) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/assets/logo/beige-logo.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/src/assets/logo/beige-logo.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    
+    <!-- Apple touch icon (beige logo for better visibility) -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/src/assets/logo/beige-logo.png"
+    />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta name="theme-name" content="pages" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#fff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#000"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <title>{plainify(title ? title : siteTitle)}</title>
+    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <meta
+      name="description"
+      content={plainify(description ? description : siteDescription)}
+    />
+    <meta name="author" content={siteAuthor} />
+    <meta property="og:title" content={plainify(title ? title : siteTitle)} />
+    <meta
+      property="og:description"
+      content={plainify(description ? description : siteDescription)}
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content={`${baseUrl}/${Astro.url.pathname.replace("/", "")}`}
+    />
+    <meta
+      property="og:image"
+      content={`${baseUrl}${image ? image : siteImage}`}
+    />
+    <meta name="twitter:title" content={plainify(title ? title : siteTitle)} />
+    <meta
+      name="twitter:description"
+      content={plainify(description ? description : siteDescription)}
+    />
+    <meta
+      name="twitter:image"
+      content={`${baseUrl}${image ? image : siteImage}`}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Katex -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+      integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+      integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh"
+      crossorigin="anonymous"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+      integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"></script>
+      
+    <ClientRouter fallback="swap" />
+    <Tooltips interactive={false} delay={[333, 0]} />
+  </head>
+  <body>
+    {backgroundImage && (
+      <!-- Custom Background Image -->
+      <div 
+        class="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={`background-image: url(${backgroundImage.src}); z-index: -1;`}
+      ></div>
+    )}
+    
+    <Header />
+    <main id="main-content" class="flex-1">
+      <slot/>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  body {
+    background: none !important;
+  }
+  
+  .fixed.inset-0 {
+    z-index: -1 !important;
+  }
+</style> 

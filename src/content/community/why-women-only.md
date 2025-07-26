@@ -1,7 +1,7 @@
 ---
 title: "Why Women-Only?"
 description: "Learn about our women-only approach and the benefits it brings to our running community."
-image: "@assets/astrogon-star.svg"
+image: "@assets/backgrounds/bwca-day.png"
 draft: false
 ---
 

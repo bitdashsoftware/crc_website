@@ -53,3 +53,21 @@
     @apply text-glass-txt-s dark:text-darkmode-glass-txt-s;
   }
 }
+
+// Light green content styles
+.content-lightgreen {
+  @apply prose-h1:text-lightgreen-txt-p prose-h1:dark:text-lightgreen-txt-p;
+  @apply prose-h2:text-lightgreen-txt-p prose-h2:dark:text-lightgreen-txt-p;
+  @apply prose-h3:text-lightgreen-txt-p prose-h3:dark:text-lightgreen-txt-p;
+  @apply prose-h4:text-lightgreen-txt-p prose-h4:dark:text-lightgreen-txt-p;
+  @apply prose-p:text-lightgreen-txt-s prose-p:dark:text-lightgreen-txt-s;
+  @apply prose-a:text-lightgreen-txt-s prose-a:dark:text-lightgreen-txt-s hover:prose-a:text-lightgreen-txt-p hover:prose-a:dark:text-lightgreen-txt-p;
+  @apply prose-strong:text-lightgreen-txt-p prose-strong:dark:text-lightgreen-txt-p;
+  @apply prose-code:text-lightgreen-txt-p prose-code:dark:text-lightgreen-txt-p;
+  @apply prose-th:text-lightgreen-txt-p prose-th:dark:text-lightgreen-txt-p;
+  @apply prose-td:text-lightgreen-txt-s prose-td:dark:text-lightgreen-txt-s;
+  @apply prose-li:text-lightgreen-txt-s prose-li:dark:text-lightgreen-txt-s;
+  li::marker {
+    @apply text-lightgreen-txt-s dark:text-lightgreen-txt-s;
+  }
+}

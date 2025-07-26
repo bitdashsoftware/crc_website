@@ -60,6 +60,13 @@ module.exports = {
             light: "rgba(43, 70, 60, 0.8)",
           },
         },
+        lightgreen: {
+          txt: {
+            p: "rgba(119,162,144,1)",
+            s: "rgba(119,162,144,1)",
+            light: "rgba(119,162,144,1)",
+          },
+        },
         darkmode: {
           txt: {
             p: "rgba(43, 70, 60, 0.8)",

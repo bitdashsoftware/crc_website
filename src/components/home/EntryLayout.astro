@@ -41,8 +41,10 @@ const { image, imageAlt, title, content, button } = entry.data;
               </div>
             )
           }
-          <h1 set:html={markdownify(title)} class="mb-4 text-white" />
-          <p set:html={markdownify(content)} class="mb-8 text-white" />
+          <div class="content-lightgreen">
+            <h1 set:html={markdownify(title)} class="mb-4" />
+            <p set:html={markdownify(content)} class="mb-8" />
+          </div>
           {
             button && (
               <Button
@@ -64,11 +66,13 @@ const { image, imageAlt, title, content, button } = entry.data;
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8 text-center">
+          <div class="content-lightgreen">
           <h2 class="h3 mb-8">Trail & Ultra Events</h2>
           <p class="mb-8 text-lg">
             Born and bred in the mountains. Run our women's trail events designed specifically for female runners, 
             creating a supportive and empowering environment for all skill levels.
           </p>
+          </div>
           
           <div class="row mt-12">
             <div class="md:col-4 mb-8">

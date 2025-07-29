@@ -18,16 +18,21 @@ const toc = heirarchy.filter((heading) => heading.depth <= tocDepth);
   toc.length > 0 && (
     <div class="relative glass rounded-lg p-4 my-2 w-full intersect:animate-fadeLeft opacity-0">
       <ScrollArea className="h-full" client:only="react">
-        <h2 class="text-2xl border-none text-glass-txt-p dark:text-darkmode-glass-txt-p">Contents</h2>
-        <ul class="list-none m-0">
+        <h2 class="text-xl font-semibold mb-4 pb-2 border-b-2 border-[rgba(43,70,60,0.8)] dark:border-[rgba(43,70,60,0.8)] text-glass-txt-p dark:text-darkmode-glass-txt-p">
+          Table of Contents
+        </h2>
+        <nav class="space-y-1">
           {toc.map((heading) => (
-            <li class={`${heading.depth === 2 ? "ml-0" : "ml-4"}`}>
-              <a href={`#${heading.slug}`} class="w-full leading-none no-underline text-glass-txt-s dark:text-darkmode-glass-txt-s hover:text-glass-txt-p dark:hover:text-darkmode-glass-txt-p">
+            <div class={`${heading.depth === 2 ? "ml-0" : "ml-3 border-l-2 border-glass-border dark:border-darkmode-glass-border pl-3"}`}>
+              <a 
+                href={`#${heading.slug}`} 
+                class="block py-2 px-3 rounded-md transition-all duration-200 text-sm leading-relaxed no-underline text-glass-txt-s dark:text-darkmode-glass-txt-s hover:text-glass-txt-p dark:hover:text-darkmode-glass-txt-p hover:bg-glass-bg dark:hover:bg-darkmode-glass-bg hover:shadow-sm"
+              >
                 {heading.text}
               </a>
-            </li>
+            </div>
           ))}
-        </ul>
+        </nav>
       </ScrollArea>
     </div>
   )

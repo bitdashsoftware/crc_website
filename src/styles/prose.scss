@@ -6,6 +6,8 @@
   @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
   @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
   @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
+  // Scroll margin for anchor links (prevents headings from being hidden under sticky header)
+  @apply prose-h1:scroll-mt-24 prose-h2:scroll-mt-24 prose-h3:scroll-mt-24 prose-h4:scroll-mt-24 prose-h5:scroll-mt-24 prose-h6:scroll-mt-24;
   @apply prose-p:text-base prose-p:text-txt-s prose-p:dark:text-darkmode-txt-s;
   @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p prose-a:dark:text-darkmode-txt-s hover:prose-a:dark:text-darkmode-txt-p;
   @apply prose-img:max-w-full prose-img:rounded;
@@ -71,3 +73,5 @@
     @apply text-lightgreen-txt-s dark:text-lightgreen-txt-s;
   }
 }
+
+

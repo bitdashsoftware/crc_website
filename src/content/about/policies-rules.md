@@ -5,108 +5,86 @@ image: "../../assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---
 
-# Race Policies & Rules
+## Diversity, Equity & Inclusion
 
-To ensure a safe, fair, and enjoyable experience for all participants, please review our race policies and rules carefully.
+Our events celebrate and uplift women, trans women, and non-binary individuals who feel comfortable in women-centered spaces. We are deeply committed to fostering a safe, welcoming, and inclusive environment that honors and supports people of all races, ethnicities, abilities, ages, sexual orientations, and backgrounds.
 
-## Race Eligibility
+We specifically recognize and prioritize the voices and experiences of women and non-binary folks of color, understanding that systemic barriers and historic exclusion have impacted participation in endurance sports. Our events strive to create equitable access and representation by intentionally partnering with diverse vendors, offering financial assistance, and cultivating a community where all identities can thrive.
 
-### Who Can Participate
-- This race is open to women and non-binary individuals who identify with the women's running community
-- Participants must be 18 years of age or older on race day
-- All participants must register through UltraSignup and complete the registration process
+We believe that true inclusion requires ongoing listening, learning, and action to dismantle barriers and build a space where every participant feels valued, respected, and empowered.
 
-### Registration Policies
-- Registration is non-transferable and non-refundable
-- Bib numbers must be worn visibly during the race
-- Participants must pick up their race packet in person with valid photo ID
+## Trans-Women Participants
 
-## Race Day Rules
+Our events are designed for women and those who feel comfortable in women-centered spaces. Participants are welcome to register based on their gender identity, and we honor each person's self-identification. No additional explanation is required.
 
-### Start Time & Check-In
-- Race check-in opens 2 hours before the start time
-- All participants must check in at least 30 minutes before their race start
-- Late arrivals may not be permitted to start
+## Non-Binary & Non-Conforming Participants
 
-### Course Rules
-- Stay on marked trails at all times
-- Follow all course markings and volunteer directions
-- No cutting switchbacks or taking shortcuts
-- Yield to faster runners when safe to do so
-- No headphones or earbuds allowed for safety reasons
+We welcome non-binary and gender non-conforming individuals who feel comfortable in women-centered spaces. Participants may choose to register in the women's or non-binary/open category, whichever aligns best with their identity.
 
-### Aid Stations
-- Aid stations are located approximately every 2-3 miles
-- Water, sports drink, and basic first aid will be available
-- Participants are encouraged to carry their own hydration
-- Please dispose of trash properly at aid stations
+## LGBTQIA+ Athletes
 
-## Safety & Medical
+Our events affirm and celebrate LGBTQIA+ participants. We expect all participants to respect and support each other, helping maintain a welcoming atmosphere free from discrimination or harassment.
 
-### Medical Support
-- Medical personnel will be available at the start/finish area and key aid stations
-- Participants experiencing medical issues should stop at the nearest aid station
-- Emergency contact information must be provided during registration
+## Participants With Disabilities
 
-### Weather & Cancellation
-- The race will proceed in light to moderate rain
-- In case of severe weather (lightning, extreme heat, etc.), the race may be delayed or cancelled
-- Participants will be notified of any changes via email and social media
+We welcome participants of all abilities and are committed to making our events as inclusive and accessible as possible. However, due to the nature of trail terrain, some courses may present challenges or may not be fully suitable for certain mobility needs. We encourage participants to reach out to us in advance so we can discuss the course details and explore accommodations or alternative options to support a safe and positive race experience.
 
-## Environmental Responsibility
+## First Organized Race Runners
 
-### Leave No Trace
-- All participants must carry out their own trash
-- No littering on the course
-- Respect wildlife and natural areas
-- Stay on designated trails only
+We are proud to offer a *First Organized Race* category for those participating in their very first organized running or endurance race. This optional category allows new runners, walkers or hikers to be recognized and celebrated as a group, separate from traditional rankings. It's our way of honoring the courage, commitment, and personal milestones that come with showing up for the first time.
 
-### Sustainable Practices
-- We encourage carpooling to reduce environmental impact
-- Reusable water bottles are encouraged
-- We strive to minimize waste at all aid stations
+If you'd like to be included in this category, you may select this category option when you register online. Whether you run, walk, or hike your way to the finish, we're here to cheer you on every step of the way.
 
-## Code of Conduct
+## Race Entry Assistance
 
-### Respect & Sportsmanship
-- Treat all participants, volunteers, and staff with respect
-- No harassment, discrimination, or inappropriate behavior will be tolerated
-- Support and encourage fellow runners
-- Report any concerns to race officials immediately
+Coming soon: We will be offering financial assistance to increase access to our events. Assistance will be awarded based on need and availability.
 
-### Fair Competition
-- No external assistance except at designated aid stations
-- No pacers or crew allowed on the course
-- All participants must complete the full course under their own power
+## Refund Policy
 
-## Disqualification & Penalties
+We offer refunds for race registrations **up to 120 days before the event**. After that point, we are unable to issue refunds.
 
-### Grounds for Disqualification
-- Cheating or course cutting
-- Violation of safety rules
-- Disrespectful behavior toward participants or staff
-- Failure to follow environmental guidelines
-- Use of prohibited equipment or assistance
+This policy allows us to plan responsibly, factoring in what supplies need to be purchased, how many participants we're supporting, and what kind of infrastructure we'll need to ensure a safe, enjoyable event. It also helps us reduce waste and avoid unnecessary overordering of items like shirts, medals, and aid station supplies.
 
-### Appeals Process
-- Disqualification appeals must be submitted in writing within 24 hours
-- Appeals will be reviewed by the race director and committee
-- Final decisions are at the discretion of race officials
+We appreciate your understanding and support in helping us create a thoughtful and sustainable event experience.
 
-## Photography & Media
+If you're unable to attend, please see our deferrals & **bib transfer** policy as an alternative option.
 
-### Participant Consent
-- By participating, you consent to being photographed or filmed
-- Photos may be used for promotional purposes
-- Participants may request removal of specific images
+## Deferrals & Bib Transfer Policy
 
-### Social Media
-- We encourage sharing your race experience on social media
-- Use hashtag #ConfluenceRunningCollective
-- Tag us @confluencerunningcollective
+As a new company, we are excited to grow and host additional events in the future. While we don't yet have all the details finalized about upcoming races, we want to ensure flexibility and convenience for our participants. In the meantime, we are offering bib transfers to provide an immediate option for those who need to transfer their race entry. Looking ahead, we plan to expand this flexibility by offering race transfers as part of our evolving event services. This will allow participants to transfer their registration to another runner or to a future event, providing greater adaptability as we expand our race calendar. Our goal is to support our community every step of the way as we build a welcoming and dynamic series of events.
 
-## Questions & Concerns
+If you would like to transfer your bib to someone else who can run the race you're registered for but can no longer attend, please contact us at info@confluencerunningcollective.com. A $10 bib transfer fee will apply.
 
-If you have questions about any of these policies or rules, please contact us at **info@confluencerunningcollective.com** before race day.
+## Pregnancy Deferral Policy
 
-We're committed to creating a safe, inclusive, and enjoyable experience for all participants. Thank you for helping us maintain the integrity and spirit of our women's trail race! 
+Women who become pregnant after registering are eligible to defer their race entry. To initiate a pregnancy deferral, please contact us at [info@confluencerunningcollective.com](mailto:info@confluencerunningcollective.com) at any time before race day. No medical documentation is required-just let us know and we'll take care of the rest.
+
+## Pregnancy Policy
+
+Pregnant participants are welcome to race if they feel comfortable and have consulted with their healthcare provider. Safety and personal well-being are our top priorities.
+
+## Changing Distances
+
+Changing distances means switching to a different race length within the same event (for example, moving from a 10K to a 5K). This option is only available for events that offer two or more distances.
+
+If you choose to move up to a longer distance, you will be responsible for paying the difference in registration cost. If you choose to move down to a shorter distance, no refunds will be issued for the difference.
+
+## Event Cancellation/Reschedule Policy
+
+If an event is canceled or rescheduled due to weather or other unforeseen circumstances, registrants will be notified promptly and offered options such as deferral or partial refunds at the discretion of event management.
+
+## Timing Information
+
+Timing is chip-based, and official results will be posted after the event.
+
+## Youth Participation Policy
+
+Participants under 18 require parental consent and may be subject to specific distance and safety guidelines.
+
+## Shirt Exchanges
+
+If you wish to change your shirt or other merchandise size from what you selected during registration, you may do so online up to **120 days** before the event. After this date, shirt exchanges cannot be guaranteed.
+
+## Event/Race-Specific Rules
+
+Please review specific rules for each race on the event website, including course conduct, aid station policies, and safety guidelines. 

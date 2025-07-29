@@ -1,9 +1,9 @@
 ---
 import type { AboutEntry } from "@/types";
-import EntryLayout from "@components/about/EntryLayout.astro";
+import OurMissionLayout from "@components/about/OurMissionLayout.astro";
 import { getEntry } from "astro:content";
 
 const entry = (await getEntry("about", "our-mission")) as AboutEntry;
 ---
 
-<EntryLayout entry={entry} /> 
+<OurMissionLayout entry={entry} /> 

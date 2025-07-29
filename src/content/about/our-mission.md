@@ -4,29 +4,48 @@ description: "Empowering women through trail running and creating inclusive spac
 image: "@assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---
+<div class= "text-center">
 
-# Empowering Women Through Trail Running
+## **Mission Statement**
 
-At Confluence Running Collective, our mission is to create a supportive, inclusive environment where women can discover the joy and empowerment of trail running. We believe that every woman deserves the opportunity to challenge herself, connect with nature, and build lasting friendships through the shared experience of running on beautiful trails.
+</div>
 
-Our women-only trail race is more than just a competition—it's a celebration of strength, resilience, and community. We're committed to breaking down barriers that have traditionally kept women from participating in trail running events, whether those barriers are physical, mental, or social.
+Our mission is to redefine running and endurance events by centering women, trans women, and non-binary folks who feel comfortable in women-centered spaces—creating inclusive, welcoming environments that celebrate connection over competition.
 
-## What We Stand For
+<div class= "text-center">
 
-- **Inclusivity:** Welcoming runners of all abilities, from first-time trail runners to experienced athletes
-- **Support:** Creating a supportive environment where every participant feels encouraged and valued
-- **Community:** Building lasting connections between women who share a passion for running and the outdoors
-- **Empowerment:** Helping women discover their strength and capabilities through trail running
-- **Environmental Stewardship:** Promoting responsible trail use and conservation
+### **Core Values:**
 
-## Our Vision
+</div>
 
-We envision a world where trail running is accessible and welcoming to all women, regardless of their background, experience level, or physical abilities. Through our events and community initiatives, we hope to inspire more women to explore the trails, challenge their limits, and find their own path to personal growth and fulfillment.
+- #### **Inclusion**
 
-By creating a women-only space for trail running, we're not excluding others—we're creating a safe, supportive environment where women can focus on their own journey without the pressures and dynamics that can sometimes exist in mixed-gender running events.
+We actively welcome women, trans women, and non-binary folks who find community in women-centered spaces–embracing all backgrounds, body types, abilities, and experience levels.
 
-## Join Us
+- #### **Community**
 
-Join us in June 2026 for our inaugural women's trail race! Whether you're a seasoned trail runner or just starting your journey, we welcome you to be part of this special event.
+We prioritize genuine connection, support, and camaraderie over competition and pace.
 
-[Sign Up Now](https://ultrasignup.com/register.aspx?did=119763) 
+- #### **Honoring Every Journey**
+
+We recognize that every runner’s path is different, and we celebrate the unique effort, growth and experience that each journey brings- not just the finish line. 
+
+- #### **Empowerment & Collaboration**
+
+We intentionally partner with women-owned businesses and vendors to amplify women’s talents and foster strength within both the running and event industries.
+
+- #### **Accessibility**
+
+We strive to reduce physical, financial and emotional barriers to participation, making our events welcoming for all.
+
+- #### **Integrity**
+
+We commit to thoughtful planning, transparent communication, and intentional decision-making. 
+
+<div class= "text-center">
+
+### **Purpose:**
+
+</div>
+
+Many endurance events have historically been created by—and let’s be real, for—men. What’s often missing is a true sense of shared accomplishment in the journey leading up to the race. Too often, events focus on performance and proving something, instead of celebrating everything it took just to get there. That’s why we exist: to create welcoming, low-pressure events that center community and connection for women. Whether you’re training for your first 5K or your fiftieth ultramarathon, you deserve a space that honors your effort, uplifts your story, and reminds you that you belong—just as you are.

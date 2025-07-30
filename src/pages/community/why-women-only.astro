@@ -1,9 +1,18 @@
 ---
 import type { CommunityEntry } from "@/types";
 import WhyWomenOnlyLayout from "@components/community/WhyWomenOnlyLayout.astro";
+import WhyWomenOnlyHeroLayout from "@components/community/WhyWomenOnlyHeroLayout.astro";
 import { getEntry } from "astro:content";
 
 const entry = (await getEntry("community", "why-women-only")) as CommunityEntry;
 ---
 
-<WhyWomenOnlyLayout entry={entry} /> 
+<!-- Light Mode: Hero Layout -->
+<div class="block dark:hidden">
+  <WhyWomenOnlyLayout entry={entry} />
+</div>
+
+<!-- Dark Mode: Original Layout -->
+<div class="hidden dark:block">
+  <WhyWomenOnlyHeroLayout entry={entry} />
+</div> 

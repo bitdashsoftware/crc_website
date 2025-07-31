@@ -1,9 +1,14 @@
 ---
 import type { CommunityEntry } from "@/types";
-import WhyWomenOnlyHeroLayout from "@components/community/WhyWomenOnlyHeroLayout.astro";
+import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
+import frontPage from "@assets/why_women_only.jpeg";
 
 const entry = (await getEntry("community", "why-women-only")) as CommunityEntry;
 ---
 
-<WhyWomenOnlyHeroLayout entry={entry} /> 
+<HeroLayout 
+  entry={entry} 
+  heroImage={frontPage}
+  contentClass="content-beige"
+/> 

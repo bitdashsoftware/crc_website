@@ -67,6 +67,13 @@ module.exports = {
             light: "rgba(119,162,144,1)",
           },
         },
+        beige: {
+          txt: {
+            p: "rgba(233,221,175,1)",
+            s: "rgba(233,221,175,0.8)",
+            light: "rgba(233,221,175,0.6)",
+          },
+        },
         darkmode: {
           txt: {
             p: "rgba(43, 70, 60, 0.8)",

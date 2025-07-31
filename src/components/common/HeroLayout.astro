@@ -1,14 +1,26 @@
 ---
 import { render } from "astro:content";
-import type { CommunityEntry } from "@/types";
-import frontPage from "@assets/why_women_only.jpeg";
+import type { CommunityEntry, AboutEntry, BlogEntry, PoetryEntry, RecipeEntry } from "@/types";
 import BaseLayout from "@components/base/BaseLayout.astro";
 
 interface Props {
-  entry: CommunityEntry;
+  entry: CommunityEntry | AboutEntry | BlogEntry | PoetryEntry | RecipeEntry;
+  heroImage?: any; // Astro image import
+  heroImageAlt?: string;
+  contentClass?: string;
+  heroOverlayOpacity?: number;
+  heroMinHeight?: string;
 }
 
-const { entry } = Astro.props;
+const { 
+  entry, 
+  heroImage, 
+  heroImageAlt = "Hero background", 
+  contentClass = "content-lightgreen",
+  heroOverlayOpacity = 60,
+  heroMinHeight = "min-h-screen"
+} = Astro.props;
+
 const { title, description, image, imageAlt } = entry.data;
 const { Content } = await render(entry);
 ---
@@ -19,18 +31,20 @@ const { Content } = await render(entry);
   image={image?.src}
 >
   <!-- Hero Section with Background Image -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden -mt-4">
+  <section class={`relative ${heroMinHeight} flex items-center justify-center overflow-hidden -mt-4`}>
     <!-- Background Image -->
-    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={`background-image: url(${frontPage.src});`}>
-      <!-- Overlay for better text readability -->
-      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-    </div>
+    {heroImage && (
+      <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={`background-image: url(${heroImage.src});`}>
+        <!-- Overlay for better text readability -->
+        <div class={`absolute inset-0 bg-black bg-opacity-${heroOverlayOpacity}`}></div>
+      </div>
+    )}
     
     <!-- Hero Content -->
     <div class="relative z-10 container">
       <div class="row justify-center">
         <div class="text-center lg:col-8">
-          <div class="content-lightgreen">
+          <div class={contentClass}>
             <h1 class="mb-4 text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
               {title}
             </h1>
@@ -48,7 +62,7 @@ const { Content } = await render(entry);
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8">
-          <div class="content-lightgreen">
+          <div class={contentClass}>
             <Content />
           </div>
         </div>

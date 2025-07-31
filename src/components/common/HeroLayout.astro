@@ -1,10 +1,10 @@
 ---
 import { render } from "astro:content";
-import type { CommunityEntry, AboutEntry, BlogEntry, PoetryEntry, RecipeEntry } from "@/types";
+import type { CommunityEntry, AboutEntry, BlogEntry, RecipeEntry } from "@/types";
 import BaseLayout from "@components/base/BaseLayout.astro";
 
 interface Props {
-  entry: CommunityEntry | AboutEntry | BlogEntry | PoetryEntry | RecipeEntry;
+  entry: CommunityEntry | AboutEntry | BlogEntry | RecipeEntry;
   heroImage?: any; // Astro image import
   heroImageAlt?: string;
   contentClass?: string;

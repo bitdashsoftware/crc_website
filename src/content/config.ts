@@ -104,16 +104,7 @@ const indexCards = defineCollection({
   }),
 });
 
-const poetry = defineCollection({
-  loader: glob({ pattern: "**\/[^_]*.{md,mdx}", base: "./src/content/poetry" }),
-  schema: ({ image }) =>
-    searchable.extend({
-      date: z.date().optional(),
-      image: image().optional(),
-      imageAlt: z.string().default(""),
-      author: reference("authors").optional(),
-    }),
-});
+
 
 const portfolio = defineCollection({
   loader: glob({
@@ -190,7 +181,6 @@ export const collections = {
   getInvolved,
   home,
   indexCards,
-  poetry,
   portfolio,
   recipes,
   terms,

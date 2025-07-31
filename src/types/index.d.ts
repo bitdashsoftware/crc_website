@@ -11,7 +11,7 @@ export type DocsEntry = CollectionEntry<"docs">;
 export type GetInvolvedEntry = CollectionEntry<"getInvolved">;
 export type HomeEntry = CollectionEntry<"home">;
 export type IndexCardsEntry = CollectionEntry<"indexCards">;
-export type PoetryEntry = CollectionEntry<"poetry">;
+
 export type PortfolioEntry = CollectionEntry<"portfolio">;
 export type RecipeEntry = CollectionEntry<"recipes">;
 export type TermsEntry = CollectionEntry<"terms">;
@@ -25,10 +25,12 @@ export type ContentEntry =
   | GetInvolvedEntry
   | HomeEntry
   | IndexCardsEntry
-  | PoetryEntry
+
   | PortfolioEntry
   | RecipeEntry
   | TermsEntry;
+
+export type SearchableEntry = ContentEntry;
 
 export type SocialLinks = {
   discord?: string;

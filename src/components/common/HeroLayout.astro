@@ -8,6 +8,7 @@ interface Props {
   heroImage?: any; // Astro image import
   heroImageAlt?: string;
   contentClass?: string;
+  heroTextClass?: string;
   heroOverlayOpacity?: number;
   heroMinHeight?: string;
 }
@@ -17,6 +18,7 @@ const {
   heroImage, 
   heroImageAlt = "Hero background", 
   contentClass = "content-lightgreen",
+  heroTextClass = "text-white",
   heroOverlayOpacity = 60,
   heroMinHeight = "min-h-screen"
 } = Astro.props;
@@ -44,11 +46,11 @@ const { Content } = await render(entry);
     <div class="relative z-10 container">
       <div class="row justify-center">
         <div class="text-center lg:col-8">
-          <div class={contentClass}>
-            <h1 class="mb-4 text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+          <div class={heroTextClass}>
+            <h1 class="mb-4 text-4xl md:text-6xl font-bold drop-shadow-lg">
               {title}
             </h1>
-            <p class="mb-8 text-xl text-white drop-shadow-md max-w-3xl mx-auto">
+            <p class="mb-8 text-xl drop-shadow-md max-w-3xl mx-auto">
               {description}
             </p>
           </div>

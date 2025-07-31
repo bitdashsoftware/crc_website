@@ -2,7 +2,7 @@
 import { render } from "astro:content";
 import type { CommunityEntry } from "@/types";
 import frontPage from "@assets/why_women_only.jpeg";
-import CustomBackgroundLayout from "@components/base/CustomBackgroundLayout.astro";
+import BaseLayout from "@components/base/BaseLayout.astro";
 
 interface Props {
   entry: CommunityEntry;
@@ -13,11 +13,10 @@ const { title, description, image, imageAlt } = entry.data;
 const { Content } = await render(entry);
 ---
 
-<CustomBackgroundLayout 
+<BaseLayout 
   title={title} 
   description={description} 
   image={image?.src}
-  backgroundImage={frontPage}
 >
   <!-- Hero Section with Background Image -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden -mt-4">
@@ -49,11 +48,11 @@ const { Content } = await render(entry);
     <div class="container">
       <div class="row justify-center">
         <div class="lg:col-8">
-          <div class="content glass rounded-lg p-6" style="color: rgba(119,162,144,1);">
+          <div class="content-lightgreen">
             <Content />
           </div>
         </div>
       </div>
     </div>
   </section>
-</CustomBackgroundLayout> 
+</BaseLayout> 

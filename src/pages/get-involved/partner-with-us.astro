@@ -1,9 +1,15 @@
 ---
 import type { GetInvolvedEntry } from "@/types";
-import EntryLayout from "@components/get-involved/EntryLayout.astro";
+import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
+import partnerWithUsHero from "@assets/hero/partner_with_us.jpg";
 
 const entry = (await getEntry("getInvolved", "partner-with-us")) as GetInvolvedEntry;
 ---
 
-<EntryLayout entry={entry} /> 
+<HeroLayout 
+  entry={entry} 
+  heroImage={partnerWithUsHero}
+  contentClass="content-beige"
+  heroTextClass="content-lightgreen"
+/> 

@@ -1,9 +1,15 @@
 ---
 import type { GetInvolvedEntry } from "@/types";
-import EntryLayout from "@components/get-involved/EntryLayout.astro";
+import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
+import sageGreenLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("getInvolved", "vendor-info")) as GetInvolvedEntry;
 ---
 
-<EntryLayout entry={entry} /> 
+<HeroLayout 
+  entry={entry} 
+  heroImage={sageGreenLogo}
+  contentClass="content-beige"
+  heroTextClass="content-lightgreen"
+/> 

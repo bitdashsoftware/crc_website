@@ -1,6 +1,5 @@
 ---
 title: "Policies & Race Rules"
-description: "Important policies, rules, and guidelines for the Confluence Running Collective women's trail race"
 image: "../../assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---

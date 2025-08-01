@@ -1,6 +1,5 @@
 ---
 title: "Vendor Info"
-description: "Information for vendors interested in participating in the Confluence Running Collective women's trail race"
 image: "@assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---

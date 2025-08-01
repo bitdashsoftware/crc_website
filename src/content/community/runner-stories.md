@@ -1,6 +1,5 @@
 ---
 title: "Runner Stories"
-description: "Read inspiring stories from women in our running community."
 image: "@assets/astrogon-star.svg"
 draft: false
 ---

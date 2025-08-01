@@ -1,100 +1,78 @@
 ---
-title: "Volunteer"
-description: "Join our volunteer team and help make the Confluence Running Collective women's trail race a success"
+title: "Volunteer With Us!"
 image: "@assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---
+Behind every great event is an even greater team of volunteers.
 
-# Join Our Volunteer Team
+Like our event participants, we welcome volunteers who are cis women, trans women, non-binary and anyone who feels comfortable in a space centered around the experiences of women in running and movement.
 
-We couldn't make our women's trail race happen without the incredible support of our volunteers! Whether you're a runner yourself, a trail enthusiast, or just someone who loves supporting women's sports, we'd love to have you on our team.
+Whether you’re brand new to volunteering or a seasoned pro, we’d love for you to be an essential part of making our events the inclusive, community-centered experiences we’re working to build.
 
-## Why Volunteer?
+### **Why Volunteer?**
 
-Volunteering at our race is a rewarding experience that allows you to:
+Volunteering is a fun and meaningful way to:
 
-- **Support Women's Running:** Help create a safe, supportive space for women to challenge themselves
-- **Connect with the Community:** Meet fellow trail enthusiasts and build lasting friendships
-- **Give Back to the Trails:** Contribute to the maintenance and preservation of our beautiful trail systems
-- **Learn New Skills:** Gain experience in event management, first aid, or trail maintenance
-- **Earn Race Credits:** Volunteers receive credits toward future race registrations
+* Support a space where women and gender-diverse folks feel seen and celebrated
 
-## Volunteer Positions
+* Be part of the energy and excitement on race day
 
-### Course Marshals
-**Location:** Various points along the race course
-**Time Commitment:** 4-6 hours on race day
-**Responsibilities:**
-- Direct runners along the course
-- Ensure runners stay on marked trails
-- Provide encouragement and support
-- Report any issues to race officials
+* Meet new people and contribute to a positive, empowering environment
 
-### Aid Station Volunteers
-**Location:** Aid stations along the course
-**Time Commitment:** 4-8 hours on race day
-**Responsibilities:**
-- Set up and maintain aid station supplies
-- Distribute water, sports drinks, and snacks
-- Provide basic first aid if needed
-- Clean up station after race completion
+* Earn service hours or just give back in a way that feels good
 
-### Start/Finish Line Crew
-**Location:** Race start and finish area
-**Time Commitment:** 6-8 hours on race day
-**Responsibilities:**
-- Assist with race check-in and packet pickup
-- Manage finish line timing and results
-- Distribute finisher medals and refreshments
-- Help with post-race celebration activities
+### **Volunteer Roles May Include:**
 
-### Medical Support
-**Location:** Various points along the course and start/finish area
-**Time Commitment:** 6-8 hours on race day
-**Requirements:** Medical certification (EMT, RN, MD, etc.)
-**Responsibilities:**
-- Provide medical assistance to participants
-- Assess and treat minor injuries
-- Coordinate with emergency services if needed
-- Monitor participant safety throughout the race
+* “Course angels” and motivation team
 
-### Pre-Race Setup
-**Location:** Race venue
-**Time Commitment:** 4-6 hours the day before the race
-**Responsibilities:**
-- Mark and prepare the course
-- Set up aid stations and signage
-- Prepare race packets and materials
-- Assist with venue setup and decoration
+* Start/finish line support
 
-## Volunteer Requirements
+* Water and aid station crews
 
-- Must be 16 years of age or older (18+ for certain positions)
-- Complete volunteer orientation and training
-- Commit to your scheduled shift
-- Follow all safety protocols and race guidelines
-- Wear provided volunteer gear and identification
+* Packet pick-up and check-in
 
-## Volunteer Benefits
+* Set-up and breakdown
 
-- **Race Credit:** Earn credits toward future race registrations
-- **Volunteer Gear:** Receive a volunteer t-shirt and other swag
-- **Post-Race Celebration:** Join us for food, drinks, and celebration after the race
-- **Community Recognition:** Be featured in our volunteer appreciation posts
-- **Skill Development:** Gain valuable experience in event management
+* Photographer support   
+* And more\!
 
-## How to Sign Up
+### **Volunteer Perks**
 
-Ready to join our volunteer team? Here's how to get started:
+* Volunteer-exclusive apparel item
 
-1. **Fill out our volunteer application** with your preferred positions and availability
-2. **Attend a volunteer orientation** to learn about your role and responsibilities
-3. **Complete any required training** for your specific position
-4. **Show up on race day** ready to make a difference!
+* Access to race swag, snacks and samples
 
-### Contact Our Volunteer Coordinator
+* Complimentary snacks and drinks during your shift
 
-For questions about volunteering or to sign up, contact our volunteer coordinator:
-**Email:** volunteer@confluencerunningcollective.com
+* COFFEE for the early morning crew\!
 
-We can't wait to have you on our team! Together, we'll create an amazing experience for all the women participating in our trail race. 
+* Discount codes for future events
+
+No experience is needed—- we’ll give you everything you need to feel confident and supported. 
+
+\<\<Volunteer Registration Coming Soon\>\>  
+In the meantime, feel free to reach out to us at info@confluencerunningcollective.com
+
+## **Fundraising Volunteer Opportunities**
+
+Looking for a meaningful way to raise funds for your group or organization? We offer paid volunteer opportunities for community groups, nonprofits and sports teams—especially those that are women-led, all-women groups or whose mission supports women and gender equity.
+
+We welcome inquiries from:
+
+* Women’s sports teams and running clubs
+
+* School groups, service clubs or student orgs
+
+* Nonprofits focused on health, wellness, equity or community building
+
+* Any group that aligns with our mission of celebrating and uplifting women in movement.
+
+Reach out to us at [info@confluencerunningcollective.com](mailto:info@confluencerunningcollective.com)—we’d love to work with you\!
+
+### **A Note About Volunteering**
+
+In an effort to maintain the intentionally welcoming, women-centered environment of our events, we prioritize volunteer opportunities for cis women, trans women, non-binary individuals, and those who feel comfortable in a space centered on the experiences of women.
+
+While we deeply value the support of all community members, we kindly ask that men refrain from volunteering at our events. This helps us create a space that feels safe, inclusive and supportive for our participants.
+
+We appreciate your understanding and your support of our mission.

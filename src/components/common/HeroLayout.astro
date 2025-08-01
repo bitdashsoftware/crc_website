@@ -1,16 +1,18 @@
 ---
 import { render } from "astro:content";
-import type { CommunityEntry, AboutEntry, BlogEntry, RecipeEntry } from "@/types";
+import type { CommunityEntry, AboutEntry, BlogEntry, RecipeEntry, GetInvolvedEntry } from "@/types";
 import BaseLayout from "@components/base/BaseLayout.astro";
+import TableOfContents from "@components/common/TableOfContents.astro";
 
 interface Props {
-  entry: CommunityEntry | AboutEntry | BlogEntry | RecipeEntry;
+  entry: CommunityEntry | AboutEntry | BlogEntry | RecipeEntry | GetInvolvedEntry;
   heroImage?: any; // Astro image import
   heroImageAlt?: string;
   contentClass?: string;
   heroTextClass?: string;
   heroOverlayOpacity?: number;
   heroMinHeight?: string;
+  showSideMenu?: boolean;
 }
 
 const { 
@@ -20,11 +22,15 @@ const {
   contentClass = "content-lightgreen",
   heroTextClass = "text-white",
   heroOverlayOpacity = 60,
-  heroMinHeight = "min-h-screen"
+  heroMinHeight = "min-h-screen",
+  showSideMenu = false
 } = Astro.props;
 
 const { title, description, image, imageAlt } = entry.data;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+
+const tocDepth = 3; // maximum depth for the table of contents 1 = h1, etc
+const hasToc = showSideMenu && headings.filter((heading) => heading.depth <= tocDepth).length > 0;
 ---
 
 <BaseLayout 
@@ -50,9 +56,6 @@ const { Content } = await render(entry);
             <h1 class="mb-4 text-4xl md:text-6xl font-bold drop-shadow-lg">
               {title}
             </h1>
-            <p class="mb-8 text-xl drop-shadow-md max-w-3xl mx-auto">
-              {description}
-            </p>
           </div>
         </div>
       </div>
@@ -62,12 +65,17 @@ const { Content } = await render(entry);
   <!-- Content Section -->
   <section class="section py-16">
     <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-8">
+      <div class="flex">
+        <div class={`w-full ${hasToc ? 'md:w-3/4 lg:w-4/5' : 'w-full'}`}>
           <div class={contentClass}>
             <Content />
           </div>
         </div>
+        {hasToc && (
+          <div class="hidden lg:flex lg:w-1/5 max-h-static_sidemenu sticky top-[5rem] ml-4">
+            <TableOfContents headings={headings} tocDepth={tocDepth} />
+          </div>
+        )}
       </div>
     </div>
   </section>

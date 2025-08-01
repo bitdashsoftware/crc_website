@@ -1,6 +1,5 @@
 ---
 title: "Running Groups We Love"
-description: "Discover amazing women's running groups and communities we partner with and support."
 image: "@assets/astrogon-star.svg"
 draft: false
 ---

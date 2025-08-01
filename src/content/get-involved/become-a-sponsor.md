@@ -1,6 +1,5 @@
 ---
 title: "Become a Sponsor"
-description: "Partner with Confluence Running Collective and support women's trail running while promoting your brand"
 image: "@assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---

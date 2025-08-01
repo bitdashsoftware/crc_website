@@ -1,9 +1,15 @@
 ---
 import type { CommunityEntry } from "@/types";
-import EntryLayout from "@components/community/EntryLayout.astro";
+import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
+import sageGreenLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("community", "runner-stories")) as CommunityEntry;
 ---
 
-<EntryLayout entry={entry} /> 
+<HeroLayout 
+  entry={entry} 
+  heroImage={sageGreenLogo}
+  contentClass="content-beige"
+  heroTextClass="content-lightgreen"
+/> 

@@ -1,9 +1,16 @@
 ---
 import type { AboutEntry } from "@/types";
-import PoliciesLayout from "@components/about/PoliciesLayout.astro";
+import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
+import sageGreenLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("about", "policies-rules")) as AboutEntry;
 ---
 
-<PoliciesLayout entry={entry} /> 
+<HeroLayout 
+  entry={entry} 
+  heroImage={sageGreenLogo}
+  contentClass="content-beige"
+  heroTextClass="content-lightgreen"
+  showSideMenu={true}
+/> 

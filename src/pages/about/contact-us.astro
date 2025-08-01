@@ -1,9 +1,15 @@
 ---
 import type { AboutEntry } from "@/types";
-import EntryLayout from "@components/about/EntryLayout.astro";
+import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
+import contactUsHero from "@assets/hero/contact_us_hero.jpg";
 
 const entry = (await getEntry("about", "contact-us")) as AboutEntry;
 ---
 
-<EntryLayout entry={entry} /> 
+<HeroLayout 
+  entry={entry} 
+  heroImage={contactUsHero}
+  contentClass="content-beige"
+  heroTextClass="content-lightgreen"
+/> 

@@ -1,6 +1,5 @@
 ---
 title: "Ambassador Program"
-description: "Join our ambassador program and help grow our women's running community."
 image: "@assets/astrogon-star.svg"
 draft: false
 ---

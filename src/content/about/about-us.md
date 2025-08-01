@@ -1,6 +1,5 @@
 ---
 title: "About Us"
-description: "Learn about Confluence Running Collective, our founders, and what makes us different"
 image: "@assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---

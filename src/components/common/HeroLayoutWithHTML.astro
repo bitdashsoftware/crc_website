@@ -1,0 +1,68 @@
+---
+import BaseLayout from "@components/base/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: any; // Astro image import
+  heroImage?: any; // Astro image import
+  heroImageAlt?: string;
+  contentClass?: string;
+  heroTextClass?: string;
+  heroOverlayOpacity?: number;
+  heroMinHeight?: string;
+}
+
+const { 
+  title,
+  description,
+  image,
+  heroImage, 
+  heroImageAlt = "Hero background", 
+  contentClass = "content-lightgreen",
+  heroTextClass = "text-white",
+  heroOverlayOpacity = 60,
+  heroMinHeight = "min-h-screen"
+} = Astro.props;
+---
+
+<BaseLayout 
+  title={title} 
+  description={description} 
+  image={image?.src}
+>
+  <!-- Hero Section with Background Image -->
+  <section class={`relative ${heroMinHeight} flex items-center justify-center overflow-hidden -mt-4`}>
+    <!-- Background Image -->
+    {heroImage && (
+      <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={`background-image: url(${heroImage.src});`}>
+        <!-- Overlay for better text readability -->
+        <div class={`absolute inset-0 bg-black bg-opacity-${heroOverlayOpacity}`}></div>
+      </div>
+    )}
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 container">
+      <div class="row justify-center">
+        <div class="text-center lg:col-8">
+          <div class={heroTextClass}>
+            <h1 class="mb-4 text-4xl md:text-6xl font-bold drop-shadow-lg">
+              {title}
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section py-16">
+    <div class="container">
+      <div class="w-full">
+        <div class={contentClass}>
+          <slot />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout> 

@@ -4,38 +4,29 @@ image: "@assets/astrogon-star.svg"
 draft: false
 ---
 
-## Become a Confluence Ambassador
+## Our Mission
 
-Our Ambassador Program is designed for passionate women runners who want to help grow our community and inspire others to discover the joy of running. As an ambassador, you'll be part of a select group of women who represent the values and spirit of Confluence Running Collective.
+The primary mission of Confluence Running Collective is to redefine running and endurance events by centering cis women, trans women and non-binary folks who feel comfortable in women-centered spaces—creating inclusive, welcoming environments that celebrate connection over competition. We embrace all backgrounds, body types, abilities and experience levels. We prioritize genuine connection, support and camaraderie over competition and pace. Recognizing that every runner's path is different, we celebrate the unique effort, growth and experience that each journey brings—not just the finish line.
 
-## What Ambassadors Do
+## Join Our Ambassador Team
 
-- **Community Building:** Help organize local meetups and running events
-- **Mentorship:** Support new runners and share your experience
-- **Social Media:** Share your running journey and inspire others
-- **Event Support:** Assist with race organization and community events
-- **Feedback:** Provide input on community initiatives and programs
+We would love to partner with you to reach more communities of runners who would be interested in participating in our events! We are seeking a team of ambassadors to be liaisons between Confluence Running Collective and the communities you are already a part of. This free program is open for anyone to apply to—we have a few requests for you, and in return, you will get some pretty great perks too! Our terms last for one year. New ambassadors will be selected annually for the next season.
 
 ## Ambassador Benefits
 
-- **Exclusive Gear:** Receive Confluence Running Collective apparel and accessories
-- **Event Access:** Priority registration for our events and races
-- **Networking:** Connect with other ambassadors and community leaders
-- **Recognition:** Featured on our website and social media channels
-- **Leadership Development:** Opportunities to develop your leadership skills
+### What You'll Receive
 
-## Who We're Looking For
+- A Confluence Running Collective t-shirt or tank top
+- A unique discount code to share with your community
+- A free entry to the race after 5 registrations from your code
+- Your photos featured on our stories and posts on our social media pages
+- Ambassador meetups
+- Ambassador Slack channel
+- Opportunities to earn other discounts, merch and perks!
 
-Ideal ambassadors are women who:
+## Ambassador Responsibilities
 
-- Are passionate about running and community building
-- Have a positive, supportive attitude
-- Are active in their local running community
-- Can commit to regular participation in ambassador activities
-- Align with our values of inclusivity, support, and empowerment
+### What We Ask of You
 
-## How to Apply
-
-Applications for our Ambassador Program are currently closed. We'll be opening applications for our next cohort soon. If you're interested in becoming an ambassador, please check back here or follow us on social media for updates.
-
-**Coming Soon:** We'll be launching our application process for the 2025 Ambassador Program. Stay tuned! 
+- Post on their social media: 1 static post or reel per month and 2 stories per month
+- Attend a run club once a month and share about the race and your unique discount code 

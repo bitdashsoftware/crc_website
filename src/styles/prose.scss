@@ -38,6 +38,27 @@
   }
 }
 
+// Nature theme overrides for content
+.theme-nature .content {
+  @apply prose-h1:text-nature-txt-p prose-h2:text-nature-txt-p prose-h3:text-nature-txt-p prose-h4:text-nature-txt-p;
+  @apply prose-p:text-nature-txt-s;
+  @apply prose-a:text-nature-txt-s hover:prose-a:text-nature-txt-p;
+  @apply prose-strong:text-nature-txt-p;
+  @apply prose-code:text-nature-txt-p;
+  @apply prose-hr:border-nature-border;
+  @apply prose-blockquote:border-nature-border prose-blockquote:text-nature-glass-txt-s;
+  @apply prose-table:before:border-nature-border;
+  @apply prose-thead:border-nature-border prose-thead:bg-nature-bg-t;
+  @apply prose-th:text-nature-txt-p;
+  @apply prose-tr:border-nature-border;
+  @apply prose-td:text-nature-txt-s;
+  @apply prose-li:text-nature-txt-s;
+  
+  li::marker {
+    @apply text-nature-txt-s;
+  }
+}
+
 // Glass-specific content styles
 .content.glass {
   @apply prose-h1:text-glass-txt-p prose-h1:dark:text-darkmode-glass-txt-p;
@@ -53,6 +74,22 @@
   @apply prose-li:text-glass-txt-s prose-li:dark:text-darkmode-glass-txt-s;
   li::marker {
     @apply text-glass-txt-s dark:text-darkmode-glass-txt-s;
+  }
+}
+
+// Nature theme overrides for glass content
+.theme-nature .content.glass {
+  @apply prose-h1:text-nature-glass-txt-p prose-h2:text-nature-glass-txt-p prose-h3:text-nature-glass-txt-p prose-h4:text-nature-glass-txt-p;
+  @apply prose-p:text-nature-glass-txt-s;
+  @apply prose-a:text-nature-glass-txt-s hover:prose-a:text-nature-glass-txt-p;
+  @apply prose-strong:text-nature-glass-txt-p;
+  @apply prose-code:text-nature-glass-txt-p;
+  @apply prose-th:text-nature-glass-txt-p;
+  @apply prose-td:text-nature-glass-txt-s;
+  @apply prose-li:text-nature-glass-txt-s;
+  
+  li::marker {
+    @apply text-nature-glass-txt-s;
   }
 }
 
@@ -106,6 +143,27 @@
   }
 }
 
+// Nature theme overrides for lightgreen content
+.theme-nature .content-lightgreen {
+  @apply prose-h1:text-nature-txt-p prose-h2:text-nature-txt-p prose-h3:text-nature-txt-p prose-h4:text-nature-txt-p;
+  @apply prose-p:text-nature-txt-s;
+  @apply prose-a:text-nature-txt-s hover:prose-a:text-nature-txt-p;
+  @apply prose-strong:text-nature-txt-p;
+  @apply prose-code:text-nature-txt-p;
+  @apply prose-hr:border-nature-border;
+  @apply prose-blockquote:border-nature-border prose-blockquote:text-nature-glass-txt-s;
+  @apply prose-table:before:border-nature-border;
+  @apply prose-thead:border-nature-border prose-thead:bg-nature-bg-t;
+  @apply prose-th:text-nature-txt-p;
+  @apply prose-tr:border-nature-border;
+  @apply prose-td:text-nature-txt-s;
+  @apply prose-li:text-nature-txt-s;
+  
+  li::marker {
+    @apply text-nature-txt-s;
+  }
+}
+
 // Beige content styles
 .content-beige {
   // Base prose styling (same as .content)
@@ -153,6 +211,27 @@
     p {
       @apply m-0; // in .mdx files, li elements can contain <p> tags
     }
+  }
+}
+
+// Nature theme overrides for beige content
+.theme-nature .content-beige {
+  @apply prose-h1:text-nature-txt-p prose-h2:text-nature-txt-p prose-h3:text-nature-txt-p prose-h4:text-nature-txt-p;
+  @apply prose-p:text-nature-txt-s;
+  @apply prose-a:text-nature-txt-s hover:prose-a:text-nature-txt-p;
+  @apply prose-strong:text-nature-txt-p;
+  @apply prose-code:text-nature-txt-p;
+  @apply prose-hr:border-nature-border;
+  @apply prose-blockquote:border-nature-border prose-blockquote:text-nature-glass-txt-s;
+  @apply prose-table:before:border-nature-border;
+  @apply prose-thead:border-nature-border prose-thead:bg-nature-bg-t;
+  @apply prose-th:text-nature-txt-p;
+  @apply prose-tr:border-nature-border;
+  @apply prose-td:text-nature-txt-s;
+  @apply prose-li:text-nature-txt-s;
+  
+  li::marker {
+    @apply text-nature-txt-s;
   }
 }
 

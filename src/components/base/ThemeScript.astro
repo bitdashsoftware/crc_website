@@ -1,40 +1,53 @@
 <script is:inline data-astro-rerun>
-  const defaultTheme = "dark";
+  const defaultTheme = "default";
 
-  function getTheme(defaultTheme) {
-    var darkMode = defaultTheme === "dark" ? true : false;
-    if (localStorage.getItem("theme") === "system") {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        darkMode = true;
-      }
-    } else if (localStorage.getItem("theme") === "dark") {
-      darkMode = true;
-    } else if (localStorage.getItem("theme") === "light") {
-      darkMode = false;
-    }
-    return darkMode;
+  function getTheme() {
+    return localStorage.getItem("theme") || defaultTheme;
   }
 
-  function setTheme(darkMode) {
-    // Update DOM
-    darkMode
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark");
+  function setTheme(theme) {
+    // Remove all theme classes
+    document.documentElement.classList.remove("dark", "theme-nature");
+    
+    // Add the appropriate theme class
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (theme === "nature") {
+      document.documentElement.classList.add("theme-nature");
+    }
+    
     // Update localStorage
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    localStorage.setItem("theme", theme);
+    
+    // Update button states
+    updateButtonStates(theme);
+  }
+
+  function updateButtonStates(activeTheme) {
+    // Remove active state from all buttons
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.classList.remove('ring-2', 'ring-blue-500', 'ring-offset-2');
+    });
+    
+    // Add active state to the current theme button
+    const activeButton = document.querySelector(`[data-theme="${activeTheme}"]`);
+    if (activeButton) {
+      activeButton.classList.add('ring-2', 'ring-blue-500', 'ring-offset-2');
+    }
   }
 
   // This prevents flickering back to default theme before the page is fully loaded
-  setTheme(getTheme(defaultTheme));
+  setTheme(getTheme());
 
   document.addEventListener("astro:page-load", () => {
-    setTheme(getTheme(defaultTheme));
+    setTheme(getTheme());
     
-    // Theme switcher
-    var themeSwitch = document.querySelectorAll("[data-theme-switcher]");
-    themeSwitch.forEach((el) => {
-      el.addEventListener("change", (e) => {
-        setTheme(e.target.checked);
+    // Theme switcher buttons
+    const themeButtons = document.querySelectorAll("[data-theme]");
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const theme = e.target.getAttribute("data-theme");
+        setTheme(theme);
       });
     });
   });

@@ -8,14 +8,24 @@ function Notice({
   type: string;
   children: React.ReactNode;
 }) {
+  const getTypeColor = () => {
+    switch (type) {
+      case "note":
+        return "text-[var(--color-note)]";
+      case "tip":
+        return "text-[var(--color-tip)]";
+      case "info":
+        return "text-[var(--color-info)]";
+      case "warning":
+        return "text-[var(--color-warning)]";
+      default:
+        return "text-[var(--color-note)]";
+    }
+  };
+
   return (
     <div
-      className={`mb-6 rounded-lg border border-current py-2 px-4
-      ${type === "note" && "text-[#24a9ab]"}
-      ${type === "tip" && "text-[#65ab24]"}
-      ${type === "info" && "text-[#d7af2d]"}
-      ${type === "warning" && "text-[#f43633]"}
-    `}
+      className={`mb-6 rounded-lg border border-current py-2 px-4 ${getTypeColor()}`}
     >
       <div className="flex items-center">
         {type === "tip" ? (

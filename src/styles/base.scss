@@ -8,6 +8,12 @@ body {
   @apply flex flex-col min-h-screen;
 }
 
+/* Nature theme overrides */
+.theme-nature body {
+  color: var(--color-nature-txt-s);
+  background-color: var(--color-nature-bg-p);
+}
+
 h1,
 h2,
 h3,
@@ -17,6 +23,17 @@ h6 {
   @apply font-primary font-bold leading-tight text-txt-p dark:text-darkmode-txt-p intersect:animate-fade opacity-0;
   // @apply font-primary font-bold leading-tight bg-gradient-to-r from-orange-500 via-indigo-500 to-green-500 text-transparent bg-clip-text;
 }
+
+/* Nature theme overrides for headings */
+.theme-nature h1,
+.theme-nature h2,
+.theme-nature h3,
+.theme-nature h4,
+.theme-nature h5,
+.theme-nature h6 {
+  color: var(--color-nature-txt-p);
+}
+
 h1,
 .h1 {
   @apply text-h1-sm md:text-h1;
@@ -64,6 +81,11 @@ hr {
   @apply border-border dark:border-darkmode-border;
 }
 
+/* Nature theme overrides for hr */
+.theme-nature hr {
+  border-color: var(--color-nature-border);
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -79,6 +101,11 @@ input[type=number] {
   .base {
     @apply text-txt-s dark:text-darkmode-txt-s;
   }
+}
+
+/* Nature theme overrides for katex */
+.theme-nature .katex .base {
+  color: var(--color-nature-txt-s);
 }
 
 html.dark .astro-code,

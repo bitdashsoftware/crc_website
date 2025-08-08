@@ -43,54 +43,75 @@ module.exports = {
     extend: {
       colors: {
         txt: {
-          p: "rgba(43, 70, 60, 0.8)",
-          s: "rgba(43, 70, 60, 0.8)",
-          light: "rgba(43, 70, 60, 0.8)",
+          p: "var(--color-txt-p)",
+          s: "var(--color-txt-s)",
+          light: "var(--color-txt-light)",
         },
         bg: {
-          p: "#fff",
-          s: "#ddd",
-          t: "#ddd",
+          p: "var(--color-bg-p)",
+          s: "var(--color-bg-s)",
+          t: "var(--color-bg-t)",
         },
-        border: "#ddd",
+        border: "var(--color-border)",
         glass: {
           txt: {
-            p: "rgba(43, 70, 60, 0.8)",
-            s: "rgba(43, 70, 60, 0.8)",
-            light: "rgba(43, 70, 60, 0.8)",
+            p: "var(--color-glass-txt-p)",
+            s: "var(--color-glass-txt-s)",
+            light: "var(--color-glass-txt-light)",
           },
         },
         lightgreen: {
           txt: {
-            p: "rgba(119,162,144,1)",
-            s: "rgba(119,162,144,1)",
-            light: "rgba(119,162,144,1)",
+            p: "var(--color-lightgreen-txt-p)",
+            s: "var(--color-lightgreen-txt-s)",
+            light: "var(--color-lightgreen-txt-light)",
           },
         },
         beige: {
           txt: {
-            p: "rgba(233,221,175,1)",
-            s: "rgba(233,221,175,0.8)",
-            light: "rgba(233,221,175,0.6)",
+            p: "var(--color-beige-txt-p)",
+            s: "var(--color-beige-txt-s)",
+            light: "var(--color-beige-txt-light)",
           },
         },
         darkmode: {
           txt: {
-            p: "rgba(43, 70, 60, 0.8)",
-            s: "rgba(43, 70, 60, 0.8)",
-            light: "rgba(43, 70, 60, 0.8)",
+            p: "var(--color-darkmode-txt-p)",
+            s: "var(--color-darkmode-txt-s)",
+            light: "var(--color-darkmode-txt-light)",
           },
           bg: {
-            p: "#222",
-            s: "#444",
-            t: "#444",
+            p: "var(--color-darkmode-bg-p)",
+            s: "var(--color-darkmode-bg-s)",
+            t: "var(--color-darkmode-bg-t)",
           },
-          border: "#444",
+          border: "var(--color-darkmode-border)",
           glass: {
             txt: {
-              p: "rgba(43, 70, 60, 0.8)",
-              s: "rgba(43, 70, 60, 0.8)",
-              light: "rgba(43, 70, 60, 0.8)",
+              p: "var(--color-darkmode-glass-txt-p)",
+              s: "var(--color-darkmode-glass-txt-s)",
+              light: "var(--color-darkmode-glass-txt-light)",
+            },
+          },
+        },
+        // Nature theme colors
+        nature: {
+          txt: {
+            p: "var(--color-nature-txt-p)",
+            s: "var(--color-nature-txt-s)",
+            light: "var(--color-nature-txt-light)",
+          },
+          bg: {
+            p: "var(--color-nature-bg-p)",
+            s: "var(--color-nature-bg-s)",
+            t: "var(--color-nature-bg-t)",
+          },
+          border: "var(--color-nature-border)",
+          glass: {
+            txt: {
+              p: "var(--color-nature-glass-txt-p)",
+              s: "var(--color-nature-glass-txt-s)",
+              light: "var(--color-nature-glass-txt-light)",
             },
           },
         },
@@ -140,7 +161,6 @@ module.exports = {
         "9/12": "75%",
         "10/12": "83.333333%",
         "11/12": "91.666667%",
-        "9/16": "56.25%",
       },
       animation: {
         // Intersect
@@ -210,6 +230,92 @@ module.exports = {
     }),
     plugin(({ addVariant }) => {
       addVariant("intersect", "&:not([no-intersect])");
+    }),
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        // Default theme (dark) CSS custom properties
+        ":root": {
+          // Default theme colors - Updated to use beige
+          "--color-txt-p": "rgba(233,221,175,1)",           // Beige primary text
+          "--color-txt-s": "rgba(233,221,175,0.8)",         // Beige secondary text
+          "--color-txt-light": "rgba(233,221,175,0.6)",     // Beige light text
+          "--color-bg-p": "rgba(43, 70, 60, 1)",            // Dark green background
+          "--color-bg-s": "rgba(233,221,175,0.9)",          // Beige glass background
+          "--color-bg-t": "rgba(233,221,175,0.8)",          // Beige tertiary background
+          "--color-border": "rgba(233,221,175,0.7)",        // Beige border
+          "--color-glass-txt-p": "rgba(43, 70, 60, 0.9)",  // Dark text on beige glass
+          "--color-glass-txt-s": "rgba(43, 70, 60, 0.8)",  // Dark text on beige glass
+          "--color-glass-txt-light": "rgba(43, 70, 60, 0.7)", // Dark text on beige glass
+          "--color-lightgreen-txt-p": "rgba(119,162,144,1)",
+          "--color-lightgreen-txt-s": "rgba(119,162,144,1)",
+          "--color-lightgreen-txt-light": "rgba(119,162,144,1)",
+          "--color-beige-txt-p": "rgba(233,221,175,1)",
+          "--color-beige-txt-s": "rgba(233,221,175,0.8)",
+          "--color-beige-txt-light": "rgba(233,221,175,0.6)",
+          
+          // Dark mode colors (light theme) - Keep as is
+          "--color-darkmode-txt-p": "rgba(43, 70, 60, 0.8)",
+          "--color-darkmode-txt-s": "rgba(43, 70, 60, 0.8)",
+          "--color-darkmode-txt-light": "rgba(43, 70, 60, 0.8)",
+          "--color-darkmode-bg-p": "#fff",
+          "--color-darkmode-bg-s": "#ddd",
+          "--color-darkmode-bg-t": "#ddd",
+          "--color-darkmode-border": "#ddd",
+          "--color-darkmode-glass-txt-p": "rgba(43, 70, 60, 0.8)",
+          "--color-darkmode-glass-txt-s": "rgba(43, 70, 60, 0.8)",
+          "--color-darkmode-glass-txt-light": "rgba(43, 70, 60, 0.8)",
+          
+          // Nature theme colors - Keep as is
+          "--color-nature-txt-p": "rgba(34, 139, 34, 0.9)",
+          "--color-nature-txt-s": "rgba(34, 139, 34, 0.8)",
+          "--color-nature-txt-light": "rgba(34, 139, 34, 0.6)",
+          "--color-nature-bg-p": "#f0f8f0",
+          "--color-nature-bg-s": "#e0f0e0",
+          "--color-nature-bg-t": "#d0e8d0",
+          "--color-nature-border": "#90c090",
+          "--color-nature-glass-txt-p": "rgba(34, 139, 34, 0.9)",
+          "--color-nature-glass-txt-s": "rgba(34, 139, 34, 0.8)",
+          "--color-nature-glass-txt-light": "rgba(34, 139, 34, 0.6)",
+          
+          // Notice colors - Keep as is
+          "--color-note": "#24a9ab",
+          "--color-tip": "#65ab24",
+          "--color-info": "#d7af2d",
+          "--color-warning": "#f43633",
+          
+          // Gradient colors - Keep as is
+          "--color-gradient-1": "#ee7752",
+          "--color-gradient-2": "#e73c7e",
+          "--color-gradient-3": "#23a6d5",
+          "--color-gradient-4": "#23d5ab",
+        },
+        
+        // Nature theme styles
+        ".theme-nature": {
+          "--tw-bg-opacity": "1",
+          backgroundColor: "var(--color-nature-bg-p)",
+          color: "var(--color-nature-txt-s)",
+        },
+        ".theme-nature body": {
+          backgroundColor: "var(--color-nature-bg-p)",
+          color: "var(--color-nature-txt-s)",
+        },
+        ".theme-nature h1, .theme-nature h2, .theme-nature h3, .theme-nature h4, .theme-nature h5, .theme-nature h6": {
+          color: "var(--color-nature-txt-p)",
+        },
+        ".theme-nature .glass": {
+          backgroundColor: "var(--color-nature-bg-s)",
+          borderColor: "var(--color-nature-border)",
+          color: "var(--color-nature-glass-txt-p)",
+        },
+        ".theme-nature .glass-t": {
+          backgroundColor: "var(--color-nature-bg-t)",
+          borderColor: "var(--color-nature-border)",
+        },
+        ".theme-nature .border": {
+          borderColor: "var(--color-nature-border)",
+        },
+      });
     }),
   ],
 };

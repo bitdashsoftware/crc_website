@@ -30,7 +30,7 @@ const stars = Array.from({ length: numStars }).map(() => ({
 
 <!-- Simple Single Color Background -->
 <div
-  class="fixed top-0 left-0 w-full h-full -z-1 pointer-events-none overflow-hidden bg-white dark:bg-[#2B463C]"
+  class="fixed top-0 left-0 w-full h-full -z-1 pointer-events-none overflow-hidden bg-bg-p dark:bg-darkmode-bg-p"
 />
 
 <!-- Gradient Cycle Background -->
@@ -39,7 +39,7 @@ const stars = Array.from({ length: numStars }).map(() => ({
 />
 <style>
   .gradient {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, var(--color-gradient-1), var(--color-gradient-2), var(--color-gradient-3), var(--color-gradient-4));
     background-size: 400% 400%;
   }
 </style> -->

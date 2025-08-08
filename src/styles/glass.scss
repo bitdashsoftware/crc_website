@@ -1,31 +1,51 @@
 .glass {
-  background-color: rgba(233, 221, 175, 1);
+  background-color: var(--color-bg-s);
   // @apply backdrop-blur-lg;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
-  border: 1px solid rgba(119, 162, 144, 0.85);
+  border: 1px solid var(--color-border);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.theme-nature .glass {
+  background-color: var(--color-nature-bg-s);
+  border: 1px solid var(--color-nature-border);
 }
 
 .glass-t {
-  background-color: rgba(233, 221, 175, 1);
+  background-color: var(--color-bg-t);
   // @apply backdrop-blur;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
-  border: 1px solid rgba(119, 162, 144, 0.85);
+  border: 1px solid var(--color-border);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.theme-nature .glass-t {
+  background-color: var(--color-nature-bg-t);
+  border: 1px solid var(--color-nature-border);
 }
 
 .glass-t-borderless {
-  background-color: rgba(233, 221, 175, 1);
+  background-color: var(--color-bg-s);
   // @apply backdrop-blur;
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
 }
 
+.theme-nature .glass-t-borderless {
+  background-color: var(--color-nature-bg-s);
+}
+
 .glass-transparent {
-  background-color: rgba(233, 221, 175, .7);
+  background-color: var(--color-bg-s);
+  opacity: 0.7;
   // @apply backdrop-blur;
   @apply bg-clip-padding;
-  // border: 1px solid rgba(119, 162, 144, 0.85);
+  // border: 1px solid var(--color-border);
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.theme-nature .glass-transparent {
+  background-color: var(--color-nature-bg-s);
+  opacity: 0.7;
 }
 
 // Gradient

@@ -1,15 +1,133 @@
 ---
 import type { CommunityEntry } from "@/types";
-import HeroLayout from "@components/common/HeroLayout.astro";
+import HeroLayoutWithHTML from "@components/common/HeroLayoutWithHTML.astro";
 import { getEntry } from "astro:content";
 import sageGreenLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("community", "runner-stories")) as CommunityEntry;
+
+// Sample runner data - you can replace these with actual runner information
+const runners = [
+  {
+    name: "Sarah Johnson",
+    photo: "/src/assets/profile/sarah-johnson.jpg", // You'll need to add actual photos
+    story: "I never thought I could run a marathon. When I joined Confluence Running Collective, I was barely able to run a mile without stopping. But with the support of this amazing community of women, I not only completed my first marathon but discovered a strength I never knew I had. The encouragement and camaraderie I found here changed everything for me.",
+    achievement: "First Marathon - 2023",
+    location: "Minneapolis, MN"
+  },
+  {
+    name: "Maria Rodriguez",
+    photo: "/src/assets/profile/maria-rodriguez.jpg",
+    story: "After an injury sidelined me for months, I thought my running days were over. The women in this group never gave up on me, even when I wanted to give up on myself. Their encouragement and understanding helped me find my way back to the trails. Now I'm stronger than ever and helping other runners through their own challenges.",
+    achievement: "Trail Running Comeback - 2023",
+    location: "St. Paul, MN"
+  },
+  {
+    name: "Jennifer Chen",
+    photo: "/src/assets/profile/jennifer-chen.jpg",
+    story: "I was always intimidated by trail running—the technical terrain, the navigation, the fear of getting lost. But when I found this community, I discovered that trail running isn't just about the physical challenge—it's about the mental strength and the incredible women who run alongside you. Now I lead trail running groups and help other women overcome their fears.",
+    achievement: "Trail Running Leader - 2023",
+    location: "Duluth, MN"
+  },
+  {
+    name: "Amanda Thompson",
+    photo: "/src/assets/profile/amanda-thompson.jpg",
+    story: "As a single mom with two kids, finding time to run seemed impossible. But this community showed me that it's not about having hours to spare—it's about making the most of every minute. I started with 15-minute runs during my lunch break and now I'm training for my first ultra-marathon. The support here is incredible.",
+    achievement: "Ultra Training - 2024",
+    location: "Rochester, MN"
+  },
+  {
+    name: "Lisa Park",
+    photo: "/src/assets/profile/lisa-park.jpg",
+    story: "I used to think running was a solo sport until I found Confluence Running Collective. The friendships I've made here have transformed not just my running, but my entire life. We celebrate each other's victories, support each other through setbacks, and remind each other that every step forward is progress.",
+    achievement: "Community Builder - 2023",
+    location: "Mankato, MN"
+  },
+  {
+    name: "Rachel Williams",
+    photo: "/src/assets/profile/rachel-williams.jpg",
+    story: "After losing my job during the pandemic, running became my therapy. This community gave me a sense of purpose and belonging when I needed it most. The women here taught me that running isn't about being the fastest—it's about being the most supportive version of yourself.",
+    achievement: "Mental Health Advocate - 2023",
+    location: "Winona, MN"
+  }
+];
 ---
 
-<HeroLayout 
-  entry={entry} 
+<HeroLayoutWithHTML 
+  title={entry.data.title}
+  description="Stories that inspire, motivate, and connect our community of women runners"
   heroImage={sageGreenLogo}
+  heroImageAlt="Runner Stories Hero"
   contentClass="content-beige"
-  heroTextClass="content-lightgreen"
-/> 
+  heroTextClass="text-white"
+  heroOverlayOpacity={70}
+  heroMinHeight="min-h-[60vh]"
+>
+  <!-- Introduction Section -->
+  <div class="max-w-4xl mx-auto text-center mb-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">Stories That Inspire</h2>
+    <p class="text-lg text-gray-600 leading-relaxed">
+      Every runner has a story. Here, we share the journeys, challenges, and triumphs of women in our community. 
+      These stories remind us that we're not alone in our running journey and that every step forward is a victory worth celebrating.
+    </p>
+  </div>
+
+  <!-- Runner Stories Grid -->
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        runners.map((runner) => {
+          const initials = runner.name.split(' ').map(n => n[0]).join('');
+          return (
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <!-- Runner Photo -->
+              <div class="relative h-64 bg-gradient-to-br from-lightgreen-txt-p to-lightgreen-txt-s">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-4xl font-bold text-lightgreen-txt-p">
+                      {initials}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Runner Info -->
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">{runner.name}</h3>
+                <p class="text-sm text-lightgreen-txt-p font-semibold mb-3">{runner.achievement}</p>
+                <p class="text-sm text-gray-500 mb-4">{runner.location}</p>
+                <p class="text-gray-600 leading-relaxed line-clamp-4">
+                  {runner.story}
+                </p>
+                <button class="mt-4 text-lightgreen-txt-p font-semibold hover:text-lightgreen-txt-s transition-colors duration-200">
+                  Read Full Story →
+                </button>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="max-w-4xl mx-auto text-center mt-16 p-8 bg-gradient-to-r from-lightgreen-txt-p to-lightgreen-txt-s rounded-lg">
+    <h3 class="text-2xl font-bold text-white mb-4">Share Your Story</h3>
+    <p class="text-white/90 mb-6">
+      Do you have a running story that could inspire others? We'd love to hear from you! 
+      Your journey, no matter where you are in it, has the power to motivate and encourage other women in our community.
+    </p>
+    <button class="bg-white text-lightgreen-txt-p px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
+      Submit Your Story
+    </button>
+  </div>
+</HeroLayoutWithHTML>
+
+<style>
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style> 

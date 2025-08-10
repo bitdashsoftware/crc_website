@@ -191,21 +191,21 @@
   @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s prose-td:dark:text-darkmode-txt-s;
   @apply prose-li:text-txt-s prose-li:dark:text-darkmode-txt-s;
   
-  // Beige color overrides
-  @apply prose-h1:text-beige-txt-p prose-h1:dark:text-beige-txt-p;
-  @apply prose-h2:text-beige-txt-p prose-h2:dark:text-beige-txt-p;
-  @apply prose-h3:text-beige-txt-p prose-h3:dark:text-beige-txt-p;
-  @apply prose-h4:text-beige-txt-p prose-h4:dark:text-beige-txt-p;
-  @apply prose-p:text-beige-txt-s prose-p:dark:text-beige-txt-s;
-  @apply prose-a:text-beige-txt-s prose-a:dark:text-beige-txt-s hover:prose-a:text-beige-txt-p hover:prose-a:dark:text-beige-txt-p;
-  @apply prose-strong:text-beige-txt-p prose-strong:dark:text-beige-txt-p;
-  @apply prose-code:text-beige-txt-p prose-code:dark:text-beige-txt-p;
-  @apply prose-th:text-beige-txt-p prose-th:dark:text-beige-txt-p;
-  @apply prose-td:text-beige-txt-s prose-td:dark:text-beige-txt-s;
-  @apply prose-li:text-beige-txt-s prose-li:dark:text-beige-txt-s;
+  // Beige color overrides for default theme only
+  @apply prose-h1:text-beige-txt-p prose-h1:dark:text-darkmode-txt-p;
+  @apply prose-h2:text-beige-txt-p prose-h2:dark:text-darkmode-txt-p;
+  @apply prose-h3:text-beige-txt-p prose-h3:dark:text-darkmode-txt-p;
+  @apply prose-h4:text-beige-txt-p prose-h4:dark:text-darkmode-txt-p;
+  @apply prose-p:text-beige-txt-s prose-p:dark:text-darkmode-txt-s;
+  @apply prose-a:text-beige-txt-s prose-a:dark:text-darkmode-txt-s hover:prose-a:text-beige-txt-p hover:prose-a:dark:text-darkmode-txt-p;
+  @apply prose-strong:text-beige-txt-p prose-strong:dark:text-darkmode-txt-p;
+  @apply prose-code:text-beige-txt-p prose-code:dark:text-darkmode-txt-p;
+  @apply prose-th:text-beige-txt-p prose-th:dark:text-darkmode-txt-p;
+  @apply prose-td:text-beige-txt-s prose-td:dark:text-darkmode-txt-s;
+  @apply prose-li:text-beige-txt-s prose-li:dark:text-darkmode-txt-s;
   
   li::marker {
-    @apply text-beige-txt-s dark:text-beige-txt-s;
+    @apply text-beige-txt-s dark:text-darkmode-txt-s;
   }
   li {
     p {

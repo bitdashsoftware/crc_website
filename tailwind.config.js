@@ -253,17 +253,17 @@ module.exports = {
           "--color-beige-txt-s": "rgba(233,221,175,0.8)",
           "--color-beige-txt-light": "rgba(233,221,175,0.6)",
           
-          // Dark mode colors (light theme) - Keep as is
-          "--color-darkmode-txt-p": "rgba(43, 70, 60, 0.8)",
-          "--color-darkmode-txt-s": "rgba(43, 70, 60, 0.8)",
-          "--color-darkmode-txt-light": "rgba(43, 70, 60, 0.8)",
-          "--color-darkmode-bg-p": "#fff",
-          "--color-darkmode-bg-s": "#ddd",
-          "--color-darkmode-bg-t": "#ddd",
-          "--color-darkmode-border": "#ddd",
-          "--color-darkmode-glass-txt-p": "rgba(43, 70, 60, 0.8)",
-          "--color-darkmode-glass-txt-s": "rgba(43, 70, 60, 0.8)",
-          "--color-darkmode-glass-txt-light": "rgba(43, 70, 60, 0.8)",
+          // Dark mode colors (light theme) - Updated to use white instead of beige
+          "--color-darkmode-txt-p": "rgba(255, 255, 255, 1)",     // White text
+          "--color-darkmode-txt-s": "rgba(255, 255, 255, 0.9)",   // White text
+          "--color-darkmode-txt-light": "rgba(255, 255, 255, 0.8)", // White text
+          "--color-darkmode-bg-p": "rgba(43, 70, 60, 1)",         // Dark green background
+          "--color-darkmode-bg-s": "rgba(255, 255, 255, 0.9)",    // White glass
+          "--color-darkmode-bg-t": "rgba(255, 255, 255, 0.8)",    // White tertiary
+          "--color-darkmode-border": "rgba(255, 255, 255, 0.7)",  // White border
+          "--color-darkmode-glass-txt-p": "rgba(43, 70, 60, 0.9)", // Dark green text on white glass
+          "--color-darkmode-glass-txt-s": "rgba(43, 70, 60, 0.8)", // Dark green text on white glass
+          "--color-darkmode-glass-txt-light": "rgba(43, 70, 60, 0.7)", // Dark green text on white glass
           
           // Nature theme colors - Keep as is
           "--color-nature-txt-p": "rgba(34, 139, 34, 0.9)",

@@ -3,9 +3,15 @@ html {
 }
 
 body {
-  @apply font-secondary font-normal leading-relaxed text-txt-s dark:text-darkmode-txt-s;
-  @apply bg-bg-p dark:bg-darkmode-bg-p;
+  @apply font-secondary font-normal leading-relaxed text-txt-s;
+  @apply bg-bg-p;
   @apply flex flex-col min-h-screen;
+}
+
+/* Light theme overrides */
+.light body {
+  color: var(--color-light-txt-s);
+  background-color: var(--color-light-bg-p);
 }
 
 /* Nature theme overrides */
@@ -20,8 +26,18 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-primary font-bold leading-tight text-txt-p dark:text-darkmode-txt-p intersect:animate-fade opacity-0;
+  @apply font-primary font-bold leading-tight text-txt-p intersect:animate-fade opacity-0;
   // @apply font-primary font-bold leading-tight bg-gradient-to-r from-orange-500 via-indigo-500 to-green-500 text-transparent bg-clip-text;
+}
+
+/* Light theme overrides for headings */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6 {
+  color: var(--color-light-txt-p);
 }
 
 /* Nature theme overrides for headings */
@@ -78,7 +94,12 @@ a:hover,
 }
 
 hr {
-  @apply border-border dark:border-darkmode-border;
+  @apply border-border;
+}
+
+/* Light theme overrides for hr */
+.light hr {
+  border-color: var(--color-light-border);
 }
 
 /* Nature theme overrides for hr */
@@ -99,14 +120,21 @@ input[type=number] {
 
 .katex {
   .base {
-    @apply text-txt-s dark:text-darkmode-txt-s;
+    @apply text-txt-s;
   }
+}
+
+/* Light theme overrides for katex */
+.light .katex .base {
+  color: var(--color-light-txt-s);
 }
 
 /* Nature theme overrides for katex */
 .theme-nature .katex .base {
   color: var(--color-nature-txt-s);
 }
+
+
 
 html.dark .astro-code,
 html.dark .astro-code span {

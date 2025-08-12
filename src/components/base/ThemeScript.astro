@@ -7,11 +7,11 @@
 
   function setTheme(theme) {
     // Remove all theme classes
-    document.documentElement.classList.remove("dark", "theme-nature");
+    document.documentElement.classList.remove("light", "theme-nature");
     
     // Add the appropriate theme class
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+    if (theme === "light") {
+      document.documentElement.classList.add("light");
     } else if (theme === "nature") {
       document.documentElement.classList.add("theme-nature");
     }

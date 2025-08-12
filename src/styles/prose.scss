@@ -8,33 +8,54 @@
   @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
   // Scroll margin for anchor links (prevents headings from being hidden under sticky header)
   @apply prose-h1:scroll-mt-24 prose-h2:scroll-mt-24 prose-h3:scroll-mt-24 prose-h4:scroll-mt-24 prose-h5:scroll-mt-24 prose-h6:scroll-mt-24;
-  @apply prose-p:text-base prose-p:text-txt-s prose-p:dark:text-darkmode-txt-s;
-  @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p prose-a:dark:text-darkmode-txt-s hover:prose-a:dark:text-darkmode-txt-p;
+  @apply prose-p:text-base prose-p:text-txt-s;
+  @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p;
   @apply prose-img:max-w-full prose-img:rounded;
-  @apply prose-hr:border-border prose-hr:dark:border-darkmode-border prose-hr:my-4;
-  @apply prose-strong:text-txt-p prose-strong:dark:text-darkmode-txt-s;
-  @apply prose-pre:rounded-lg prose-pre:bg-bg-t prose-pre:dark:bg-darkmode-bg-t;
+  @apply prose-hr:border-border prose-hr:my-4;
+  @apply prose-strong:text-txt-p;
+  @apply prose-pre:rounded-lg prose-pre:bg-bg-t;
   // Code
-  @apply prose-code:px-1 prose-code:text-txt-p prose-code:dark:text-darkmode-txt-p;
+  @apply prose-code:px-1 prose-code:text-txt-p;
   // Blockquote
   @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-8 prose-blockquote:px-4 prose-blockquote:py-0 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic;
-  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:dark:border-darkmode-border prose-blockquote:text-glass-txt-s dark:text-darkmode-glass-txt-s;
+  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:text-glass-txt-s;
   @apply prose-blockquote:prose-p:m-0;
   // Table
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:dark:border-darkmode-border;
-  @apply prose-thead:border-border prose-thead:dark:border-darkmode-border prose-thead:dark:bg-darkmode-bg-t prose-thead:bg-bg-t prose-thead:bg-opacity-40 prose-thead:dark:bg-opacity-40;
-  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-2 prose-th:text-txt-p prose-th:dark:text-darkmode-txt-p;
-  @apply prose-tr:border-border prose-tr:dark:border-darkmode-border;
-  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s prose-td:dark:text-darkmode-txt-s;
+  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:border-border;
+  @apply prose-thead:border-border prose-thead:bg-bg-t prose-thead:bg-bg-t prose-thead:bg-opacity-40;
+  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-2 prose-th:text-txt-p;
+  @apply prose-tr:border-border;
+  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s;
   // Lists
-  @apply prose-li:text-txt-s prose-li:dark:text-darkmode-txt-s;
+  @apply prose-li:text-txt-s;
   li::marker {
-    @apply text-txt-s dark:text-darkmode-txt-s;
+    @apply text-txt-s;
   }
   li {
     p {
       @apply m-0; // in .mdx files, li elements can contain <p> tags
     }
+  }
+}
+
+// Light theme overrides for content
+.light .content {
+  @apply prose-p:text-light-txt-s;
+  @apply prose-a:text-light-txt-s hover:prose-a:text-light-txt-p;
+  @apply prose-hr:border-light-border;
+  @apply prose-strong:text-light-txt-s;
+  @apply prose-pre:bg-light-bg-t;
+  @apply prose-code:text-light-txt-p;
+  @apply prose-blockquote:border-light-border prose-blockquote:text-light-glass-txt-s;
+  @apply prose-table:before:border-light-border;
+  @apply prose-thead:border-light-border prose-thead:bg-light-bg-t;
+  @apply prose-th:text-light-txt-p;
+  @apply prose-tr:border-light-border;
+  @apply prose-td:text-light-txt-s;
+  @apply prose-li:text-light-txt-s;
+  
+  li::marker {
+    @apply text-light-txt-s;
   }
 }
 
@@ -61,19 +82,37 @@
 
 // Glass-specific content styles
 .content.glass {
-  @apply prose-h1:text-glass-txt-p prose-h1:dark:text-darkmode-glass-txt-p;
-  @apply prose-h2:text-glass-txt-p prose-h2:dark:text-darkmode-glass-txt-p;
-  @apply prose-h3:text-glass-txt-p prose-h3:dark:text-darkmode-glass-txt-p;
-  @apply prose-h4:text-glass-txt-p prose-h4:dark:text-darkmode-glass-txt-p;
-  @apply prose-p:text-glass-txt-s prose-p:dark:text-darkmode-glass-txt-s;
-  @apply prose-a:text-glass-txt-s prose-a:dark:text-darkmode-glass-txt-s hover:prose-a:text-glass-txt-p hover:prose-a:dark:text-darkmode-glass-txt-p;
-  @apply prose-strong:text-glass-txt-p prose-strong:dark:text-darkmode-glass-txt-p;
-  @apply prose-code:text-glass-txt-p prose-code:dark:text-darkmode-glass-txt-p;
-  @apply prose-th:text-glass-txt-p prose-th:dark:text-darkmode-glass-txt-p;
-  @apply prose-td:text-glass-txt-s prose-td:dark:text-darkmode-glass-txt-s;
-  @apply prose-li:text-glass-txt-s prose-li:dark:text-darkmode-glass-txt-s;
+  @apply prose-h1:text-glass-txt-p;
+  @apply prose-h2:text-glass-txt-p;
+  @apply prose-h3:text-glass-txt-p;
+  @apply prose-h4:text-glass-txt-p;
+  @apply prose-p:text-glass-txt-s;
+  @apply prose-a:text-glass-txt-s hover:prose-a:text-glass-txt-p;
+  @apply prose-strong:text-glass-txt-p;
+  @apply prose-code:text-glass-txt-p;
+  @apply prose-th:text-glass-txt-p;
+  @apply prose-td:text-glass-txt-s;
+  @apply prose-li:text-glass-txt-s;
   li::marker {
-    @apply text-glass-txt-s dark:text-darkmode-glass-txt-s;
+    @apply text-glass-txt-s;
+  }
+}
+
+// Light theme overrides for glass content
+.light .content.glass {
+  @apply prose-h1:text-light-glass-txt-p;
+  @apply prose-h2:text-light-glass-txt-p;
+  @apply prose-h3:text-light-glass-txt-p;
+  @apply prose-h4:text-light-glass-txt-p;
+  @apply prose-p:text-light-glass-txt-s;
+  @apply prose-a:text-light-glass-txt-s hover:prose-a:text-light-glass-txt-p;
+  @apply prose-strong:text-light-glass-txt-p;
+  @apply prose-code:text-light-glass-txt-p;
+  @apply prose-th:text-light-glass-txt-p;
+  @apply prose-td:text-light-glass-txt-s;
+  @apply prose-li:text-light-glass-txt-s;
+  li::marker {
+    @apply text-light-glass-txt-s;
   }
 }
 
@@ -103,43 +142,64 @@
   @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
   @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
   @apply prose-h1:scroll-mt-24 prose-h2:scroll-mt-24 prose-h3:scroll-mt-24 prose-h4:scroll-mt-24 prose-h5:scroll-mt-24 prose-h6:scroll-mt-24;
-  @apply prose-p:text-base prose-p:text-txt-s prose-p:dark:text-darkmode-txt-s;
-  @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p prose-a:dark:text-darkmode-txt-s hover:prose-a:dark:text-darkmode-txt-p;
+  @apply prose-p:text-base prose-p:text-txt-s;
+  @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p;
   @apply prose-img:max-w-full prose-img:rounded;
-  @apply prose-hr:border-border prose-hr:dark:border-darkmode-border prose-hr:my-4;
-  @apply prose-strong:text-txt-p prose-strong:dark:text-darkmode-txt-s;
-  @apply prose-pre:rounded-lg prose-pre:bg-bg-t prose-pre:dark:bg-darkmode-bg-t;
-  @apply prose-code:px-1 prose-code:text-txt-p prose-code:dark:text-darkmode-txt-p;
+  @apply prose-hr:border-border prose-hr:my-4;
+  @apply prose-strong:text-txt-p;
+  @apply prose-pre:rounded-lg prose-pre:bg-bg-t;
+  @apply prose-code:px-1 prose-code:text-txt-p;
   @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-8 prose-blockquote:px-4 prose-blockquote:py-0 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic;
-  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:dark:border-darkmode-border prose-blockquote:text-glass-txt-s dark:text-darkmode-glass-txt-s;
+  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:text-glass-txt-s;
   @apply prose-blockquote:prose-p:m-0;
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:dark:border-darkmode-border;
-  @apply prose-thead:border-border prose-thead:dark:border-darkmode-border prose-thead:dark:bg-darkmode-bg-t prose-thead:bg-bg-t prose-thead:bg-opacity-40 prose-thead:dark:bg-opacity-40;
-  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-2 prose-th:text-txt-p prose-th:dark:text-darkmode-txt-p;
-  @apply prose-tr:border-border prose-tr:dark:border-darkmode-border;
-  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s prose-td:dark:text-darkmode-txt-s;
-  @apply prose-li:text-txt-s prose-li:dark:text-darkmode-txt-s;
+  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:border-border;
+  @apply prose-thead:border-border prose-thead:bg-bg-t prose-thead:bg-bg-t prose-thead:bg-opacity-40;
+  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-2 prose-th:text-txt-p;
+  @apply prose-tr:border-border;
+  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s;
+  @apply prose-li:text-txt-s;
   
   // Light green color overrides
-  @apply prose-h1:text-lightgreen-txt-p prose-h1:dark:text-lightgreen-txt-p;
-  @apply prose-h2:text-lightgreen-txt-p prose-h2:dark:text-lightgreen-txt-p;
-  @apply prose-h3:text-lightgreen-txt-p prose-h3:dark:text-lightgreen-txt-p;
-  @apply prose-h4:text-lightgreen-txt-p prose-h4:dark:text-lightgreen-txt-p;
-  @apply prose-p:text-lightgreen-txt-s prose-p:dark:text-lightgreen-txt-s;
-  @apply prose-a:text-lightgreen-txt-s prose-a:dark:text-lightgreen-txt-s hover:prose-a:text-lightgreen-txt-p hover:prose-a:dark:text-lightgreen-txt-p;
-  @apply prose-strong:text-lightgreen-txt-p prose-strong:dark:text-lightgreen-txt-p;
-  @apply prose-code:text-lightgreen-txt-p prose-code:dark:text-lightgreen-txt-p;
-  @apply prose-th:text-lightgreen-txt-p prose-th:dark:text-lightgreen-txt-p;
-  @apply prose-td:text-lightgreen-txt-s prose-td:dark:text-lightgreen-txt-s;
-  @apply prose-li:text-lightgreen-txt-s prose-li:dark:text-lightgreen-txt-s;
+  @apply prose-h1:text-lightgreen-txt-p;
+  @apply prose-h2:text-lightgreen-txt-p;
+  @apply prose-h3:text-lightgreen-txt-p;
+  @apply prose-h4:text-lightgreen-txt-p;
+  @apply prose-p:text-lightgreen-txt-s;
+  @apply prose-a:text-lightgreen-txt-s hover:prose-a:text-lightgreen-txt-p;
+  @apply prose-strong:text-lightgreen-txt-p;
+  @apply prose-code:text-lightgreen-txt-p;
+  @apply prose-th:text-lightgreen-txt-p;
+  @apply prose-td:text-lightgreen-txt-s;
+  @apply prose-li:text-lightgreen-txt-s;
   
   li::marker {
-    @apply text-lightgreen-txt-s dark:text-lightgreen-txt-s;
+    @apply text-lightgreen-txt-s;
   }
   li {
     p {
       @apply m-0; // in .mdx files, li elements can contain <p> tags
     }
+  }
+}
+
+// Light theme overrides for lightgreen content
+.light .content-lightgreen {
+  @apply prose-p:text-light-txt-s;
+  @apply prose-a:text-light-txt-s hover:prose-a:text-light-txt-p;
+  @apply prose-hr:border-light-border;
+  @apply prose-strong:text-light-txt-s;
+  @apply prose-pre:bg-light-bg-t;
+  @apply prose-code:text-light-txt-p;
+  @apply prose-blockquote:border-light-border prose-blockquote:text-light-glass-txt-s;
+  @apply prose-table:before:border-light-border;
+  @apply prose-thead:border-light-border prose-thead:bg-light-bg-t;
+  @apply prose-th:text-light-txt-p;
+  @apply prose-tr:border-light-border;
+  @apply prose-td:text-light-txt-s;
+  @apply prose-li:text-light-txt-s;
+  
+  li::marker {
+    @apply text-light-txt-s;
   }
 }
 
@@ -174,43 +234,64 @@
   @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
   @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
   @apply prose-h1:scroll-mt-24 prose-h2:scroll-mt-24 prose-h3:scroll-mt-24 prose-h4:scroll-mt-24 prose-h5:scroll-mt-24 prose-h6:scroll-mt-24;
-  @apply prose-p:text-base prose-p:text-txt-s prose-p:dark:text-darkmode-txt-s;
-  @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p prose-a:dark:text-darkmode-txt-s hover:prose-a:dark:text-darkmode-txt-p;
+  @apply prose-p:text-base prose-p:text-txt-s;
+  @apply prose-a:text-txt-s prose-a:underline hover:prose-a:text-txt-p;
   @apply prose-img:max-w-full prose-img:rounded;
-  @apply prose-hr:border-border prose-hr:dark:border-darkmode-border prose-hr:my-4;
-  @apply prose-strong:text-txt-p prose-strong:dark:text-darkmode-txt-s;
-  @apply prose-pre:rounded-lg prose-pre:bg-bg-t prose-pre:dark:bg-darkmode-bg-t;
-  @apply prose-code:px-1 prose-code:text-txt-p prose-code:dark:text-darkmode-txt-p;
+  @apply prose-hr:border-border prose-hr:my-4;
+  @apply prose-strong:text-txt-p;
+  @apply prose-pre:rounded-lg prose-pre:bg-bg-t;
+  @apply prose-code:px-1 prose-code:text-txt-p;
   @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-8 prose-blockquote:px-4 prose-blockquote:py-0 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic;
-  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:dark:border-darkmode-border prose-blockquote:text-glass-txt-s dark:text-darkmode-glass-txt-s;
+  @apply prose-blockquote:glass-t-borderless prose-blockquote:border-border prose-blockquote:text-glass-txt-s;
   @apply prose-blockquote:prose-p:m-0;
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:dark:border-darkmode-border;
-  @apply prose-thead:border-border prose-thead:dark:border-darkmode-border prose-thead:dark:bg-darkmode-bg-t prose-thead:bg-bg-t prose-thead:bg-opacity-40 prose-thead:dark:bg-opacity-40;
-  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-2 prose-th:text-txt-p prose-th:dark:text-darkmode-txt-p;
-  @apply prose-tr:border-border prose-tr:dark:border-darkmode-border;
-  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s prose-td:dark:text-darkmode-txt-s;
-  @apply prose-li:text-txt-s prose-li:dark:text-darkmode-txt-s;
+  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:border prose-table:before:content-[""] prose-table:before:border-border;
+  @apply prose-thead:border-border prose-thead:bg-bg-t prose-thead:bg-bg-t prose-thead:bg-opacity-40;
+  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-2 prose-th:text-txt-p;
+  @apply prose-tr:border-border;
+  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-2 prose-td:text-txt-s;
+  @apply prose-li:text-txt-s;
   
   // Beige color overrides for default theme only
-  @apply prose-h1:text-beige-txt-p prose-h1:dark:text-darkmode-txt-p;
-  @apply prose-h2:text-beige-txt-p prose-h2:dark:text-darkmode-txt-p;
-  @apply prose-h3:text-beige-txt-p prose-h3:dark:text-darkmode-txt-p;
-  @apply prose-h4:text-beige-txt-p prose-h4:dark:text-darkmode-txt-p;
-  @apply prose-p:text-beige-txt-s prose-p:dark:text-darkmode-txt-s;
-  @apply prose-a:text-beige-txt-s prose-a:dark:text-darkmode-txt-s hover:prose-a:text-beige-txt-p hover:prose-a:dark:text-darkmode-txt-p;
-  @apply prose-strong:text-beige-txt-p prose-strong:dark:text-darkmode-txt-p;
-  @apply prose-code:text-beige-txt-p prose-code:dark:text-darkmode-txt-p;
-  @apply prose-th:text-beige-txt-p prose-th:dark:text-darkmode-txt-p;
-  @apply prose-td:text-beige-txt-s prose-td:dark:text-darkmode-txt-s;
-  @apply prose-li:text-beige-txt-s prose-li:dark:text-darkmode-txt-s;
+  @apply prose-h1:text-beige-txt-p;
+  @apply prose-h2:text-beige-txt-p;
+  @apply prose-h3:text-beige-txt-p;
+  @apply prose-h4:text-beige-txt-p;
+  @apply prose-p:text-beige-txt-s;
+  @apply prose-a:text-beige-txt-s hover:prose-a:text-beige-txt-p;
+  @apply prose-strong:text-beige-txt-p;
+  @apply prose-code:text-beige-txt-p;
+  @apply prose-th:text-beige-txt-p;
+  @apply prose-td:text-beige-txt-s;
+  @apply prose-li:text-beige-txt-s;
   
   li::marker {
-    @apply text-beige-txt-s dark:text-darkmode-txt-s;
+    @apply text-beige-txt-s;
   }
   li {
     p {
       @apply m-0; // in .mdx files, li elements can contain <p> tags
     }
+  }
+}
+
+// Light theme overrides for beige content
+.light .content-beige {
+  @apply prose-p:text-light-txt-s;
+  @apply prose-a:text-light-txt-s hover:prose-a:text-light-txt-p;
+  @apply prose-hr:border-light-border;
+  @apply prose-strong:text-light-txt-s;
+  @apply prose-pre:bg-light-bg-t;
+  @apply prose-code:text-light-txt-p;
+  @apply prose-blockquote:border-light-border prose-blockquote:text-light-glass-txt-s;
+  @apply prose-table:before:border-light-border;
+  @apply prose-thead:border-light-border prose-thead:bg-light-bg-t;
+  @apply prose-th:text-light-txt-p;
+  @apply prose-tr:border-light-border;
+  @apply prose-td:text-light-txt-s;
+  @apply prose-li:text-light-txt-s;
+  
+  li::marker {
+    @apply text-light-txt-s;
   }
 }
 

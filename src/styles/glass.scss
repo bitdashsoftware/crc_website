@@ -6,10 +6,10 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Dark mode overrides for glass (light theme) */
-.dark .glass {
-  background-color: var(--color-darkmode-bg-s);
-  border: 1px solid var(--color-darkmode-border);
+/* Light mode overrides for glass */
+.light .glass {
+  background-color: var(--color-light-bg-s);
+  border: 1px solid var(--color-light-border);
 }
 
 .theme-nature .glass {
@@ -25,10 +25,10 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Dark mode overrides for glass-t (light theme) */
-.dark .glass-t {
-  background-color: var(--color-darkmode-bg-t);
-  border: 1px solid var(--color-darkmode-border);
+/* Light mode overrides for glass-t */
+.light .glass-t {
+  background-color: var(--color-light-bg-t);
+  border: 1px solid var(--color-light-border);
 }
 
 .theme-nature .glass-t {
@@ -42,9 +42,9 @@
   @apply bg-clip-padding backdrop-filter backdrop-saturate-100 backdrop-contrast-100;
 }
 
-/* Dark mode overrides for glass-t-borderless (light theme) */
-.dark .glass-t-borderless {
-  background-color: var(--color-darkmode-bg-s);
+/* Light mode overrides for glass-t-borderless */
+.light .glass-t-borderless {
+  background-color: var(--color-light-bg-s);
 }
 
 .theme-nature .glass-t-borderless {
@@ -60,10 +60,23 @@
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Dark mode overrides for glass-transparent (light theme) */
-.dark .glass-transparent {
-  background-color: var(--color-darkmode-bg-s);
+/* Light mode overrides for glass-transparent */
+.light .glass-transparent {
+  background-color: var(--color-light-bg-s);
   opacity: 0.7;
+}
+
+/* Light theme overrides for glass text */
+.light .text-glass-txt-p {
+  color: var(--color-light-glass-txt-p);
+}
+
+.light .text-glass-txt-s {
+  color: var(--color-light-glass-txt-s);
+}
+
+.light .text-glass-txt-light {
+  color: var(--color-light-glass-txt-light);
 }
 
 .theme-nature .glass-transparent {

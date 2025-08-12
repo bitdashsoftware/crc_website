@@ -74,23 +74,23 @@ module.exports = {
             light: "var(--color-beige-txt-light)",
           },
         },
-        darkmode: {
+        light: {
           txt: {
-            p: "var(--color-darkmode-txt-p)",
-            s: "var(--color-darkmode-txt-s)",
-            light: "var(--color-darkmode-txt-light)",
+            p: "var(--color-light-txt-p)",
+            s: "var(--color-light-txt-s)",
+            light: "var(--color-light-txt-light)",
           },
           bg: {
-            p: "var(--color-darkmode-bg-p)",
-            s: "var(--color-darkmode-bg-s)",
-            t: "var(--color-darkmode-bg-t)",
+            p: "var(--color-light-bg-p)",
+            s: "var(--color-light-bg-s)",
+            t: "var(--color-light-bg-t)",
           },
-          border: "var(--color-darkmode-border)",
+          border: "var(--color-light-border)",
           glass: {
             txt: {
-              p: "var(--color-darkmode-glass-txt-p)",
-              s: "var(--color-darkmode-glass-txt-s)",
-              light: "var(--color-darkmode-glass-txt-light)",
+              p: "var(--color-light-glass-txt-p)",
+              s: "var(--color-light-glass-txt-s)",
+              light: "var(--color-light-glass-txt-light)",
             },
           },
         },
@@ -253,17 +253,17 @@ module.exports = {
           "--color-beige-txt-s": "rgba(233,221,175,0.8)",
           "--color-beige-txt-light": "rgba(233,221,175,0.6)",
           
-          // Dark mode colors (light theme) - Updated to use white instead of beige
-          "--color-darkmode-txt-p": "rgba(255, 255, 255, 1)",     // White text
-          "--color-darkmode-txt-s": "rgba(255, 255, 255, 0.9)",   // White text
-          "--color-darkmode-txt-light": "rgba(255, 255, 255, 0.8)", // White text
-          "--color-darkmode-bg-p": "rgba(43, 70, 60, 1)",         // Dark green background
-          "--color-darkmode-bg-s": "rgba(255, 255, 255, 0.9)",    // White glass
-          "--color-darkmode-bg-t": "rgba(255, 255, 255, 0.8)",    // White tertiary
-          "--color-darkmode-border": "rgba(255, 255, 255, 0.7)",  // White border
-          "--color-darkmode-glass-txt-p": "rgba(43, 70, 60, 0.9)", // Dark green text on white glass
-          "--color-darkmode-glass-txt-s": "rgba(43, 70, 60, 0.8)", // Dark green text on white glass
-          "--color-darkmode-glass-txt-light": "rgba(43, 70, 60, 0.7)", // Dark green text on white glass
+          // light theme - Updated to use rgb(246 242 232) instead of white
+          "--color-light-txt-p": "rgb(246, 242, 232)",         // Light cream text
+          "--color-light-txt-s": "rgba(246, 242, 232, 0.9)",   // Light cream text
+          "--color-light-txt-light": "rgba(246, 242, 232, 0.8)", // Light cream text
+          "--color-light-bg-p": "rgba(43, 70, 60, 1)",         // Dark green background
+          "--color-light-bg-s": "rgba(246, 242, 232, 0.9)",    // Light cream glass
+          "--color-light-bg-t": "rgba(246, 242, 232, 0.8)",    // Light cream tertiary
+          "--color-light-border": "rgba(246, 242, 232, 0.7)",  // Light cream border
+          "--color-light-glass-txt-p": "rgba(43, 70, 60, 1)", // Dark green text on light cream glass
+          "--color-light-glass-txt-s": "rgba(43, 70, 60, 0.9)", // Dark green text on light cream glass
+          "--color-light-glass-txt-light": "rgba(43, 70, 60, 0.8)", // Dark green text on light cream glass
           
           // Nature theme colors - Keep as is
           "--color-nature-txt-p": "rgba(34, 139, 34, 0.9)",
@@ -314,6 +314,18 @@ module.exports = {
         },
         ".theme-nature .border": {
           borderColor: "var(--color-nature-border)",
+        },
+        
+        // Light theme (light class) styles
+        ".light .glass": {
+          backgroundColor: "var(--color-light-bg-s)",
+          borderColor: "var(--color-light-border)",
+          color: "var(--color-light-glass-txt-p)",
+        },
+        ".light .glass-t": {
+          backgroundColor: "var(--color-light-bg-t)",
+          borderColor: "var(--color-light-border)",
+          color: "var(--color-light-glass-txt-p)",
         },
       });
     }),

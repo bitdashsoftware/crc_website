@@ -306,98 +306,120 @@ const runners = [
    }
 </style>
 
-<script>
-  // Lightbox functionality
-  document.addEventListener('DOMContentLoaded', function() {
-         const cards = document.querySelectorAll('.runner-card');
-     const lightbox = document.getElementById('lightbox') as HTMLElement;
-     const lightboxClose = document.querySelector('.lightbox-close') as HTMLElement;
-    
-    // Runner data for the lightbox
-    const runners = [
-      {
-        name: "Sarah Johnson",
-        story: "I never thought I could run a marathon. When I joined Confluence Running Collective, I was barely able to run a mile without stopping. But with the support of this amazing community of women, I not only completed my first marathon but discovered a strength I never knew I had. The encouragement and camaraderie I found here changed everything for me.",
-        achievement: "First Marathon - 2023",
-        location: "Minneapolis, MN"
-      },
-      {
-        name: "Maria Rodriguez",
-        story: "After an injury sidelined me for months, I thought my running days were over. The women in this group never gave up on me, even when I wanted to give up on myself. Their encouragement and understanding helped me find my way back to the trails. Now I'm stronger than ever and helping other runners through their own challenges.",
-        achievement: "Trail Running Comeback - 2023",
-        location: "St. Paul, MN"
-      },
-      {
-        name: "Jennifer Chen",
-        story: "I was always intimidated by trail running—the technical terrain, the navigation, the fear of getting lost. But when I found this community, I discovered that trail running isn't just about the physical challenge—it's about the mental strength and the incredible women who run alongside you. Now I lead trail running groups and help other women overcome their fears.",
-        achievement: "Trail Running Leader - 2023",
-        location: "Duluth, MN"
-      },
-      {
-        name: "Amanda Thompson",
-        story: "As a single mom with two kids, finding time to run seemed impossible. But this community showed me that it's not about having hours to spare—it's about making the most of every minute. I started with 15-minute runs during my lunch break and now I'm training for my first ultra-marathon. The support here is incredible.",
-        achievement: "Ultra Training - 2024",
-        location: "Rochester, MN"
-      },
-      {
-        name: "Lisa Park",
-        story: "I used to think running was a solo sport until I found Confluence Running Collective. The friendships I've made here have transformed not just my running, but my entire life. We celebrate each other's victories, support each other through setbacks, and remind each other that every step forward is progress.",
-        achievement: "Community Builder - 2023",
-        location: "Mankato, MN"
-      },
-      {
-        name: "Rachel Williams",
-        story: "After losing my job during the pandemic, running became my therapy. This community gave me a sense of purpose and belonging when I needed it most. The women here taught me that running isn't about being the fastest—it's about being the most supportive version of yourself.",
-        achievement: "Mental Health Advocate - 2023",
-        location: "Winona, MN"
-      }
-    ];
-    
-                                       function openLightbox(index: number) {
-         const runner = runners[index];
-         const initials = runner.name.split(' ').map(n => n[0]).join('');
-         
-         // Populate lightbox content
-         (document.getElementById('lightbox-initials') as HTMLElement).textContent = initials;
-         (document.getElementById('lightbox-name') as HTMLElement).textContent = runner.name;
-         (document.getElementById('lightbox-achievement') as HTMLElement).textContent = runner.achievement;
-         (document.getElementById('lightbox-location') as HTMLElement).textContent = runner.location;
-         (document.getElementById('lightbox-story') as HTMLElement).textContent = runner.story;
-         
-         // Show lightbox
-         lightbox.classList.add('show');
-         
-         // Prevent body scroll
-         document.body.style.overflow = 'hidden';
-       }
+<script is:inline>
+  // Lightbox functionality - runs on every page visit
+  (function() {
+    // Wait for DOM to be ready
+    function initLightbox() {
+      const cards = document.querySelectorAll('.runner-card');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxClose = document.querySelector('.lightbox-close');
       
-                    function closeLightbox() {
-         lightbox.classList.remove('show');
-         document.body.style.overflow = '';
-       }
-    
-    // Add click listeners to cards
-    cards.forEach((card: Element, index: number) => {
-      card.addEventListener('click', function() {
-        openLightbox(index);
+      if (!cards.length || !lightbox || !lightboxClose) {
+        // If elements aren't ready yet, try again in a moment
+        setTimeout(initLightbox, 100);
+        return;
+      }
+      
+      // Runner data for the lightbox
+      const runners = [
+        {
+          name: "Sarah Johnson",
+          story: "I never thought I could run a marathon. When I joined Confluence Running Collective, I was barely able to run a mile without stopping. But with the support of this amazing community of women, I not only completed my first marathon but discovered a strength I never knew I had. The encouragement and camaraderie I found here changed everything for me.",
+          achievement: "First Marathon - 2023",
+          location: "Minneapolis, MN"
+        },
+        {
+          name: "Maria Rodriguez",
+          story: "After an injury sidelined me for months, I thought my running days were over. The women in this group never gave up on me, even when I wanted to give up on myself. Their encouragement and understanding helped me find my way back to the trails. Now I'm stronger than ever and helping other runners through their own challenges.",
+          achievement: "Trail Running Comeback - 2023",
+          location: "St. Paul, MN"
+        },
+        {
+          name: "Jennifer Chen",
+          story: "I was always intimidated by trail running—the technical terrain, the navigation, the fear of getting lost. But when I found this community, I discovered that trail running isn't just about the physical challenge—it's about the mental strength and the incredible women who run alongside you. Now I lead trail running groups and help other women overcome their fears.",
+          achievement: "Trail Running Leader - 2023",
+          location: "Duluth, MN"
+        },
+        {
+          name: "Amanda Thompson",
+          story: "As a single mom with two kids, finding time to run seemed impossible. But this community showed me that it's not about having hours to spare—it's about making the most of every minute. I started with 15-minute runs during my lunch break and now I'm training for my first ultra-marathon. The support here is incredible.",
+          achievement: "Ultra Training - 2024",
+          location: "Rochester, MN"
+        },
+        {
+          name: "Lisa Park",
+          story: "I used to think running was a solo sport until I found Confluence Running Collective. The friendships I've made here have transformed not just my running, but my entire life. We celebrate each other's victories, support each other through setbacks, and remind each other that every step forward is progress.",
+          achievement: "Community Builder - 2023",
+          location: "Mankato, MN"
+        },
+        {
+          name: "Rachel Williams",
+          story: "After losing my job during the pandemic, running became my therapy. This community gave me a sense of purpose and belonging when I needed it most. The women here taught me that running isn't about being the fastest—it's about being the most supportive version of yourself.",
+          achievement: "Mental Health Advocate - 2023",
+          location: "Winona, MN"
+        }
+      ];
+      
+      function openLightbox(index) {
+        const runner = runners[index];
+        const initials = runner.name.split(' ').map(n => n[0]).join('');
+        
+        // Populate lightbox content
+        document.getElementById('lightbox-initials').textContent = initials;
+        document.getElementById('lightbox-name').textContent = runner.name;
+        document.getElementById('lightbox-achievement').textContent = runner.achievement;
+        document.getElementById('lightbox-location').textContent = runner.location;
+        document.getElementById('lightbox-story').textContent = runner.story;
+        
+        // Show lightbox
+        lightbox.classList.add('show');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeLightbox() {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+      
+      // Remove any existing event listeners by cloning and replacing elements
+      cards.forEach((card, index) => {
+        const newCard = card.cloneNode(true);
+        card.parentNode.replaceChild(newCard, card);
+        
+        newCard.addEventListener('click', function() {
+          openLightbox(index);
+        });
       });
-    });
+      
+      // Close lightbox on close button click
+      lightboxClose.addEventListener('click', closeLightbox);
+      
+      // Close lightbox on background click
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      
+      // Close lightbox on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+          closeLightbox();
+        }
+      });
+    }
     
-         // Close lightbox on close button click
-     lightboxClose.addEventListener('click', closeLightbox);
-     
-     // Close lightbox on background click
-     lightbox.addEventListener('click', function(e: Event) {
-       if (e.target === lightbox) {
-         closeLightbox();
-       }
-     });
-     
-     // Close lightbox on escape key
-     document.addEventListener('keydown', function(e: KeyboardEvent) {
-       if (e.key === 'Escape' && lightbox.classList.contains('show')) {
-         closeLightbox();
-       }
-     });
-  });
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLightbox);
+    } else {
+      initLightbox();
+    }
+    
+    // Also initialize on Astro page transitions
+    document.addEventListener('astro:page-load', initLightbox);
+  })();
 </script> 

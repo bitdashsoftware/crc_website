@@ -1,56 +1,15 @@
 ---
 import type { CommunityEntry } from "@/types";
 import HeroLayoutWithHTML from "@components/common/HeroLayoutWithHTML.astro";
-import { getEntry } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
 import sageGreenLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("community", "runner-stories")) as CommunityEntry;
 
-// Sample runner data - you can replace these with actual runner information
-const runners = [
-  {
-    name: "Sarah Johnson",
-    photo: "/src/assets/profile/sarah-johnson.jpg", // You'll need to add actual photos
-    story: "I never thought I could run a marathon. When I joined Confluence Running Collective, I was barely able to run a mile without stopping. But with the support of this amazing community of women, I not only completed my first marathon but discovered a strength I never knew I had. The encouragement and camaraderie I found here changed everything for me.",
-    achievement: "First Marathon - 2023",
-    location: "Minneapolis, MN"
-  },
-  {
-    name: "Maria Rodriguez",
-    photo: "/src/assets/profile/maria-rodriguez.jpg",
-    story: "After an injury sidelined me for months, I thought my running days were over. The women in this group never gave up on me, even when I wanted to give up on myself. Their encouragement and understanding helped me find my way back to the trails. Now I'm stronger than ever and helping other runners through their own challenges.",
-    achievement: "Trail Running Comeback - 2023",
-    location: "St. Paul, MN"
-  },
-  {
-    name: "Jennifer Chen",
-    photo: "/src/assets/profile/jennifer-chen.jpg",
-    story: "I was always intimidated by trail running—the technical terrain, the navigation, the fear of getting lost. But when I found this community, I discovered that trail running isn't just about the physical challenge—it's about the mental strength and the incredible women who run alongside you. Now I lead trail running groups and help other women overcome their fears.",
-    achievement: "Trail Running Leader - 2023",
-    location: "Duluth, MN"
-  },
-  {
-    name: "Amanda Thompson",
-    photo: "/src/assets/profile/amanda-thompson.jpg",
-    story: "As a single mom with two kids, finding time to run seemed impossible. But this community showed me that it's not about having hours to spare—it's about making the most of every minute. I started with 15-minute runs during my lunch break and now I'm training for my first ultra-marathon. The support here is incredible.",
-    achievement: "Ultra Training - 2024",
-    location: "Rochester, MN"
-  },
-  {
-    name: "Lisa Park",
-    photo: "/src/assets/profile/lisa-park.jpg",
-    story: "I used to think running was a solo sport until I found Confluence Running Collective. The friendships I've made here have transformed not just my running, but my entire life. We celebrate each other's victories, support each other through setbacks, and remind each other that every step forward is progress.",
-    achievement: "Community Builder - 2023",
-    location: "Mankato, MN"
-  },
-  {
-    name: "Rachel Williams",
-    photo: "/src/assets/profile/rachel-williams.jpg",
-    story: "After losing my job during the pandemic, running became my therapy. This community gave me a sense of purpose and belonging when I needed it most. The women here taught me that running isn't about being the fastest—it's about being the most supportive version of yourself.",
-    achievement: "Mental Health Advocate - 2023",
-    location: "Winona, MN"
-  }
-];
+// Get all runner story entries
+const runnerStories = await getCollection("community", ({ data }) => {
+  return data.pronouns; // Only get entries that have pronouns field
+});
 ---
 
 <HeroLayoutWithHTML 
@@ -67,8 +26,7 @@ const runners = [
   <div class="max-w-4xl mx-auto text-center mb-16">
     <h2 class="text-3xl font-bold mb-6">Stories That Inspire</h2>
     <p class="text-lg leading-relaxed">
-      Every runner has a story. Here, we share the journeys, challenges, and triumphs of women in our community. 
-      These stories remind us that we're not alone in our running journey and that every step forward is a victory worth celebrating.
+      Confluence Running Collective celebrates women runners at every stage—whether they’re exploring running for the first time, pursuing a personal health goal or seeking connection with a community of inspiring women. Every stride tells a story of courage and determination. We honor the strength and spirit of women who run and support each other every step of the way.
     </p>
   </div>
 
@@ -76,8 +34,8 @@ const runners = [
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style="grid-auto-rows: minmax(auto, auto);">
       {
-        runners.map((runner, index) => {
-          const initials = runner.name.split(' ').map(n => n[0]).join('');
+        runnerStories.map((runner, index) => {
+          const initials = runner.data.title.split(' ').map((n: string) => n[0]).join('');
           const cardId = `card-${index}`;
           return (
             <div 
@@ -98,12 +56,11 @@ const runners = [
                
                <!-- Runner Info -->
                <div class="p-6 transition-all duration-700">
-                <h3 class="text-xl text-glass-txt-p font-bold mb-2">{runner.name}</h3>
-                <p class="text-sm text-glass-txt-p font-semibold mb-3">{runner.achievement}</p>
-                <p class="text-sm text-glass-txt-p mb-2">{runner.location}</p>
-                <p class="leading-relaxed text-glass-txt-p line-clamp-4">
-                  {runner.story}
-                </p>
+                <h3 class="text-xl text-glass-txt-p font-bold mb-2">{runner.data.title}</h3>
+                <p class="text-sm text-glass-txt-p font-semibold mb-3">{runner.data.pronouns}</p>
+                                 <p class="leading-relaxed text-glass-txt-p line-clamp-4">
+                   {runner.body}
+                 </p>
                 <button class="mt-4 text-lightgreen-txt-p font-semibold hover:text-lightgreen-txt-s transition-colors duration-200">
                   Read Full Story →
                 </button>
@@ -118,6 +75,13 @@ const runners = [
            
  </HeroLayoutWithHTML>
 
+<!-- Pass runner data to JavaScript -->
+<script id="runner-data" type="application/json" set:html={JSON.stringify(runnerStories.map(runner => ({
+  title: runner.data.title,
+  pronouns: runner.data.pronouns,
+  story: runner.body  // ← This is the markdown content from the .md file body
+})))}></script>
+
 <!-- Lightbox Overlay - Positioned outside HeroLayoutWithHTML to overlay entire page -->
 <div id="lightbox" class="lightbox">
   <div class="lightbox-content">
@@ -128,13 +92,12 @@ const runners = [
      </div>
      <div class="lightbox-info">
        <h3 id="lightbox-name"></h3>
-       <p id="lightbox-achievement"></p>
-       <p id="lightbox-location"></p>
+       <p id="lightbox-pronouns"></p>
      </div>
    </div>
-   <div class="lightbox-body">
-     <p id="lightbox-story"></p>
-   </div>
+       <div class="lightbox-body">
+      <div id="lightbox-story"></div>  <!-- ← This is where the markdown content goes -->
+    </div>
  </div>
 </div>
 
@@ -176,17 +139,17 @@ const runners = [
       display: flex;
     }
     
-    .lightbox-content {
-      background: rgb(246, 242, 232);
-      border-radius: 12px;
-      max-width: 600px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      position: relative;
-      animation: lightboxSlideIn 0.3s ease-out;
-    }
+         .lightbox-content {
+       background: var(--color-light-bg-s);
+       border-radius: 12px;
+       max-width: 600px;
+       width: 90%;
+       max-height: 80vh;
+       overflow-y: auto;
+       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+       position: relative;
+       animation: lightboxSlideIn 0.3s ease-out;
+     }
     
     @keyframes lightboxSlideIn {
       from {
@@ -199,29 +162,29 @@ const runners = [
       }
     }
    
-   .lightbox-close {
-     position: absolute;
-     top: 1rem;
-     right: 1rem;
-     background: none;
-     border: none;
-     font-size: 2rem;
-     color: #666;
-     cursor: pointer;
-     z-index: 10;
-     width: 40px;
-     height: 40px;
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     transition: all 0.2s ease;
-   }
-   
-   .lightbox-close:hover {
-     background: rgba(0, 0, 0, 0.1);
-     color: #333;
-   }
+                               .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: var(--color-bg-p);
+        cursor: pointer;
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+      }
+      
+      .lightbox-close:hover {
+        background: rgba(43, 70, 60, 0.1);
+        color: var(--color-bg-p);
+      }
    
    .lightbox-header {
      display: flex;
@@ -231,50 +194,64 @@ const runners = [
      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
    }
    
-   .lightbox-avatar {
-     width: 80px;
-     height: 80px;
-     background: linear-gradient(135deg, #4a7c59, #6b8e5f);
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-shrink: 0;
-   }
+       .lightbox-avatar {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--color-bg-p), var(--color-bg-p));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .lightbox-avatar span {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--color-light-bg-s);
+    }
    
-   .lightbox-avatar span {
-     font-size: 2rem;
-     font-weight: bold;
-     color: rgb(246, 242, 232);
-   }
-   
-   .lightbox-info h3 {
-     font-size: 1.5rem;
-     font-weight: bold;
-     color: #333;
-     margin: 0 0 0.5rem 0;
-   }
-   
-   .lightbox-info p {
-     margin: 0.25rem 0;
-     color: #666;
-     font-size: 0.9rem;
-   }
-   
-   .lightbox-info p:first-of-type {
-     font-weight: 600;
-     color: #4a7c59;
-   }
+                               .lightbox-info h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--color-bg-p);
+        margin: 0 0 0.5rem 0;
+      }
+      
+      .lightbox-info p {
+        margin: 0.25rem 0;
+        color: var(--color-bg-p);
+        font-size: 0.9rem;
+      }
+      
+      .lightbox-info p:first-of-type {
+        font-weight: 600;
+        color: var(--color-bg-p);
+      }
    
    .lightbox-body {
      padding: 1.5rem 2rem 2rem 2rem;
+     color: var(--color-bg-p)
    }
    
    .lightbox-body p {
      line-height: 1.7;
-     color: #333;
+     color: var(--color-bg-p);
      font-size: 1rem;
-     margin: 0;
+     margin: 0 0 1rem 0;
+   }
+   
+   .lightbox-body p:last-child {
+     margin-bottom: 0;
+   }
+   
+   .lightbox-body strong {
+     font-weight: 600;
+     color: var(--color-bg-p);
+   }
+   
+   .lightbox-body em {
+     font-style: italic;
    }
    
    @media (max-width: 768px) {
@@ -311,56 +288,38 @@ const runners = [
         return;
       }
       
-      // Runner data for the lightbox
-      const runners = [
-        {
-          name: "Sarah Johnson",
-          story: "I never thought I could run a marathon. When I joined Confluence Running Collective, I was barely able to run a mile without stopping. But with the support of this amazing community of women, I not only completed my first marathon but discovered a strength I never knew I had. The encouragement and camaraderie I found here changed everything for me.",
-          achievement: "First Marathon - 2023",
-          location: "Minneapolis, MN"
-        },
-        {
-          name: "Maria Rodriguez",
-          story: "After an injury sidelined me for months, I thought my running days were over. The women in this group never gave up on me, even when I wanted to give up on myself. Their encouragement and understanding helped me find my way back to the trails. Now I'm stronger than ever and helping other runners through their own challenges.",
-          achievement: "Trail Running Comeback - 2023",
-          location: "St. Paul, MN"
-        },
-        {
-          name: "Jennifer Chen",
-          story: "I was always intimidated by trail running—the technical terrain, the navigation, the fear of getting lost. But when I found this community, I discovered that trail running isn't just about the physical challenge—it's about the mental strength and the incredible women who run alongside you. Now I lead trail running groups and help other women overcome their fears.",
-          achievement: "Trail Running Leader - 2023",
-          location: "Duluth, MN"
-        },
-        {
-          name: "Amanda Thompson",
-          story: "As a single mom with two kids, finding time to run seemed impossible. But this community showed me that it's not about having hours to spare—it's about making the most of every minute. I started with 15-minute runs during my lunch break and now I'm training for my first ultra-marathon. The support here is incredible.",
-          achievement: "Ultra Training - 2024",
-          location: "Rochester, MN"
-        },
-        {
-          name: "Lisa Park",
-          story: "I used to think running was a solo sport until I found Confluence Running Collective. The friendships I've made here have transformed not just my running, but my entire life. We celebrate each other's victories, support each other through setbacks, and remind each other that every step forward is progress.",
-          achievement: "Community Builder - 2023",
-          location: "Mankato, MN"
-        },
-        {
-          name: "Rachel Williams",
-          story: "After losing my job during the pandemic, running became my therapy. This community gave me a sense of purpose and belonging when I needed it most. The women here taught me that running isn't about being the fastest—it's about being the most supportive version of yourself.",
-          achievement: "Mental Health Advocate - 2023",
-          location: "Winona, MN"
-        }
-      ];
-      
-      function openLightbox(index) {
-        const runner = runners[index];
-        const initials = runner.name.split(' ').map(n => n[0]).join('');
-        
-        // Populate lightbox content
-        document.getElementById('lightbox-initials').textContent = initials;
-        document.getElementById('lightbox-name').textContent = runner.name;
-        document.getElementById('lightbox-achievement').textContent = runner.achievement;
-        document.getElementById('lightbox-location').textContent = runner.location;
-        document.getElementById('lightbox-story').textContent = runner.story;
+             // Runner data for the lightbox - this will be populated from the server-side data
+       const runners = JSON.parse(document.getElementById('runner-data')?.textContent || '[]');
+       
+       // Simple markdown to HTML converter
+       function convertMarkdownToHtml(markdown) {
+         return markdown
+           // Convert **text** to <strong>text</strong>
+           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+           // Convert *text* to <em>text</em>
+           .replace(/\*(.*?)\*/g, '<em>$1</em>')
+           // Convert line breaks to <br> tags
+           .replace(/\n/g, '<br>')
+           // Convert double line breaks to paragraph breaks
+           .replace(/<br><br>/g, '</p><p>')
+           // Wrap in paragraph tags
+           .replace(/^(.+)$/s, '<p>$1</p>')
+           // Clean up empty paragraphs
+           .replace(/<p><\/p>/g, '');
+       }
+       
+       function openLightbox(index) {
+         const runner = runners[index];
+         const initials = runner.title.split(' ').map(n => n[0]).join('');
+         
+         // Populate lightbox content
+         document.getElementById('lightbox-initials').textContent = initials;
+         document.getElementById('lightbox-name').textContent = runner.title;
+         document.getElementById('lightbox-pronouns').textContent = runner.pronouns;
+         
+         // Convert markdown to HTML for the story
+         const storyHtml = convertMarkdownToHtml(runner.story);
+         document.getElementById('lightbox-story').innerHTML = storyHtml;
         
         // Show lightbox
         lightbox.classList.add('show');

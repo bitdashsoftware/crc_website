@@ -123,6 +123,7 @@ const community = defineCollection({
     searchable.extend({
       image: image().optional(),
       imageAlt: z.string().default(""),
+      pronouns: z.string().optional(),
     }),
 });
 

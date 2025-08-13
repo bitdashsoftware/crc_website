@@ -1,0 +1,12 @@
+---
+title: "Anna"
+pronouns: "She/They"
+---
+
+Running is a deeply personal sport to me. Instead of competing against others, I've had the opportunity to train alongside other women while we all chase our own goals. When we pursue excellence together, we are all able to grow as athletes.
+
+I started running in my late 20's. A friend asked me to train for and run a 5K with her. She has always been my "hard things friend"- whenever we had to clean the house or go to the DMV or even take a statistics class, we did it together. That 5K was one of the hardest things I had ever done. It was intimidating to start—how often, as adults, do we find ourselves being a total novice at something? But I loved the process of figuring out how to train and improve. I was immediately hooked, and I signed up for my first half shortly after crossing the finish line of that 5K. Soon after that, I was training for marathons and dipping my toes into the world of trail running. Years later, I'm not always training for a longer distance or faster time, but I am always opting outside as often as I can. I love how many different ways there are to be a runner.
+
+Running has been a constant for me, even through periods of great change in my life. Of course, my relationship to running changes as my other commitments change. Sometimes I hit the pavement six days a week while training for a long distance race, while there are months that I prefer to casually walk/run laps of a local park with friends with no goal or end in mind. But running through the different seasons is a reminder to me that consistency is all about showing up and not always about achievement or being the best.
+
+It's pretty common for athletes to have mantras that they return to when the run gets tough. Mine is silly, but it's full of gratitude. I often find myself looking down at my feet hitting the trail and whispering, "thank you, meatsack." Falling in love with running has shown me just how incredible my body is, how strong it is, and how I can experience so much joy and beauty and pleasure in the world around me thanks to my legs, lungs, heart and mind. Running is a constant reminder of the gratitude I have for myself and the world around me. 

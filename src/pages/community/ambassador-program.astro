@@ -2,14 +2,14 @@
 import type { CommunityEntry } from "@/types";
 import HeroLayout from "@components/common/HeroLayout.astro";
 import { getEntry } from "astro:content";
-import sageGreenLogo from "@assets/logo/sage-green-logo.png";
+import ambassadorHero from "@assets/hero/ambassador_hero.jpg";
 
 const entry = (await getEntry("community", "ambassador-program")) as CommunityEntry;
 ---
 
 <HeroLayout 
   entry={entry} 
-  heroImage={sageGreenLogo}
+  heroImage={ambassadorHero}
   contentClass="content-beige"
   heroTextClass="content-lightgreen"
 /> 

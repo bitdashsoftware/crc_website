@@ -124,6 +124,12 @@ const community = defineCollection({
       image: image().optional(),
       imageAlt: z.string().default(""),
       pronouns: z.string().optional(),
+      county: z.string().optional(),
+      website: z.string().optional(),
+      social: social.optional(),
+      meetingTimes: z.string().optional(),
+      meetingLocation: z.string().optional(),
+      description: z.string().optional(),
     }),
 });
 

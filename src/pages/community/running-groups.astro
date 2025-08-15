@@ -1,15 +1,252 @@
 ---
 import type { CommunityEntry } from "@/types";
-import HeroLayout from "@components/common/HeroLayout.astro";
-import { getEntry } from "astro:content";
+import HeroLayoutWithHTML from "@components/common/HeroLayoutWithHTML.astro";
+import { getEntry, getCollection } from "astro:content";
 import sageGreenLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("community", "running-groups")) as CommunityEntry;
+
+// Get all running group entries
+const runningGroups = await getCollection("community", ({ data }) => {
+  return data.county; // Only get entries that have county field
+});
+
+// Group by county
+const groupsByCounty = runningGroups.reduce((acc, group) => {
+  const county = group.data.county;
+  if (county) {
+    if (!acc[county]) {
+      acc[county] = [];
+    }
+    acc[county].push(group);
+  }
+  return acc;
+}, {} as Record<string, typeof runningGroups>);
+
+const counties = Object.keys(groupsByCounty).sort();
 ---
 
-<HeroLayout 
-  entry={entry} 
+<HeroLayoutWithHTML 
+  title={entry.data.title}
+  description="Discover amazing women's running groups in your area"
   heroImage={sageGreenLogo}
+  heroImageAlt="Running Groups Hero"
   contentClass="content-beige"
-  heroTextClass="content-lightgreen"
-/> 
+  heroTextClass="text-white"
+  heroOverlayOpacity={70}
+  heroMinHeight="min-h-[60vh]"
+>
+  <!-- Introduction Section -->
+  <div class="max-w-4xl mx-auto text-center mb-16">
+    <h2 class="text-3xl font-bold mb-6">Find Your Running Community</h2>
+    <p class="text-lg leading-relaxed">
+      We believe in the power of community and collaboration. Here are some incredible women's running groups and organizations that we love, support, and often partner with. These groups share our values of empowerment, inclusivity, and the joy of running.
+    </p>
+  </div>
+
+  <!-- County Selection -->
+  <div class="max-w-6xl mx-auto mb-12">
+    <div class="text-center mb-8">
+      <h3 class="text-2xl font-bold mb-4">Select Your County</h3>
+      <p class="text-lg">Click on a county to see the running groups in your area</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {counties.map((county) => (
+        <button 
+          class="county-card glass rounded-lg p-6 text-center hover:shadow-xl transition-all duration-500 cursor-pointer transform hover:-translate-y-1"
+          data-county={county}
+        >
+          <h4 class="text-xl font-bold text-glass-txt-p mb-2">{county} County</h4>
+          <p class="text-sm text-glass-txt-p">
+            {groupsByCounty[county].length} running group{groupsByCounty[county].length !== 1 ? 's' : ''}
+          </p>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Running Groups Display -->
+  <div id="running-groups-display" class="max-w-7xl mx-auto">
+    {counties.map((county) => (
+      <div 
+        id={`county-${county.toLowerCase()}`}
+        class="county-section hidden"
+      >
+        <div class="text-center mb-8">
+          <h3 class="text-3xl font-bold mb-4">{county} County Running Groups</h3>
+          <button 
+            class="back-to-counties text-lightgreen-txt-p hover:text-lightgreen-txt-s transition-colors duration-200"
+          >
+            ← Back to Counties
+          </button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {groupsByCounty[county].map((group) => (
+            <div class="running-group-card glass rounded-lg overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer transform hover:-translate-y-1">
+              <!-- Group Header -->
+              <div class="relative h-48 bg-gradient-to-br from-lightgreen-txt-p to-lightgreen-txt-s transition-all duration-700">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-24 h-24 bg-[rgb(246,242,232)] rounded-full flex items-center justify-center shadow-lg transition-all duration-700">
+                    <span class="text-2xl font-bold text-lightgreen-txt-p transition-all duration-700">
+                      {group.data.title.split(' ').map((n: string) => n[0]).join('')}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Group Info -->
+              <div class="p-6 transition-all duration-700">
+                <h4 class="text-xl text-glass-txt-p font-bold mb-3">{group.data.title}</h4>
+                
+                {group.data.meetingTimes && (
+                  <div class="mb-3">
+                    <p class="text-sm text-glass-txt-p font-semibold">Meeting Times:</p>
+                    <p class="text-sm text-glass-txt-p">{group.data.meetingTimes}</p>
+                  </div>
+                )}
+                
+                {group.data.meetingLocation && (
+                  <div class="mb-3">
+                    <p class="text-sm text-glass-txt-p font-semibold">Location:</p>
+                    <p class="text-sm text-glass-txt-p">{group.data.meetingLocation}</p>
+                  </div>
+                )}
+                
+                <p class="leading-relaxed text-glass-txt-p line-clamp-3 mb-4">
+                  {group.data.description || group.body}
+                </p>
+                
+                {group.data.website && (
+                  <a 
+                    href={group.data.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block mt-4 text-lightgreen-txt-p font-semibold hover:text-lightgreen-txt-s transition-colors duration-200"
+                  >
+                    Visit Website →
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Partnership Section -->
+  <div class="max-w-4xl mx-auto mt-16 text-center">
+    <h3 class="text-2xl font-bold mb-6">Partnership Opportunities</h3>
+    <p class="text-lg leading-relaxed mb-6">
+      We're always looking to connect with and support other women's running groups. If you're part of a women's running community that aligns with our values, we'd love to hear from you!
+    </p>
+    <p class="text-sm text-glass-txt-p">
+      <strong>Note:</strong> This is a curated list of groups we admire and support. We're always discovering new amazing communities and will continue to update this list.
+    </p>
+  </div>
+</HeroLayoutWithHTML>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .county-card {
+    transition: all 0.3s ease;
+  }
+  
+  .county-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .running-group-card {
+    transition: all 0.3s ease;
+  }
+  
+  .running-group-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .county-section {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script is:inline>
+  // County navigation functionality
+  (function() {
+    function initCountyNavigation() {
+      const countyCards = document.querySelectorAll('.county-card');
+      const countySections = document.querySelectorAll('.county-section');
+      const backButtons = document.querySelectorAll('.back-to-counties');
+      
+      if (!countyCards.length || !countySections.length) {
+        setTimeout(initCountyNavigation, 100);
+        return;
+      }
+      
+      function showCounty(countyName) {
+        // Hide all county sections
+        countySections.forEach(section => {
+          section.classList.add('hidden');
+        });
+        
+        // Show selected county section
+        const targetSection = document.getElementById(`county-${countyName.toLowerCase()}`);
+        if (targetSection) {
+          targetSection.classList.remove('hidden');
+        }
+      }
+      
+      function showCountySelection() {
+        // Show all county cards
+        countySections.forEach(section => {
+          section.classList.add('hidden');
+        });
+      }
+      
+      // Add click handlers to county cards
+      countyCards.forEach(card => {
+        const countyName = card.getAttribute('data-county');
+        card.addEventListener('click', () => {
+          showCounty(countyName);
+        });
+      });
+      
+      // Add click handlers to back buttons
+      backButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          showCountySelection();
+        });
+      });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCountyNavigation);
+    } else {
+      initCountyNavigation();
+    }
+    
+    // Also initialize on Astro page transitions
+    document.addEventListener('astro:page-load', initCountyNavigation);
+  })();
+</script> 

@@ -2,7 +2,7 @@
 import type { CommunityEntry } from "@/types";
 import HeroLayoutWithHTML from "@components/common/HeroLayoutWithHTML.astro";
 import { getEntry, getCollection } from "astro:content";
-import sageGreenLogo from "@assets/logo/sage-green-logo.png";
+import runningGroupHero from "@assets/hero/running-group-we-support-hero.jpg";
 
 const entry = (await getEntry("community", "running-groups")) as CommunityEntry;
 
@@ -29,11 +29,11 @@ const counties = Object.keys(groupsByCounty).sort();
 <HeroLayoutWithHTML 
   title={entry.data.title}
   description="Discover amazing women's running groups in your area"
-  heroImage={sageGreenLogo}
+  heroImage={runningGroupHero}
   heroImageAlt="Running Groups Hero"
   contentClass="content-beige"
   heroTextClass="text-white"
-  heroOverlayOpacity={70}
+  heroOverlayOpacity={50}
   heroMinHeight="min-h-[60vh]"
 >
   <!-- Introduction Section -->

@@ -25,7 +25,7 @@ const {
     {title && <h3 class="text-2xl font-bold text-txt-p mb-2">{title}</h3>}
     {subtitle && <p class="text-txt-s mb-6">{subtitle}</p>}
     
-    <form id={formId} class="space-y-6">
+    <form id={formId} class="space-y-6" data-success-message={successMessage} data-error-message={errorMessage} data-form-id={formId}>
       <!-- Honeypot field - hidden from users but visible to bots -->
       <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
         <input 
@@ -83,7 +83,7 @@ const {
       </div>
       
       <!-- reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+      <!-- <div class="g-recaptcha" data-sitekey="6LcwsqcrAAAAAORjq69IIyTJW3uD2ZUxScZnUPnO"></div> -->
       
       <!-- Submit button -->
       <button 
@@ -111,53 +111,66 @@ const {
 
 <script>
   // Form submission handler
-  function initializeForm(formId) {
-    const form = document.getElementById(formId);
-    if (!form) return;
+  function initializeForm(formId: string) {
+    console.log('🔧 Initializing form with ID:', formId);
+    const form = document.getElementById(formId) as HTMLFormElement;
+    if (!form) {
+      console.error('❌ Form not found with ID:', formId);
+      return;
+    }
+    console.log('✅ Form found:', form);
     
     const statusDiv = document.getElementById(`${formId}-status`);
     const successDiv = document.getElementById(`${formId}-success`);
     const errorDiv = document.getElementById(`${formId}-error`);
     
-    function showMessage(type, message) {
-      statusDiv.classList.remove('hidden');
-      successDiv.classList.add('hidden');
-      errorDiv.classList.add('hidden');
+    function showMessage(type: string, message: string) {
+      if (statusDiv) statusDiv.classList.remove('hidden');
+      if (successDiv) successDiv.classList.add('hidden');
+      if (errorDiv) errorDiv.classList.add('hidden');
       
       if (type === 'success') {
-        successDiv.classList.remove('hidden');
-        successDiv.textContent = message;
+        if (successDiv) {
+          successDiv.classList.remove('hidden');
+          successDiv.textContent = message;
+        }
       } else {
-        errorDiv.classList.remove('hidden');
-        errorDiv.textContent = message;
+        if (errorDiv) {
+          errorDiv.classList.remove('hidden');
+          errorDiv.textContent = message;
+        }
       }
       
       // Auto-hide after 5 seconds
       setTimeout(() => {
-        statusDiv.classList.add('hidden');
+        if (statusDiv) statusDiv.classList.add('hidden');
       }, 5000);
     }
     
     function resetForm() {
       form.reset();
-      grecaptcha.reset();
+      // grecaptcha.reset(); // Commented out for now
     }
     
     // Rate limiting check
     function isRateLimited() {
-      const lastSubmission = localStorage.getItem(`${formId}-last-submission`);
-      if (lastSubmission) {
-        const timeDiff = Date.now() - parseInt(lastSubmission);
-        const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
-        if (timeDiff < oneHour) {
-          return true;
-        }
-      }
+
+      //Commented out for testing
+
+
+      // const lastSubmission = localStorage.getItem(`${formId}-last-submission`);
+      // if (lastSubmission) {
+      //   const timeDiff = Date.now() - parseInt(lastSubmission);
+      //   const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
+      //   if (timeDiff < oneHour) {
+      //     return true;
+      //   }
+      // }
       return false;
     }
     
     // Content filtering
-    function isSpam(data) {
+    function isSpam(data: any) {
       const spamKeywords = [
         'viagra', 'casino', 'loan', 'click here', 'buy now', 'make money fast',
         'weight loss', 'diet pills', 'free money', 'lottery', 'inheritance',
@@ -194,16 +207,19 @@ const {
     }
     
     // Email validation
-    function validateEmail(email) {
+    function validateEmail(email: string) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
     }
     
     form.addEventListener('submit', async (e) => {
+      console.log('📝 Form submit event triggered!');
       e.preventDefault();
       
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalText = submitButton.textContent;
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (!submitButton) return;
+      
+      const originalText = submitButton.textContent || '';
       
       // Show loading state
       submitButton.textContent = 'Sending...';
@@ -223,17 +239,17 @@ const {
           throw new Error('Invalid submission detected');
         }
         
-        // Verify reCAPTCHA
-        const recaptchaResponse = grecaptcha.getResponse();
-        if (!recaptchaResponse) {
-          throw new Error('Please complete the reCAPTCHA verification');
-        }
+        // // Verify reCAPTCHA
+        // const recaptchaResponse = grecaptcha.getResponse();
+        // if (!recaptchaResponse) {
+        //   throw new Error('Please complete the reCAPTCHA verification');
+        // }
         
         const data = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          message: formData.get('message'),
-          recaptchaResponse: recaptchaResponse,
+          name: formData.get('name') as string,
+          email: formData.get('email') as string,
+          message: formData.get('message') as string,
+          // recaptchaResponse: recaptchaResponse,
           timestamp: new Date().toISOString(),
           userAgent: navigator.userAgent,
           referrer: document.referrer
@@ -250,20 +266,25 @@ const {
         }
         
         // Submit to Google Apps Script
-        const scriptUrl = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzQRqAxaJVPL8CgoY8PZVj5lOwrvrT7UDcfI1rQoN0uF99RTlm_k4LAZiU9CpB2ABjW/exec';
+        
+        console.log('📤 Submitting form data:', data);
+        console.log('🌐 Script URL:', scriptUrl);
         
         const response = await fetch(scriptUrl, {
           method: 'POST',
           body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
         });
         
+        console.log('📡 Response status:', response.status);
+        console.log('📡 Response headers:', response.headers);
+        
         const result = await response.json();
+        console.log('📥 Response result:', result);
         
         if (result.success) {
-          showMessage('success', successMessage);
+          const successMsg = form.dataset.successMessage || 'Message sent successfully!';
+          showMessage('success', successMsg);
           resetForm();
           
           // Update rate limiting
@@ -272,9 +293,10 @@ const {
           throw new Error(result.error || 'Submission failed');
         }
         
-      } catch (error) {
+      } catch (error: any) {
         console.error('Form submission error:', error);
-        showMessage('error', error.message || errorMessage);
+        const errorMsg = form.dataset.errorMessage || 'An error occurred. Please try again.';
+        showMessage('error', error.message || errorMsg);
       } finally {
         // Reset button state
         submitButton.textContent = originalText;
@@ -285,13 +307,23 @@ const {
   
   // Initialize form when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {
-    initializeForm('{formId}');
+    // Find the contact form and get its ID
+    const form = document.querySelector('form[data-form-id]');
+    if (form) {
+      const formId = form.getAttribute('data-form-id');
+      console.log('🚀 DOM loaded, initializing form with ID:', formId);
+      if (formId) {
+        initializeForm(formId);
+      }
+    } else {
+      console.error('❌ No contact form found with data-form-id attribute');
+    }
   });
 </script>
 
 <style>
   .contact-form-container {
-    font-family: inherit;
+    font-family: 'Quicksand', sans-serif;
   }
   
   /* Input and textarea styling with theme colors - HIGH SPECIFICITY */

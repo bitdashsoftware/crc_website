@@ -9,15 +9,16 @@ const ADMIN_EMAIL = 'your-email@example.com'; // For notifications
 
 function doPost(e) {
   try {
+    
     const data = JSON.parse(e.postData.contents);
     
     // Log the request for debugging
     console.log('Received form submission:', data);
     
     // 1. Verify reCAPTCHA
-    if (!verifyRecaptcha(data.recaptchaResponse)) {
-      return createResponse(false, 'reCAPTCHA verification failed');
-    }
+    // if (!verifyRecaptcha(data.recaptchaResponse)) {
+    //   return createResponse(false, 'reCAPTCHA verification failed', headers);
+    // }
     
     // 2. Check honeypot field
     if (data.website) {
@@ -50,7 +51,7 @@ function doPost(e) {
     
   } catch (error) {
     console.error('Error processing form submission:', error);
-    return createResponse(false, 'Internal server error');
+    return createResponse(false, 'Internal server error', error.message);
   }
 }
 
@@ -228,13 +229,16 @@ function sendNotificationEmail(data) {
 
 // Create response
 function createResponse(success, message) {
-  return ContentService
+  let response = ContentService
     .createTextOutput(JSON.stringify({
       success: success,
       message: message,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      error: success ? null : message
     }))
     .setMimeType(ContentService.MimeType.JSON);
+  
+  return response;
 }
 
 // Test function (optional)
@@ -257,3 +261,4 @@ function testFormSubmission() {
   
   console.log('Test result:', result);
 }
+

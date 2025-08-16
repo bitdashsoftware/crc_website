@@ -249,6 +249,7 @@ const {
           name: formData.get('name') as string,
           email: formData.get('email') as string,
           message: formData.get('message') as string,
+          formId: formId, // Include the form ID for sheet separation
           // recaptchaResponse: recaptchaResponse,
           timestamp: new Date().toISOString(),
           userAgent: navigator.userAgent,
@@ -266,7 +267,7 @@ const {
         }
         
         // Submit to Google Apps Script
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzQRqAxaJVPL8CgoY8PZVj5lOwrvrT7UDcfI1rQoN0uF99RTlm_k4LAZiU9CpB2ABjW/exec';
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbxjxKuCpTzhs2WwuaV8SpFWaZXIgQXxvrKdytsdJit3JOHRVq2qI8JB-14iJn66Z5Gc/exec';
         
         console.log('📤 Submitting form data:', data);
         console.log('🌐 Script URL:', scriptUrl);

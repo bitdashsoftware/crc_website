@@ -160,15 +160,31 @@ function isSpam(data) {
 // Save data to Google Sheet
 function saveToSheet(data) {
   try {
-    const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('FormSubmissions');
+    // Get form ID from data, default to 'contact-form' if not provided
+    const formId = data.formId || 'contact-form';
+    
+    // Sanitize form ID for sheet name (remove special characters, limit length)
+    const sheetName = sanitizeSheetName(formId);
+    
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    let sheet = ss.getSheetByName(sheetName);
+    
     if (!sheet) {
-      // Create submissions sheet if it doesn't exist
-      const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-      const newSheet = ss.insertSheet('FormSubmissions');
-      newSheet.getRange(1, 1, 1, 8).setValues([
-        ['Timestamp', 'Name', 'Email', 'Message', 'User Agent', 'Referrer', 'IP Address', 'Status']
+      // Create new sheet for this form ID
+      sheet = ss.insertSheet(sheetName);
+      sheet.getRange(1, 1, 1, 9).setValues([
+        ['Timestamp', 'Name', 'Email', 'Message', 'User Agent', 'Referrer', 'IP Address', 'Status', 'Form ID']
       ]);
-      return saveToSheet(data); // Retry with new sheet
+      
+      // Format header row
+      const headerRange = sheet.getRange(1, 1, 1, 9);
+      headerRange.setFontWeight('bold');
+      headerRange.setBackground('#f0f0f0');
+      
+      // Auto-resize columns
+      sheet.autoResizeColumns(1, 9);
+      
+      console.log(`Created new sheet: ${sheetName} for form ID: ${formId}`);
     }
     
     // Add new row
@@ -180,7 +196,8 @@ function saveToSheet(data) {
       data.userAgent || '',
       data.referrer || '',
       'N/A', // IP address (not available in Apps Script)
-      'New'
+      'New',
+      formId
     ]);
     
     // Update rate limiting
@@ -192,6 +209,29 @@ function saveToSheet(data) {
     console.error('Error saving to sheet:', error);
     return false;
   }
+}
+
+// Sanitize sheet name (Google Sheets has restrictions on sheet names)
+function sanitizeSheetName(formId) {
+  // Remove or replace invalid characters
+  let sanitized = formId
+    .replace(/[\[\]\\\/\?\*]/g, '_') // Replace invalid characters with underscore
+    .replace(/[^\w\s-]/g, '_') // Replace other special characters
+    .replace(/\s+/g, '_') // Replace spaces with underscores
+    .replace(/_+/g, '_') // Replace multiple underscores with single
+    .trim();
+  
+  // Limit length (Google Sheets sheet names max 31 characters)
+  if (sanitized.length > 31) {
+    sanitized = sanitized.substring(0, 31);
+  }
+  
+  // Ensure it starts with a letter or underscore
+  if (!/^[a-zA-Z_]/.test(sanitized)) {
+    sanitized = 'Form_' + sanitized;
+  }
+  
+  return sanitized || 'Contact_Form';
 }
 
 // Update rate limiting
@@ -209,10 +249,12 @@ function updateRateLimit(email) {
 // Send notification email (optional)
 function sendNotificationEmail(data) {
   try {
-    const subject = 'New Contact Form Submission - CRC Website';
+    const formId = data.formId || 'contact-form';
+    const subject = `New Contact Form Submission - ${formId} - CRC Website`;
     const body = `
       New contact form submission received:
       
+      Form ID: ${formId}
       Name: ${data.name}
       Email: ${data.email}
       Message: ${data.message}

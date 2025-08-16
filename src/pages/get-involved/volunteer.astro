@@ -1,6 +1,7 @@
 ---
 import type { GetInvolvedEntry } from "@/types";
 import HeroLayout from "@components/common/HeroLayout.astro";
+import ContactForm from "@components/common/ContactForm.astro";
 import { getEntry } from "astro:content";
 import volunteerHero from "@assets/hero/volunteer.jpg";
 
@@ -12,4 +13,22 @@ const entry = (await getEntry("getInvolved", "volunteer")) as GetInvolvedEntry;
   heroImage={volunteerHero}
   contentClass="content-beige"
   heroTextClass="content-lightgreen"
-/> 
+/>
+
+<div class="container mx-auto px-4 py-16">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12">
+      
+      <!-- Volunteer Form -->
+      <div>
+        <ContactForm 
+          title="Volunteer Interest Form"
+          subtitle="Tell us about your volunteer interests and we'll get back to you with opportunities!"
+          submitButtonText="Submit Volunteer Interest"
+          successMessage="Thank you for your interest in volunteering! We'll be in touch soon with opportunities."
+          formId="volunteer-form"
+        />
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,6 +1,7 @@
 ---
 import type { AboutEntry } from "@/types";
 import HeroLayout from "@components/common/HeroLayout.astro";
+import ContactForm from "@components/common/ContactForm.astro";
 import { getEntry } from "astro:content";
 import contactUsHero from "@assets/hero/contact_us_hero.jpg";
 
@@ -12,4 +13,43 @@ const entry = (await getEntry("about", "contact-us")) as AboutEntry;
   heroImage={contactUsHero}
   contentClass="content-beige"
   heroTextClass="content-lightgreen"
-/> 
+/>
+
+<div class="container mx-auto px-4 py-16">
+  <div class="max-w-4xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+        <p class="text-gray-600 mb-8">
+          We'd love to hear from you! Whether you have questions about our upcoming race, 
+          want to get involved with our community, or just want to say hello, we're here to help.
+        </p>
+        
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-semibold text-gray-900">Email</h3>
+            <p class="text-gray-600">info@confluencerunningcollective.com</p>
+          </div>
+          
+          <div>
+            <h3 class="font-semibold text-gray-900">Social Media</h3>
+            <p class="text-gray-600">
+              <a href="https://www.instagram.com/confluencerunningcollective" class="text-green-600 hover:text-green-700">
+                @confluencerunningcollective
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div>
+        <ContactForm 
+          title="Send us a Message"
+          subtitle="Fill out the form below and we'll get back to you as soon as possible."
+        />
+      </div>
+    </div>
+  </div>
+</div> 

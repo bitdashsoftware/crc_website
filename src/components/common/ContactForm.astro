@@ -14,7 +14,7 @@ const {
   subtitle = "We'd love to hear from you!",
   submitButtonText = "Send Message",
   successMessage = "Thank you for your message! We'll get back to you soon.",
-  errorMessage = "Sorry, there was an error submitting your form. Please try again or email us directly.",
+  errorMessage = "Sorry, there was an error submitting your form. Please try again later.",
   formId = "contact-form",
   className = ""
 } = Astro.props;
@@ -39,7 +39,7 @@ const {
       
       <!-- Name field -->
       <div>
-        <label for={`${formId}-name`} class="block text-base font-semibold text-txt-p mb-2" style="color: var(--color-txt-p) !important; opacity: 1 !important; visibility: visible !important; display: block !important;">
+        <label for={`${formId}-name`} class="block font-semibold text-base mb-2 text-txt-p">
           Full Name *
         </label>
         <input 
@@ -54,7 +54,7 @@ const {
       
       <!-- Email field -->
       <div>
-        <label for={`${formId}-email`} class="block text-base font-semibold text-txt-p mb-2" style="color: var(--color-txt-p) !important; opacity: 1 !important; visibility: visible !important; display: block !important;">
+        <label for={`${formId}-email`} class="block text-base font-semibold text-txt-p mb-2">
           Email Address *
         </label>
         <input 
@@ -69,7 +69,7 @@ const {
       
       <!-- Message field -->
       <div>
-        <label for={`${formId}-message`} class="block text-base font-semibold text-txt-p mb-2" style="color: var(--color-txt-p) !important; opacity: 1 !important; visibility: visible !important; display: block !important;">
+        <label for={`${formId}-message`} class="block text-base font-semibold text-txt-p mb-2">
           Message *
         </label>
         <textarea 
@@ -125,7 +125,13 @@ const {
     const errorDiv = document.getElementById(`${formId}-error`);
     
     function showMessage(type: string, message: string) {
-      if (statusDiv) statusDiv.classList.remove('hidden');
+      console.log('📢 Showing message:', type, message);
+      
+      if (statusDiv) {
+        statusDiv.classList.remove('hidden');
+        console.log('✅ Status div shown');
+      }
+      
       if (successDiv) successDiv.classList.add('hidden');
       if (errorDiv) errorDiv.classList.add('hidden');
       
@@ -133,17 +139,20 @@ const {
         if (successDiv) {
           successDiv.classList.remove('hidden');
           successDiv.textContent = message;
+          console.log('✅ Success message shown:', message);
         }
       } else {
         if (errorDiv) {
           errorDiv.classList.remove('hidden');
           errorDiv.textContent = message;
+          console.log('❌ Error message shown:', message);
         }
       }
       
       // Auto-hide after 5 seconds
       setTimeout(() => {
         if (statusDiv) statusDiv.classList.add('hidden');
+        console.log('⏰ Auto-hiding messages');
       }, 5000);
     }
     
@@ -154,10 +163,7 @@ const {
     
     // Rate limiting check
     function isRateLimited() {
-
       //Commented out for testing
-
-
       // const lastSubmission = localStorage.getItem(`${formId}-last-submission`);
       // if (lastSubmission) {
       //   const timeDiff = Date.now() - parseInt(lastSubmission);
@@ -296,8 +302,8 @@ const {
         
       } catch (error: any) {
         console.error('Form submission error:', error);
-        const errorMsg = form.dataset.errorMessage || 'An error occurred. Please try again.';
-        showMessage('error', error.message || errorMsg);
+        const errorMsg = 'Sorry, there was an error submitting your form. Please try again later.';
+        showMessage('error', errorMsg);
       } finally {
         // Reset button state
         submitButton.textContent = originalText;
@@ -327,244 +333,159 @@ const {
     font-family: 'Quicksand', sans-serif;
   }
   
-  /* Input and textarea styling with theme colors - HIGH SPECIFICITY */
+  /* Input and textarea styling - Use theme colors */
   .contact-form-container .contact-form-input,
   .contact-form-container .contact-form-textarea {
-    width: 100% !important;
-    padding: 12px 16px !important;
-    background-color: var(--color-bg-p) !important;
-    background-image: none !important;
-    border: 3px solid var(--color-border) !important;
-    border-radius: 8px !important;
-    font-size: 16px !important;
-    color: var(--color-txt-p) !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-  
-  .contact-form-container .contact-form-input::placeholder,
-  .contact-form-container .contact-form-textarea::placeholder {
-    color: var(--color-txt-s) !important;
-    opacity: 1 !important;
+    width: 100%;
+    padding: 12px 16px;
+    border: 3px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: var(--color-bg-s);
+    color: var(--color-glass-txt-p);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: border-color 0.3s ease;
   }
   
   .contact-form-container .contact-form-input:focus,
   .contact-form-container .contact-form-textarea:focus {
-    outline: none !important;
-    border-color: var(--color-border) !important;
-    box-shadow: 0 0 0 4px rgba(119, 162, 144, 0.3) !important;
-    transform: translateY(-1px) !important;
-    background-color: var(--color-bg-p) !important;
+    outline: none;
+    border-color: var(--color-txt-p);
   }
   
   .contact-form-container .contact-form-textarea {
-    resize: vertical !important;
-    min-height: 120px !important;
+    resize: vertical;
+    min-height: 120px;
   }
   
-  /* Button styling with theme colors */
+  /* Button styling - Use theme colors */
   .contact-form-container .contact-form-button {
-    width: 100% !important;
-    padding: 16px 24px !important;
-    background-color: var(--color-border) !important;
-    color: var(--color-bg-p) !important;
-    border: none !important;
-    border-radius: 8px !important;
-    font-size: 18px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 10 !important;
+    width: 100%;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--color-txt-p);
+    color: var(--color-bg-p);
+    transition: opacity 0.3s ease;
   }
   
   .contact-form-container .contact-form-button:hover {
-    background-color: var(--color-txt-p) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+    opacity: 0.8;
   }
   
   .contact-form-container .contact-form-button:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 4px rgba(119, 162, 144, 0.3) !important;
+    outline: none;
   }
   
   .contact-form-container .contact-form-button:disabled {
-    opacity: 0.6 !important;
-    cursor: not-allowed !important;
-    transform: none !important;
+    cursor: not-allowed;
+    opacity: 0.5;
   }
   
-  /* ULTRA HIGH SPECIFICITY - Override any global button styles */
-  .contact-form-container form .contact-form-button,
-  .contact-form-container button.contact-form-button,
-  .contact-form-container button[type="submit"] {
-    background-color: var(--color-border) !important;
-    color: var(--color-bg-p) !important;
-    border: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-  
-  /* Override any potential theme interference for buttons */
-  .light .contact-form-container form .contact-form-button,
-  .light .contact-form-container button.contact-form-button,
-  .theme-nature .contact-form-container form .contact-form-button,
-  .theme-nature .contact-form-container button.contact-form-button {
-    background-color: var(--color-border) !important;
-    color: var(--color-bg-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
-  /* Status message styling with theme colors */
+  /* Status message styling - Use theme colors */
   .contact-form-container .contact-form-success {
-    padding: 16px !important;
-    background-color: var(--color-bg-s) !important;
-    border: 2px solid var(--color-border) !important;
-    border-radius: 8px !important;
-    color: var(--color-txt-p) !important;
-    font-weight: 500 !important;
+    padding: 16px;
+    border: 3px solid;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 16px;
+    background-color: rgba(212, 237, 218, 0.9);
+    border-color: rgba(195, 230, 203, 0.9);
+    color: #155724;
   }
   
   .contact-form-container .contact-form-error {
-    padding: 16px !important;
-    background-color: rgba(239, 68, 68, 0.2) !important;
-    border: 2px solid #ef4444 !important;
-    border-radius: 8px !important;
-    color: #ef4444 !important;
-    font-weight: 500 !important;
+    padding: 16px;
+    border: 3px solid;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 16px;
+    background-color: rgba(248, 215, 218, 0.9);
+    border-color: rgba(245, 198, 203, 0.9);
+    color: #721c24;
   }
   
-  /* Hide honeypot field completely */
+  /* Hide honeypot field */
   .contact-form-container input[name="website"] {
-    display: none !important;
+    display: none;
   }
   
-  /* Ensure labels are visible with theme colors */
+  /* Labels - Use theme colors */
   .contact-form-container label {
-    color: var(--color-txt-p) !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--color-txt-p);
   }
   
-  /* Light theme overrides */
-  .light .contact-form-container label {
-    color: var(--color-light-txt-p) !important;
+  /* Ensure placeholder text uses theme colors for visibility */
+  .contact-form-container .contact-form-input::placeholder,
+  .contact-form-container .contact-form-textarea::placeholder {
+    color: var(--color-glass-txt-p);
+    opacity: 1;
   }
   
-  /* Nature theme overrides */
-  .theme-nature .contact-form-container label {
-    color: var(--color-nature-txt-p) !important;
+  /* Light theme overrides - Target html element */
+  html.light .contact-form-container .contact-form-input,
+  html.light .contact-form-container .contact-form-textarea {
+    border-color: var(--color-light-border);
+    background-color: var(--color-light-bg-s);
+    color: var(--color-light-glass-txt-p);
   }
   
-  /* ULTRA HIGH SPECIFICITY - Override any global label styles */
-  .contact-form-container form label,
-  .contact-form-container label[for] {
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
+  html.light .contact-form-container .contact-form-input:focus,
+  html.light .contact-form-container .contact-form-textarea:focus {
+    border-color: var(--color-light-txt-p);
   }
   
-  /* MAXIMUM SPECIFICITY - Target specific label IDs */
-  .contact-form-container label[for*="-name"],
-  .contact-form-container label[for*="-email"],
-  .contact-form-container label[for*="-message"] {
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
+  html.light .contact-form-container .contact-form-button {
+    background-color: var(--color-light-txt-p);
+    color: var(--color-light-bg-p);
   }
   
-  /* Force label visibility with all possible selectors */
-  .contact-form-container .block.text-base.font-semibold.text-txt-p.mb-2,
-  .contact-form-container div > label,
-  .contact-form-container form div label {
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
+  html.light .contact-form-container label {
+    color: var(--color-light-txt-p);
   }
   
-  /* ULTRA HIGH SPECIFICITY - Override any global styles */
-  .contact-form-container form .contact-form-input,
-  .contact-form-container form .contact-form-textarea {
-    background: var(--color-bg-p) !important;
-    background-color: var(--color-bg-p) !important;
-    background-image: none !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
-    border: 3px solid var(--color-border) !important;
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 10 !important;
+  html.light .contact-form-container .contact-form-input::placeholder,
+  html.light .contact-form-container .contact-form-textarea::placeholder {
+    color: var(--color-light-glass-txt-p);
   }
   
-  /* Override any potential theme interference with maximum specificity */
-  .light .contact-form-container form .contact-form-input,
-  .light .contact-form-container form .contact-form-textarea,
-  .theme-nature .contact-form-container form .contact-form-input,
-  .theme-nature .contact-form-container form .contact-form-textarea {
-    background: var(--color-bg-p) !important;
-    background-color: var(--color-bg-p) !important;
-    border: 3px solid var(--color-border) !important;
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative !important;
-    z-index: 10 !important;
+  /* Nature theme overrides - Target html element */
+  html.theme-nature .contact-form-container .contact-form-input,
+  html.theme-nature .contact-form-container .contact-form-textarea {
+    border-color: var(--color-nature-border);
+    background-color: var(--color-nature-bg-s);
+    color: var(--color-nature-glass-txt-p);
   }
   
-  /* Override any Tailwind form styles */
-  .contact-form-container input[type="text"],
-  .contact-form-container input[type="email"],
-  .contact-form-container textarea {
-    background-color: var(--color-bg-p) !important;
-    border: 3px solid var(--color-border) !important;
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+  html.theme-nature .contact-form-container .contact-form-input:focus,
+  html.theme-nature .contact-form-container .contact-form-textarea:focus {
+    border-color: var(--color-nature-txt-p);
   }
   
-  /* Force visibility with !important on all possible selectors */
-  .contact-form-container .contact-form-input,
-  .contact-form-container .contact-form-textarea,
-  .contact-form-container input.contact-form-input,
-  .contact-form-container textarea.contact-form-textarea {
-    background-color: var(--color-bg-p) !important;
-    border: 3px solid var(--color-border) !important;
-    color: var(--color-txt-p) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
+  html.theme-nature .contact-form-container .contact-form-button {
+    background-color: var(--color-nature-txt-p);
+    color: var(--color-nature-bg-p);
+  }
+  
+  html.theme-nature .contact-form-container label {
+    color: var(--color-nature-txt-p);
+  }
+  
+  html.theme-nature .contact-form-container .contact-form-input::placeholder,
+  html.theme-nature .contact-form-container .contact-form-textarea::placeholder {
+    color: var(--color-nature-glass-txt-p);
   }
 </style>

@@ -112,24 +112,18 @@ const {
 <script>
   // Form submission handler
   function initializeForm(formId: string) {
-    console.log('🔧 Initializing form with ID:', formId);
     const form = document.getElementById(formId) as HTMLFormElement;
     if (!form) {
-      console.error('❌ Form not found with ID:', formId);
       return;
     }
-    console.log('✅ Form found:', form);
     
     const statusDiv = document.getElementById(`${formId}-status`);
     const successDiv = document.getElementById(`${formId}-success`);
     const errorDiv = document.getElementById(`${formId}-error`);
     
     function showMessage(type: string, message: string) {
-      console.log('📢 Showing message:', type, message);
-      
       if (statusDiv) {
         statusDiv.classList.remove('hidden');
-        console.log('✅ Status div shown');
       }
       
       if (successDiv) successDiv.classList.add('hidden');
@@ -139,20 +133,17 @@ const {
         if (successDiv) {
           successDiv.classList.remove('hidden');
           successDiv.textContent = message;
-          console.log('✅ Success message shown:', message);
         }
       } else {
         if (errorDiv) {
           errorDiv.classList.remove('hidden');
           errorDiv.textContent = message;
-          console.log('❌ Error message shown:', message);
         }
       }
       
       // Auto-hide after 5 seconds
       setTimeout(() => {
         if (statusDiv) statusDiv.classList.add('hidden');
-        console.log('⏰ Auto-hiding messages');
       }, 5000);
     }
     
@@ -219,7 +210,6 @@ const {
     }
     
     form.addEventListener('submit', async (e) => {
-      console.log('📝 Form submit event triggered!');
       e.preventDefault();
       
       const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -241,7 +231,6 @@ const {
         
         // Check honeypot field
         if (formData.get('website')) {
-          console.log('Bot detected via honeypot');
           throw new Error('Invalid submission detected');
         }
         
@@ -275,19 +264,12 @@ const {
         // Submit to Google Apps Script
         const scriptUrl = 'https://script.google.com/macros/s/AKfycbxjxKuCpTzhs2WwuaV8SpFWaZXIgQXxvrKdytsdJit3JOHRVq2qI8JB-14iJn66Z5Gc/exec';
         
-        console.log('📤 Submitting form data:', data);
-        console.log('🌐 Script URL:', scriptUrl);
-        
         const response = await fetch(scriptUrl, {
           method: 'POST',
           body: JSON.stringify(data),
         });
         
-        console.log('📡 Response status:', response.status);
-        console.log('📡 Response headers:', response.headers);
-        
         const result = await response.json();
-        console.log('📥 Response result:', result);
         
         if (result.success) {
           const successMsg = form.dataset.successMessage || 'Message sent successfully!';
@@ -301,7 +283,6 @@ const {
         }
         
       } catch (error: any) {
-        console.error('Form submission error:', error);
         const errorMsg = 'Sorry, there was an error submitting your form. Please try again later.';
         showMessage('error', errorMsg);
       } finally {
@@ -318,12 +299,9 @@ const {
     const form = document.querySelector('form[data-form-id]');
     if (form) {
       const formId = form.getAttribute('data-form-id');
-      console.log('🚀 DOM loaded, initializing form with ID:', formId);
       if (formId) {
         initializeForm(formId);
       }
-    } else {
-      console.error('❌ No contact form found with data-form-id attribute');
     }
   });
 </script>

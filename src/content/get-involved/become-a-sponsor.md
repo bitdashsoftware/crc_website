@@ -4,147 +4,61 @@ image: "@assets/logo/sage-green-logo.png"
 imageAlt: "Sage Green Logo"
 ---
 
-# Become a Sponsor
+# Confluence Running Collective / Women's Trail Collective at Lacamas Lake Sponsorship
 
-Partner with Confluence Running Collective and join us in empowering women through trail running! Our inaugural women's trail race in June 2026 offers unique opportunities for brands and organizations to connect with a passionate, engaged community of female athletes and outdoor enthusiasts.
+Confluence Running Collective seeks to redefine running and endurance events by centering women, trans women, and non-binary folks who feel comfortable in women-centered spaces—creating inclusive, welcoming environments that celebrate connection over competition—embracing all backgrounds, body types, abilities, and experience levels.
 
-## Why Sponsor Our Race?
+We prioritize genuine connection, support, and camaraderie and recognize that every runner's path is different. By celebrating the unique effort, growth and experience that each journey brings- not just the finish line, we seek to reach many women who may not have felt comfortable in the running event space previously. We strive to reduce physical, financial and emotional barriers to participation, making our events welcoming for all.
 
-### Align with Your Values
-- Support women's empowerment and gender equality in sports
-- Promote environmental stewardship and trail conservation
-- Connect with health-conscious, active consumers
-- Demonstrate commitment to community building and inclusivity
+It is our intention to partner with women-owned businesses and vendors to amplify women's talents and foster strength within both the running and event industries.
 
-### Reach Your Target Audience
-- **Demographics:** Women aged 18-65, primarily 25-45
-- **Interests:** Trail running, outdoor recreation, health and wellness, environmental conservation
-- **Values:** Community, empowerment, sustainability, adventure
-- **Engagement:** High social media activity, brand loyalty, word-of-mouth marketing
+Next year's inaugural event will take place on June 28th, 2026 at Lacamas Lake Park in Camas, Washington. We will offer a 5k and a 10k where runners, walkers, and hikers are all invited to participate.
 
-### Measurable Impact
-- Direct exposure to 500+ race participants
-- Social media reach to 10,000+ followers
-- Local and regional media coverage
-- Community recognition and goodwill
+We are looking for companies to partner with and if you are interested in becoming a sponsor for the Women's Trail Collective- at Lacamas Lake, please fill out the form below. If you have questions, please do not hesitate to reach out to: info@confluencerunningcollective.com
 
 ## Sponsorship Levels
 
-### Trail Blazer Sponsor - $5,000
-**Premier sponsorship with maximum visibility**
-- Logo prominently displayed on race t-shirts
-- Banner placement at start/finish line
-- Recognition in all race communications
-- Social media features and shoutouts
-- VIP tent space at race venue
-- 10 complimentary race entries
-- Speaking opportunity at pre-race dinner
+### Premier Sponsor
+**Contribution amount:** $5000  
+**Benefits Included:** Exclusive sponsor within a product or service category (i.e., one running store), logo on all race branding, listed as premier sponsor on website and biggest centered logo on shirt, 6 entries to race, 6 race shirts, placement of promotional material in packets, free expo space/finish line space, recognition during announcements at race, individual social media shoutout  
+**Number available:** 1
 
-### Summit Sponsor - $2,500
-**High-visibility sponsorship package**
-- Logo on race t-shirts
-- Banner placement at key locations
-- Recognition in race communications
-- Social media recognition
-- Vendor booth space
-- 5 complimentary race entries
+### Platinum Supporter
+**Contribution amount:** $650  
+**Benefits Included:** Listed as platinum sponsor on website and shirt, 4 entries to race, free expo space/finish line space, individual social media shoutout  
+**Number available:** Unlimited
 
-### Ridge Runner Sponsor - $1,000
-**Mid-level sponsorship opportunity**
-- Logo on race materials
-- Banner placement at aid stations
-- Recognition in race communications
-- Social media mention
-- 2 complimentary race entries
+### Gold Supporter
+**Contribution amount:** $450  
+**Benefits Included:** Listed as gold on website and shirt, 2 entries to race, free expo space/finish line space, social media shout out  
+**Number available:** Unlimited
 
-### Trail Friend Sponsor - $500
-**Entry-level sponsorship for local businesses**
-- Logo on race website
-- Recognition in race communications
-- Social media mention
-- 1 complimentary race entry
+### Silver Supporter
+**Contribution amount:** $250  
+**Benefits Included:** Listed as silver on website and shirt, free expo space/finish line space  
+**Number available:** Unlimited
 
-## Custom Sponsorship Opportunities
+### Mile Marker Supporter
+**Contribution amount:** $150  
+**Benefits Included:** Company branding on mile marker sign. Listed as supporter on website  
+**Number available:** 6
 
-### Product Sponsorship
-- Provide race gear, nutrition, or equipment
-- Receive product placement and recognition
-- Opportunity for product sampling and demos
+### Aid Station Supporter
+**Contribution amount:** In Kind  
+**Benefits Included:** Supporter's Branding on Women's Trail Collective- at Lacamas Lake, produced AS Signage, Supporter able to supplement with whatever branding they'd like- free reign to do whatever. We will provide basic aid station needs (water, elec but supporter is encouraged to bring their own food, we ask that this support level bring at least (2) of their own staff.  
+**Number available:** up to 6?
 
-### In-Kind Sponsorship
-- Services, equipment, or venue support
-- Recognition based on value of contribution
-- Flexible partnership terms
+### Merchandise Supporter
+**Contribution amount:** In Kind  
+**Benefits Included:** On Website, Social Media Shout Out  
+**Number available:** 3
 
-### Media Partnership
-- Content creation and storytelling
-- Social media takeovers
-- Video and photography opportunities
+### Hydration Supporter
+**Contribution amount:** In Kind  
+**Benefits Included:** On Website, Social Media Shout Out  
+**Number available:** 1
 
-## What We Offer Sponsors
-
-### Brand Exposure
-- Logo placement on race materials, website, and social media
-- Banner and signage at race venue
-- Recognition in press releases and media coverage
-- Featured content on our blog and social channels
-
-### Community Engagement
-- Direct interaction with participants and spectators
-- Product sampling and demonstration opportunities
-- Feedback and market research opportunities
-- Long-term relationship building
-
-### Marketing Support
-- Professional photography and video content
-- Social media content featuring your brand
-- Email marketing to our participant database
-- Press release distribution
-
-## Our Commitment to Sponsors
-
-### Transparent Communication
-- Regular updates on race progress and participant numbers
-- Detailed reporting on sponsor benefits and exposure
-- Open communication about any changes or opportunities
-
-### Professional Execution
-- Experienced event management team
-- High-quality materials and professional presentation
-- Attention to detail in all sponsor deliverables
-
-### Long-term Partnership
-- Opportunity for ongoing sponsorship of future events
-- Community partnership beyond race day
-- Collaborative marketing and outreach initiatives
-
-## How to Get Started
-
-### Step 1: Contact Us
-Reach out to discuss sponsorship opportunities:
-**Email:** sponsors@confluencerunningcollective.com
-
-### Step 2: Review Options
-We'll provide detailed information about available sponsorship levels and custom opportunities that align with your goals.
-
-### Step 3: Customize Your Package
-Work with us to create a sponsorship package that meets your specific needs and budget.
-
-### Step 4: Sign Agreement
-Once we've finalized the details, we'll provide a sponsorship agreement outlining all benefits and deliverables.
-
-### Step 5: Launch Partnership
-We'll begin implementing your sponsorship benefits and start promoting our partnership.
-
-## Current Sponsors
-
-*We're proud to partner with organizations that share our values and commitment to women's running. Check back soon to see our growing list of sponsors!*
-
-## Ready to Partner With Us?
-
-Join us in creating an amazing experience for women trail runners while promoting your brand to an engaged, passionate community. Contact us today to discuss sponsorship opportunities!
-
-**Email:** sponsors@confluencerunningcollective.com
-**Phone:** (555) 123-4567
-
-We can't wait to work with you to make our inaugural women's trail race a success! 
+### Nutrition Supporter
+**Contribution amount:** In Kind  
+**Benefits Included:** On Website, Social Media Shout Out  
+**Number available:** 1 

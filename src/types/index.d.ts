@@ -8,6 +8,7 @@ export type AboutEntry = CollectionEntry<"about">;
 export type BlogEntry = CollectionEntry<"blog">;
 export type CommunityEntry = CollectionEntry<"community">;
 export type DocsEntry = CollectionEntry<"docs">;
+export type EventsEntry = CollectionEntry<"events">;
 export type GetInvolvedEntry = CollectionEntry<"getInvolved">;
 export type HomeEntry = CollectionEntry<"home">;
 export type IndexCardsEntry = CollectionEntry<"indexCards">;
@@ -21,6 +22,7 @@ export type ContentEntry =
   | BlogEntry
   | CommunityEntry
   | DocsEntry
+  | EventsEntry
   | GetInvolvedEntry
   | HomeEntry
   | IndexCardsEntry

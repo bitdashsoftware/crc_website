@@ -142,12 +142,22 @@ const getInvolved = defineCollection({
     }),
 });
 
+const events = defineCollection({
+  loader: glob({ pattern: "**\/[^_]*.{md,mdx}", base: "./src/content" }),
+  schema: ({ image }) =>
+    searchable.extend({
+      image: image().optional(),
+      imageAlt: z.string().default(""),
+    }),
+});
+
 // Export collections
 export const collections = {
   about,
   blog,
   community,
   docs,
+  events,
   getInvolved,
   home,
   indexCards,

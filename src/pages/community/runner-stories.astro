@@ -38,6 +38,8 @@ function getImageFitClass(runnerName: string): string {
       return "object-contain"; // Better for portrait photos that might be cropped
     case "Dawn":
       return "object-contain"; // Center the image better
+    case "Joy":
+      return "object-contain"; // Center the image better
     default:
       return "object-cover"; // Default for most images
   }
@@ -271,6 +273,7 @@ function getImageFitClass(runnerName: string): string {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
     }
    
                                .lightbox-info h3 {
@@ -383,6 +386,13 @@ function getImageFitClass(runnerName: string): string {
            lightboxImage.alt = `${runner.title} - Runner Story`;
            lightboxImage.classList.remove('hidden');
            lightboxInitials.classList.add('hidden');
+           
+           // Apply custom positioning for specific runners
+           if (runner.title === 'Dawn' || runner.title === 'Isamar') {
+             lightboxImage.style.objectPosition = 'center top';
+           } else {
+             lightboxImage.style.objectPosition = 'center center';
+           }
          } else {
            lightboxImage.classList.add('hidden');
            lightboxInitials.classList.remove('hidden');

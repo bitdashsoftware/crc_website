@@ -4,12 +4,44 @@ import HeroLayoutWithHTML from "@components/common/HeroLayoutWithHTML.astro";
 import { getEntry, getCollection } from "astro:content";
 import runningGroupHero from "@assets/hero/running-group-we-support-hero.jpg";
 
+// Import runner images (only supported formats)
+import angelaImage from "@assets/runner-stories/Angela.jpg";
+import anjelicaImage from "@assets/runner-stories/Anjelica.jpg";
+import annaImage from "@assets/runner-stories/Anna.jpeg";
+import arisbethImage from "@assets/runner-stories/Arisbeth.jpeg";
+import dawnImage from "@assets/runner-stories/Dawn.jpg";
+import isamarImage from "@assets/runner-stories/Isamar.jpeg";
+import joyImage from "@assets/runner-stories/Joy.jpeg";
+
 const entry = (await getEntry("community", "runner-stories")) as CommunityEntry;
 
 // Get all runner story entries
 const runnerStories = await getCollection("community", ({ data }) => {
   return data.pronouns; // Only get entries that have pronouns field
 });
+
+// Create a mapping of runner names to their images
+const runnerImages = {
+  "Angela": angelaImage,
+  "Anjelica": anjelicaImage,
+  "Anna": annaImage,
+  "Arisbeth": arisbethImage,
+  "Dawn": dawnImage,
+  "Isamar": isamarImage,
+  "Joy": joyImage,
+};
+
+// Function to determine the best image fit class for each runner
+function getImageFitClass(runnerName: string): string {
+  switch (runnerName) {
+    case "Isamar":
+      return "object-contain"; // Better for portrait photos that might be cropped
+    case "Dawn":
+      return "object-contain"; // Center the image better
+    default:
+      return "object-cover"; // Default for most images
+  }
+}
 ---
 
 <HeroLayoutWithHTML 
@@ -37,6 +69,7 @@ const runnerStories = await getCollection("community", ({ data }) => {
         runnerStories.map((runner, index) => {
           const initials = runner.data.title.split(' ').map((n: string) => n[0]).join('');
           const cardId = `card-${index}`;
+          const runnerImage = runnerImages[runner.data.title as keyof typeof runnerImages];
           return (
             <div 
               id={cardId}
@@ -44,14 +77,22 @@ const runnerStories = await getCollection("community", ({ data }) => {
               data-card-id={cardId}
             >
                              <!-- Runner Photo -->
-               <div class="relative h-64 bg-gradient-to-br from-lightgreen-txt-p to-lightgreen-txt-s transition-all duration-700">
-                 <div class="absolute inset-0 flex items-center justify-center">
-                   <div class="w-32 h-32 bg-[rgb(246,242,232)] rounded-full flex items-center justify-center shadow-lg transition-all duration-700">
-                     <span class="text-4xl font-bold text-lightgreen-txt-p transition-all duration-700">
-                       {initials}
-                     </span>
+               <div class="relative h-64 bg-gradient-to-br from-lightgreen-txt-p to-lightgreen-txt-s transition-all duration-700 overflow-hidden flex items-center justify-center">
+                 {runnerImage ? (
+                   <img 
+                     src={runnerImage.src} 
+                     alt={`${runner.data.title} - Runner Story`}
+                     class={`max-w-full max-h-full transition-all duration-700 ${getImageFitClass(runner.data.title)}`}
+                   />
+                 ) : (
+                   <div class="absolute inset-0 flex items-center justify-center">
+                     <div class="w-32 h-32 bg-[rgb(246,242,232)] rounded-full flex items-center justify-center shadow-lg transition-all duration-700">
+                       <span class="text-4xl font-bold text-lightgreen-txt-p transition-all duration-700">
+                         {initials}
+                       </span>
+                     </div>
                    </div>
-                 </div>
+                 )}
                </div>
                
                <!-- Runner Info -->
@@ -79,7 +120,8 @@ const runnerStories = await getCollection("community", ({ data }) => {
 <script id="runner-data" type="application/json" set:html={JSON.stringify(runnerStories.map(runner => ({
   title: runner.data.title,
   pronouns: runner.data.pronouns,
-  story: runner.body  // ← This is the markdown content from the .md file body
+  story: runner.body,  // ← This is the markdown content from the .md file body
+  image: runnerImages[runner.data.title as keyof typeof runnerImages]?.src || null
 })))}></script>
 
 <!-- Lightbox Overlay - Positioned outside HeroLayoutWithHTML to overlay entire page -->
@@ -88,7 +130,8 @@ const runnerStories = await getCollection("community", ({ data }) => {
    <button class="lightbox-close">&times;</button>
    <div class="lightbox-header">
      <div class="lightbox-avatar">
-       <span id="lightbox-initials"></span>
+       <img id="lightbox-image" class="w-full h-full object-cover rounded-full" alt="" />
+       <span id="lightbox-initials" class="hidden"></span>
      </div>
      <div class="lightbox-info">
        <h3 id="lightbox-name"></h3>
@@ -107,6 +150,18 @@ const runnerStories = await getCollection("community", ({ data }) => {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  
+  /* Image fitting styles */
+  .runner-card img.object-contain {
+    background: linear-gradient(135deg, var(--color-lightgreen-txt-p), var(--color-lightgreen-txt-s));
+    object-position: center;
+  }
+  
+  .runner-card img.object-cover {
+    object-position: center;
+    width: 100%;
+    height: 100%;
   }
   
      .runner-card {
@@ -203,12 +258,19 @@ const runnerStories = await getCollection("community", ({ data }) => {
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
     }
     
     .lightbox-avatar span {
       font-size: 2rem;
       font-weight: bold;
       color: var(--color-light-bg-s);
+    }
+    
+    .lightbox-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
    
                                .lightbox-info h3 {
@@ -313,7 +375,20 @@ const runnerStories = await getCollection("community", ({ data }) => {
          const initials = runner.title.split(' ').map(n => n[0]).join('');
          
          // Populate lightbox content
-         document.getElementById('lightbox-initials').textContent = initials;
+         const lightboxImage = document.getElementById('lightbox-image');
+         const lightboxInitials = document.getElementById('lightbox-initials');
+         
+         if (runner.image) {
+           lightboxImage.src = runner.image;
+           lightboxImage.alt = `${runner.title} - Runner Story`;
+           lightboxImage.classList.remove('hidden');
+           lightboxInitials.classList.add('hidden');
+         } else {
+           lightboxImage.classList.add('hidden');
+           lightboxInitials.classList.remove('hidden');
+           lightboxInitials.textContent = initials;
+         }
+         
          document.getElementById('lightbox-name').textContent = runner.title;
          document.getElementById('lightbox-pronouns').textContent = runner.pronouns;
          

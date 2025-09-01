@@ -2,7 +2,8 @@
 import type { EventsEntry } from "@/types";
 import HeroLayoutWithHTML from "@components/common/HeroLayoutWithHTML.astro";
 import { getEntry, render } from "astro:content";
-import eventsHero from "@assets/logo/dark-green-logo.png";
+import eventsHero from "@assets/front_page.jpeg";
+import confluenceLogo from "@assets/logo/sage-green-logo.png";
 
 const entry = (await getEntry("events", "events")) as EventsEntry;
 const { Content } = await render(entry);
@@ -25,9 +26,11 @@ const upcomingEvents = events.filter(event => event.category === "upcoming");
 ---
 
 <HeroLayoutWithHTML 
-  title={entry.data.title}
+  title=""
   description={entry.data.description}
   heroImage={eventsHero}
+  logo={confluenceLogo}
+  logoAlt="Confluence Running Collective Logo"
   heroImageAlt="Events Hero"
   contentClass="content-beige"
   heroTextClass="text-white"

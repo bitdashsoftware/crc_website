@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@components/base/BaseLayout.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   title: string;
@@ -7,6 +8,8 @@ interface Props {
   image?: any; // Astro image import
   heroImage?: any; // Astro image import
   heroImageAlt?: string;
+  logo?: any; // Astro image import for logo
+  logoAlt?: string;
   contentClass?: string;
   heroTextClass?: string;
   heroOverlayOpacity?: number;
@@ -18,7 +21,9 @@ const {
   description,
   image,
   heroImage, 
-  heroImageAlt = "Hero background", 
+  heroImageAlt = "Hero background",
+  logo,
+  logoAlt = "Logo",
   contentClass = "content-lightgreen",
   heroTextClass = "text-white",
   heroOverlayOpacity = 60,
@@ -45,6 +50,20 @@ const {
     <div class="relative z-10 container">
       <div class="row justify-center">
         <div class="text-center lg:col-8">
+          {
+            logo && (
+              <div class="mb-6">
+                <Image
+                  class="mx-auto w-64"
+                  src={logo}
+                  alt={logoAlt}
+                  width={1024}
+                  height={1024}
+                  loading="eager"
+                />
+              </div>
+            )
+          }
           <div class={heroTextClass}>
             <h1 class="mb-4 text-4xl md:text-6xl font-bold drop-shadow-lg">
               {title}
